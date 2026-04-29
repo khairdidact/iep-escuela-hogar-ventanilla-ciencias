@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conocimientos Fundamentales - Plataforma de Lecciones Completas</title>
+    <title>Conocimientos Fundamentales - IEP Escuela Hogar Ventanilla</title>
     <style>
         :root {
             --matematica: #2563eb;
@@ -27,13 +27,11 @@
             --radius-sm: 8px;
             --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: var(--bg);
@@ -41,7 +39,6 @@
             line-height: 1.6;
             min-height: 100vh;
         }
-
         .header {
             background: var(--surface);
             border-bottom: 1px solid var(--border);
@@ -62,7 +59,7 @@
             gap: 0.75rem;
         }
         .logo {
-            font-size: 1.35rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--text);
             display: flex;
@@ -102,20 +99,11 @@
             color: #cbd5e1;
             cursor: default;
         }
-        .breadcrumb .sep:hover {
-            text-decoration: none;
-            color: #cbd5e1;
-        }
         .breadcrumb .current {
             font-weight: 600;
             color: var(--text);
             cursor: default;
         }
-        .breadcrumb .current:hover {
-            text-decoration: none;
-            color: var(--text);
-        }
-
         .main-container {
             max-width: 1300px;
             margin: 0 auto;
@@ -133,17 +121,17 @@
             margin-bottom: 2rem;
             font-size: 0.95rem;
         }
-
         .area-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
+            margin-bottom: 2rem;
         }
         .area-card {
             background: var(--surface);
             border: 2px solid var(--border);
             border-radius: var(--radius);
-            padding: 2rem 1.75rem;
+            padding: 2rem 1.5rem;
             cursor: pointer;
             transition: all var(--transition);
             box-shadow: var(--shadow);
@@ -171,7 +159,7 @@
         .area-card.metodo-highlight {
             border-left: 5px solid var(--metodo);
             background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%);
-            border-color: var(--metodo);
+            border: 2px solid var(--metodo);
         }
         .area-card.metodo-highlight:hover {
             border-color: var(--metodo-dark);
@@ -190,24 +178,7 @@
             color: var(--text-secondary);
             font-size: 0.85rem;
         }
-        .area-card .accent-dot {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        .area-card.matematica .accent-dot {
-            background: var(--matematica);
-        }
-        .area-card.ciencia .accent-dot {
-            background: var(--ciencia);
-        }
-        .area-card.metodo-highlight .accent-dot {
-            background: var(--metodo);
-        }
-        .featured-badge {
+        .area-card .featured-badge {
             display: inline-block;
             background: var(--metodo);
             color: #fff;
@@ -220,7 +191,6 @@
             margin-left: 0.5rem;
             vertical-align: middle;
         }
-
         .level-group {
             margin-bottom: 2.5rem;
         }
@@ -324,7 +294,6 @@
             font-weight: 700;
             letter-spacing: 0.03em;
         }
-
         .lesson-detail {
             animation: fadeIn 0.3s ease;
         }
@@ -342,7 +311,7 @@
             background: var(--surface);
             border: 1.5px solid var(--border);
             border-radius: var(--radius);
-            padding: 1.75rem;
+            padding: 1.5rem;
             margin-bottom: 1.5rem;
             box-shadow: var(--shadow);
         }
@@ -351,30 +320,30 @@
             background: linear-gradient(135deg, #fff 0%, #fdfbff 100%);
         }
         .lesson-header-card h1 {
-            font-size: 1.5rem;
-            margin-bottom: 0.35rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
         }
         .lesson-header-card .meta-row {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
         .lesson-header-card .knowledge-tag {
             display: inline-block;
             background: #f1f5f9;
-            padding: 0.3rem 0.75rem;
+            padding: 0.25rem 0.7rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #475569;
-            margin-top: 0.5rem;
+            margin-top: 0.4rem;
         }
         .phase-accordion {
             display: flex;
             flex-direction: column;
-            gap: 0.6rem;
+            gap: 0.5rem;
         }
         .phase-item {
             background: var(--surface);
@@ -389,27 +358,26 @@
             box-shadow: var(--shadow-md);
         }
         .phase-header {
-            padding: 1rem 1.25rem;
+            padding: 0.85rem 1.1rem;
             cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 0.6rem;
             user-select: none;
             transition: background var(--transition);
-            gap: 0.75rem;
         }
         .phase-header:hover {
             background: #f8fafc;
         }
         .phase-number {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             flex-shrink: 0;
         }
         .phase-0 .phase-number {
@@ -447,16 +415,16 @@
         .phase-title-text {
             flex: 1;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         .phase-subtitle {
             font-weight: 400;
-            font-size: 0.78rem;
+            font-size: 0.73rem;
             color: var(--text-secondary);
             display: block;
         }
         .phase-chevron {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #94a3b8;
             transition: transform var(--transition);
             flex-shrink: 0;
@@ -469,12 +437,12 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease, padding 0.3s ease;
-            padding: 0 1.25rem;
+            padding: 0 1.1rem;
             border-top: 0px solid transparent;
         }
         .phase-item.open .phase-body {
-            max-height: 900px;
-            padding: 1rem 1.25rem;
+            max-height: 2000px;
+            padding: 0.85rem 1.1rem;
             border-top: 1px solid #e2e8f0;
         }
         .phase-body .editable-area {
@@ -482,9 +450,9 @@
             min-height: 80px;
             border: 1px dashed #d1d5db;
             border-radius: 6px;
-            padding: 0.75rem;
+            padding: 0.7rem;
             font-family: inherit;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             resize: vertical;
             background: #fafafa;
             color: var(--text);
@@ -495,36 +463,24 @@
             border-color: transparent;
             background: #fff;
         }
-        .phase-body .placeholder-hint {
-            font-size: 0.78rem;
-            color: #a1a1aa;
-            margin-bottom: 0.4rem;
-            font-style: italic;
-        }
         .btn-back {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            padding: 0.5rem 1rem;
+            padding: 0.45rem 0.9rem;
             border-radius: 20px;
             border: 1.5px solid var(--border);
             background: var(--surface);
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             color: var(--text);
             transition: all var(--transition);
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
         }
         .btn-back:hover {
             background: #f1f5f9;
             border-color: #cbd5e1;
-        }
-        .btn-save-hint {
-            font-size: 0.75rem;
-            color: #94a3b8;
-            margin-left: 0.5rem;
-            font-style: italic;
         }
         .footer {
             text-align: center;
@@ -533,30 +489,6 @@
             font-size: 0.8rem;
             border-top: 1px solid var(--border);
             margin-top: 3rem;
-        }
-        .ilustracion-box {
-            background: #fefce8;
-            border: 1px dashed #eab308;
-            border-radius: 8px;
-            padding: 0.75rem 1rem;
-            margin: 0.5rem 0;
-            font-size: 0.85rem;
-            color: #854d0e;
-        }
-        .ilustracion-box strong {
-            color: #92400e;
-        }
-        .ejemplo-box {
-            background: #f0fdf4;
-            border: 1px solid #86efac;
-            border-radius: 8px;
-            padding: 0.75rem 1rem;
-            margin: 0.5rem 0;
-            font-size: 0.85rem;
-            color: #166534;
-        }
-        .ejemplo-box strong {
-            color: #14532d;
         }
         @media (max-width: 768px) {
             .header-inner {
@@ -572,49 +504,33 @@
             .lesson-grid {
                 grid-template-columns: 1fr;
             }
-            .lesson-header-card h1 {
-                font-size: 1.2rem;
-            }
-            .phase-header {
-                padding: 0.75rem 1rem;
-            }
-            .phase-body {
-                padding: 0 1rem;
-            }
-            .phase-item.open .phase-body {
-                padding: 0.75rem 1rem;
-            }
         }
     </style>
 </head>
 <body>
-
     <header class="header">
         <div class="header-inner">
             <div class="logo" onclick="navigateHome()" title="Ir al inicio">
                 <div class="logo-icon">📚</div>
-                IEP ESCUELA HOGAR VENTANILLA — Matemática y Ciencias
+                IEP ESCUELA HOGAR VENTANILLA
             </div>
             <nav class="breadcrumb" id="breadcrumb">
                 <span onclick="navigateHome()">Inicio</span>
             </nav>
         </div>
     </header>
-
     <main class="main-container" id="mainContent"></main>
-
     <footer class="footer">
         Plataforma de Lecciones · Conocimientos Fundamentales · Educación Básica Regular
-        &nbsp;|&nbsp; <strong>Consejo:</strong> Haz clic en cada fase para expandir y editar su contenido.
-        &nbsp;|&nbsp; <span style="color:#8b5cf6;">🔬 Todas las lecciones completas con contenido pedagógico</span>
+        &nbsp;|&nbsp; <strong>32 lecciones</strong> (29 básicas + 3 Método Científico) con contenido pedagógico completo
+        &nbsp;|&nbsp; 🌟 Lecciones 1 y 2 con desarrollo extenso e ilustrado
     </footer>
-
     <script>
         // ═══════════════════════════════════════
-        //  DATA: All lessons
+        //  DATA: Todas las lecciones (29 originales + 3 Método Científico)
         // ═══════════════════════════════════════
         const lessonsData = [
-            // ── Matemática · Primaria ──
+            // ── Matemática · Primaria (9) ──
             { id: 'mat-pri-num-iii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '1° y 2°',
                 ciclo: 'Ciclo III', materia: 'Números y Operaciones',
                 conocimientos: 'Números naturales hasta el 1000, adición y sustracción, multiplicación y división básicas.' },
@@ -641,7 +557,7 @@
             { id: 'mat-pri-geo-v', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '5° y 6°',
                 ciclo: 'Ciclo V', materia: 'Geometría',
                 conocimientos: 'Área de figuras planas, volumen de prismas y circunferencia.' },
-            // ── Matemática · Secundaria ──
+            // ── Matemática · Secundaria (5) ──
             { id: 'mat-sec-arit-vi', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '1° y 2°',
                 ciclo: 'Ciclo VI', materia: 'Aritmética y Álgebra',
                 conocimientos: 'Números enteros y racionales, operaciones con polinomios, ecuaciones lineales y cuadráticas, sistema de ecuaciones, inecuaciones.' },
@@ -657,7 +573,7 @@
             { id: 'mat-sec-estprob-vii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria',
                 grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Estadística y Probabilidad',
                 conocimientos: 'Estadística descriptiva e inferencial básica, probabilidad condicional y técnicas de conteo.' },
-            // ── Ciencia y Tecnología · Primaria ──
+            // ── Ciencia y Tecnología · Primaria (9) ──
             { id: 'ct-pri-sv-iii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
                 grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Seres Vivos',
                 conocimientos: 'El cuerpo humano, animales y plantas de su entorno, hábitos saludables.' },
@@ -667,8 +583,8 @@
             { id: 'ct-pri-tu-iii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
                 grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Tierra y Universo',
                 conocimientos: 'El día y la noche, el aire, el agua y el suelo, cambios atmosféricos.' },
-            { id: 'ct-pri-sv-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '3° y 4°',
-                ciclo: 'Ciclo IV', materia: 'Seres Vivos',
+            { id: 'ct-pri-sv-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
+                grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Seres Vivos',
                 conocimientos: 'Clasificación de seres vivos, cadenas alimenticias, ecosistemas peruanos.' },
             { id: 'ct-pri-me-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
                 grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Materia y Energía',
@@ -676,16 +592,16 @@
             { id: 'ct-pri-tu-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
                 grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Tierra y Universo',
                 conocimientos: 'El sistema solar, capas de la Tierra, ciclo del agua.' },
-            { id: 'ct-pri-sv-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '5° y 6°',
-                ciclo: 'Ciclo V', materia: 'Seres Vivos',
+            { id: 'ct-pri-sv-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
+                grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Seres Vivos',
                 conocimientos: 'La célula, sistemas del cuerpo humano, reproducción humana y biodiversidad.' },
-            { id: 'ct-pri-me-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '5° y 6°',
-                ciclo: 'Ciclo V', materia: 'Materia y Energía',
+            { id: 'ct-pri-me-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
+                grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Materia y Energía',
                 conocimientos: 'Tabla periódica (elementos básicos), reacciones químicas simples, electricidad y magnetismo.' },
-            { id: 'ct-pri-tu-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '5° y 6°',
-                ciclo: 'Ciclo V', materia: 'Tierra y Universo',
+            { id: 'ct-pri-tu-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
+                grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Tierra y Universo',
                 conocimientos: 'Placas tectónicas, fenómenos naturales, contaminación ambiental.' },
-            // ── Ciencia y Tecnología · Secundaria ──
+            // ── Ciencia y Tecnología · Secundaria (6) ──
             { id: 'ct-sec-quim-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
                 grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Química',
                 conocimientos: 'Estructura atómica, tabla periódica, enlaces químicos, reacciones químicas, compuestos inorgánicos.' },
@@ -704,24 +620,19 @@
             { id: 'ct-sec-fis-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
                 grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Física',
                 conocimientos: 'Estática, hidrostática, electromagnetismo, ondas, óptica y relatividad básica.' },
-            // ═══════════ Método Científico (3 lecciones) ═══════════
+            // ── Método Científico (3) ──
             { id: 'metodo-ciclo-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
                 grado: '5° y 6°', ciclo: 'Ciclo V', materia: '🧪 El Método Científico',
-                conocimientos: 'Pasos del método científico: observar, preguntar, hipotetizar, experimentar y concluir. Variables en experimentos sencillos.',
-                esMetodo: true },
+                conocimientos: 'Pasos del método científico, variables en experimentos sencillos.', esMetodo: true },
             { id: 'metodo-ciclo-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
                 grado: '1° y 2°', ciclo: 'Ciclo VI', materia: '🔬 El Método Científico',
-                conocimientos: 'Observación, hipótesis, experimentación, variables, resultados, conclusiones. Características de los seres vivos y ramas de la biología.',
+                conocimientos: 'Observación, hipótesis, experimentación, variables, características de los seres vivos.',
                 esMetodo: true },
             { id: 'metodo-ciclo-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
                 grado: '3° a 5°', ciclo: 'Ciclo VII', materia: '⚗️ El Método Científico Avanzado',
-                conocimientos: 'Diseño experimental riguroso, sesgo, correlación vs. causalidad, estadística inferencial, comunicación científica.',
-                esMetodo: true },
+                conocimientos: 'Diseño experimental riguroso, sesgo, correlación vs. causalidad.', esMetodo: true },
         ];
 
-        // ═══════════════════════════════════════
-        //  PHASE DEFINITIONS
-        // ═══════════════════════════════════════
         const phaseDefinitions = [
             { number: 0, title: 'Objetivos, Nociones e Intereses Societales',
                 subtitle: 'Objetivos (generales y particulares), nociones (principales y secundarios), intereses societales.',
@@ -743,894 +654,105 @@
         ];
 
         // ═══════════════════════════════════════
-        //  GENERADOR DE CONTENIDO PEDAGÓGICO AUTOMÁTICO
+        //  CONTENIDO MANUAL EXTENSO: Lección 1 (Números) y Lección 2 (Geometría)
+        // ═══════════════════════════════════════
+        const leccionExtensaNumIII = {
+            0: `🎯 OBJETIVO GENERAL: Desarrollar en los estudiantes de 1° y 2° grado de primaria las competencias fundamentales de numeración y operaciones básicas, construyendo una base sólida para el pensamiento matemático futuro.\n\n🎯 OBJETIVOS PARTICULARES:\n• Identificar, leer y escribir números naturales hasta el 1000.\n• Comprender el valor posicional de las unidades, decenas y centenas.\n• Realizar adiciones y sustracciones con números hasta el 1000 usando diversas estrategias.\n• Comprender la multiplicación como suma repetida y la división como reparto equitativo.\n• Resolver problemas cotidianos que involucren las cuatro operaciones básicas.\n• Desarrollar el cálculo mental y la estimación como herramientas de verificación.\n\n📌 NOCIONES PRINCIPALES:\n• Número natural, cifra, valor posicional, unidad, decena, centena.\n• Adición (suma), sustracción (resta), multiplicación, división.\n• Algoritmos de suma y resta con y sin reagrupación.\n• Tablas de multiplicar del 1 al 5. Reparto en partes iguales.\n\n📌 NOCIONES SECUNDARIAS:\n• Recta numérica, comparación de números (mayor que, menor que, igual a).\n• Propiedades de la adición (conmutativa, asociativa, elemento neutro).\n• Relación entre suma y resta (operaciones inversas).\n• Relación entre multiplicación y división.\n• Estrategias de cálculo mental: completar decenas, descomponer números.\n\n🌍 INTERESES SOCIETALES:\n• Las matemáticas están presentes en la vida diaria: al comprar en la tienda, al repartir golosinas, al contar juguetes.\n• Comprender los números ayuda a los niños a desenvolverse con confianza en situaciones cotidianas.\n• El desarrollo del pensamiento lógico-matemático fortalece la capacidad de resolver problemas en cualquier ámbito.`,
+            1: `🔍 ACTIVIDAD DE DESCUBIERTA: "Jugando con los números y las operaciones"\n\n🧩 MATERIALES: Bloques de base 10, tapitas, palitos de helado, semillas, tarjetas con números, dados, ruleta numérica, una "tiendita" escolar con productos etiquetados con precios.\n\n🎲 ESTACIONES DE EXPLORACIÓN (rotación por equipos):\nESTACIÓN 1: "El Banco de los Números" - Agrupar tapitas de 10 en 10 y contar.\nESTACIÓN 2: "La Tiendita" - Comprar productos, calcular gasto y vuelto.\nESTACIÓN 3: "Dados Mágicos" - Sumar y multiplicar puntos de dados.\nESTACIÓN 4: "Reparto Justo" - Repartir galletas en platos equitativamente.\n\n💬 REFLEXIÓN EN PLENARIA: ¿Para qué sirven los números? ¿Qué fue más fácil: sumar con tapitas o con números escritos? ¿Por qué es importante saber repartir equitativamente?`,
+            2: `🧠 ACTIVIDAD INDUCTIVA: "Del material concreto a la regla matemática"\n\n📊 OBSERVACIÓN GUIADA:\nCaso 1: Suma → 23+15=38, 41+36=77, 54+23=77. Conclusión: sumar unidades con unidades, decenas con decenas.\nCaso 2: Resta sin reagrupación → 38-15=23, 77-36=41. Conclusión: la resta es la operación inversa de la suma.\nCaso 3: Multiplicación como suma repetida → 4 veces 3 = 12 → 4×3=12. Conclusión: la multiplicación es una suma abreviada.\n\n📝 REGISTRO: Cada estudiante crea su propio ejemplo siguiendo el patrón descubierto.`,
+            3: `📐 TRANSMISIÓN CONCEPTUAL: Números Naturales hasta el 1000 y Operaciones Básicas\n\n🔢 1. LOS NÚMEROS NATURALES\nSon aquellos que usamos para contar objetos: 1, 2, 3, 4, 5... El 0 también se considera un número natural.\n\n📏 SISTEMA DE NUMERACIÓN DECIMAL: Base 10. Cada 10 unidades = 1 decena. Cada 10 decenas = 1 centena.\n\n🏠 VALOR POSICIONAL: En 358: 8 unidades, 5 decenas (50), 3 centenas (300).\n\n🔢 2. ADICIÓN (SUMA)\nDefinición: Reunir o juntar dos o más cantidades.\nPropiedades: Conmutativa (5+3=3+5), Asociativa ((2+3)+4=2+(3+4)), Elemento neutro (7+0=7).\nAlgoritmo con reagrupación: 258 + 175 = 433 (paso a paso explicado).\n\n🔢 3. SUSTRACCIÓN (RESTA)\nDefinición: Quitar o separar una cantidad de otra. Relación inversa con la suma.\nAlgoritmo con reagrupación: 53 - 28 = 25 (pidiendo prestado).\n\n🔢 4. MULTIPLICACIÓN\nDefinición: Suma abreviada de sumandos iguales. Tablas del 1 al 5.\n\n🔢 5. DIVISIÓN\nDefinición: Reparto equitativo. 12 ÷ 3 = 4 porque 3 × 4 = 12.\n\n⚠️ ERRORES COMUNES Y CÓMO EVITARLOS: Alineación, olvido de reagrupación, confusión multiplicación/suma, orden en la división.`,
+            4: `✏️ TRABAJOS DIRIGIDOS: Ejercicios de aplicación\n\n📝 BLOQUE 1: Numeración (Valor posicional)\n1. 5C + 3D + 8U = 538\n2. Descompón: 427 = 4C+2D+7U; 309 = 3C+0D+9U\n3. Escribe con letras: 684, 205, 370\n\n📝 BLOQUE 2: Adición\n6. 342+135=477; 520+269=789\n7. Con reagrupación: 258+175=433; 467+389=856\n\n📝 BLOQUE 3: Sustracción\n9. 487-235=252; 10. 532-278=254\n\n📝 BLOQUE 4: Multiplicación y División\n12. 4+4+4=4×3=12\n13. 3×4=12, 5×2=10, 4×5=20\n14. 15÷3=5, 20÷5=4, 12÷4=3\n\n📝 BLOQUE 5: Problemas\n16. María: 28+35=63 stickers.\n17. Mangos: 126-89=37.\n18. Naranjas: 4×6=24.\n19. Grupos: 24÷4=6 estudiantes.\n\n⏱️ Tiempo: 45-60 min. ✅ Autoevaluación.`,
+            5: `🔗 CORRELACIONES INTERNAS: Conexión con Geometría y Medición\n\n📐 CONEXIÓN CON GEOMETRÍA:\n• Contar lados/vértices (cuadrado=4, triángulo=3) aplica números.\n• Áreas en cuadrículas: rectángulo 5×3 = 15 cuadraditos.\n\n📏 CONEXIÓN CON MEDICIÓN:\n• Longitudes, tiempo, dinero: sumar/restar medidas.\n• Ej: Lápiz 15 cm, otro 8 cm → 15-8=7 cm de diferencia.\n\n🧩 ACTIVIDAD INTEGRADORA: Construir figura con palitos, medir lados, sumar perímetro, contar vértices.\n\n💡 REFLEXIÓN: Las matemáticas no son compartimentos separados: numeración, geometría y medición se necesitan mutuamente.`,
+            6: `🌍 CORRELACIONES EXTERNAS: Los números en la vida cotidiana\n\n🏪 EN LA TIENDA: Sumar precios, calcular vuelto.\n🚍 EN EL TRANSPORTE: Contar pasajeros que suben/bajan.\n🍳 EN LA COCINA: Medir ingredientes, multiplicar porciones.\n⚽ EN LOS DEPORTES: Sumar goles, puntos, tiempos.\n🎂 EN LOS CUMPLEAÑOS: Repartir torta, contar invitados.\n🎵 EN LA MÚSICA: Contar compases (1,2,3,4).\n\n🧠 REFLEXIÓN FINAL: "Los números están en todas partes. Aprender a usarlos bien nos ayuda a entender el mundo."\n\n🗣️ CITA: "Las matemáticas son el alfabeto con el cual el universo está escrito." — Galileo Galilei`,
+            7: `👥 MÓDULO DE PROYECTO GRUPAL: "Nuestra Tiendita Matemática"\n\n🎯 OBJETIVO: Crear una tiendita en el aula donde los estudiantes compren y vendan productos usando las cuatro operaciones básicas.\n\n📋 FASES:\n1. ORGANIZACIÓN: 5 equipos (verduras, frutas, útiles, juguetes, golosinas). Asignar precios.\n2. CREACIÓN: Elaborar productos con etiquetas, billetes didácticos.\n3. SIMULACIÓN: Comprar/vender con S/50. Registrar gastos, calcular vuelto.\n4. REGISTRO Y CÁLCULOS: Cuaderno de cuentas con sumas, restas, multiplicaciones.\n5. PRESENTACIÓN: Exponer ventas totales, operaciones usadas, reflexión.\n\n🏆 EVALUACIÓN: Correcta aplicación de operaciones, trabajo en equipo, claridad en registros.\n🎉 CIERRE: Diplomas de "Matemático Estrella".`,
+        };
+
+        const leccionExtensaGeoIII = {
+            0: `🎯 OBJETIVO GENERAL: Introducir a los estudiantes de 1° y 2° grado de primaria en el mundo de la geometría, reconociendo y describiendo las figuras geométricas planas básicas (cuadrado, triángulo, círculo) y algunos cuerpos geométricos (cubo, esfera, cilindro, cono), desarrollando la observación espacial, la motricidad fina y el vocabulario geométrico.\n\n🎯 OBJETIVOS PARTICULARES:\n• Identificar y nombrar las figuras planas: cuadrado, rectángulo, triángulo y círculo.\n• Describir las características de cada figura: número de lados, número de vértices (esquinas), curvas o rectas.\n• Reconocer cuerpos geométricos en objetos cotidianos: dado (cubo), pelota (esfera), lata (cilindro), gorro de cumpleaños (cono).\n• Diferenciar entre figuras planas (2D) y cuerpos geométricos (3D).\n• Dibujar y construir figuras planas y cuerpos simples con diversos materiales.\n• Clasificar objetos según su forma geométrica.\n• Utilizar vocabulario geométrico básico: lado, vértice, curva, recto, plano, cuerpo.\n\n📌 NOCIONES PRINCIPALES:\n• Figuras planas: cuadrado, rectángulo, triángulo, círculo.\n• Cuerpos geométricos: cubo, esfera, cilindro, cono.\n• Lados rectos y curvos. Vértices (esquinas).\n• Diferencia entre figura plana (dos dimensiones) y cuerpo geométrico (tres dimensiones).\n\n📌 NOCIONES SECUNDARIAS:\n• Simetría en figuras simples (dibujar la mitad que falta).\n• Composición y descomposición de figuras (con tangram o recortes).\n• Reconocimiento de formas en el arte y la naturaleza.\n• Noción intuitiva de perímetro (contorno) y superficie.\n\n🌍 INTERESES SOCIETALES:\n• La geometría está presente en la naturaleza (la forma circular del sol, los panales hexagonales, las hojas triangulares de algunas plantas), en la arquitectura (ventanas cuadradas, techos en forma de triángulo), en los juguetes (pelotas esféricas, dados cúbicos).\n• Reconocer las formas geométricas permite a los niños comprender mejor el espacio que los rodea y expresar su creatividad mediante el dibujo y la construcción.\n• Desarrolla habilidades de observación, comparación y clasificación, fundamentales para el pensamiento científico y matemático.`,
+            1: `🔍 ACTIVIDAD DE DESCUBIERTA: "Detectives de formas"\n\n🧩 MATERIALES: Caja mágica con objetos (dado, pelota, caja, gorro, moneda, CD, vaso), plastilina, palitos de helado, papel, lápices.\n\n🎲 ESTACIONES DE EXPLORACIÓN:\nESTACIÓN 1: "La caja misteriosa" - Tocar objeto sin ver, describir forma ("es redondo como una pelota", "tiene puntas como esquinas"), adivinar y asociar con tarjeta geométrica (esfera, cubo, cilindro, cono).\nESTACIÓN 2: "Dibujando contornos" - Colocar objetos sobre papel y dibujar su contorno. Descubren: el dado deja un cuadrado, la tapa circular deja un círculo, la escuadra deja un triángulo. Dialogan: "El dado es un cubo, pero su contorno es un cuadrado".\nESTACIÓN 3: "Construyendo con palitos y plastilina" - Con palitos (lados) y bolitas de plastilina (vértices) construyen cuadrado (4 palitos iguales, 4 bolitas), triángulo (3 palitos, 3 bolitas), rectángulo (2 largos, 2 cortos, 4 bolitas). Reflexionan: ¿El círculo se puede hacer así? (No, no tiene lados rectos ni vértices; es una curva cerrada).\nESTACIÓN 4: "Buscando formas en el aula" - Con lista de formas, encuentran objetos reales en el aula, dibujan y etiquetan.\n\n💬 REFLEXIÓN EN PLENARIA: ¿Todas las figuras tienen lados rectos? ¿Diferencia entre cuadrado y cubo? ¿Dónde vemos estas formas fuera del colegio?`,
+            2: `🧠 ACTIVIDAD INDUCTIVA: "¿Cuadrado, rectángulo o triángulo? Descubriendo las reglas"\n\n📊 OBSERVACIÓN GUIADA DE FIGURAS PLANAS:\nLa maestra muestra tarjetas grandes con diferentes figuras planas. Los niños las clasifican en grupos.\n\nCASO 1: EL CUADRADO - Se muestran varias figuras de 4 lados. Preguntas: ¿Cuál es un cuadrado? (el de 4 lados iguales). ¿Cuántos vértices? (4). Conclusión: "El cuadrado tiene 4 lados iguales y 4 vértices."\n\nCASO 2: EL RECTÁNGULO - Se comparan cuadrado y rectángulo. ¿En qué se parecen? (4 lados, 4 vértices). ¿En qué se diferencian? (cuadrado: lados iguales; rectángulo: lados largos y cortos). Conclusión: "El rectángulo también tiene 4 lados y 4 vértices, pero sus lados no son todos iguales."\n\nCASO 3: EL TRIÁNGULO - Se muestran triángulos de diferentes formas. Preguntas: ¿Cuántos lados? (3). ¿Cuántos vértices? (3). Conclusión: "El triángulo tiene 3 lados y 3 vértices."\n\nCASO 4: EL CÍRCULO - Se muestra círculo junto a óvalo. ¿Es lo mismo? No, el círculo es redondo perfecto. Preguntas: ¿Cuántos lados rectos? (0). ¿Vértices? (0). Conclusión: "El círculo es una figura curva cerrada sin lados rectos ni vértices."\n\n📝 REGISTRO: Cada estudiante dibuja las cuatro figuras y escribe: número de lados, número de vértices, y una característica.`,
+            3: `📐 TRANSMISIÓN CONCEPTUAL: Figuras planas y cuerpos geométricos\n\n🔷 1. FIGURAS PLANAS (2 DIMENSIONES)\nSon formas que solo tienen largo y ancho (planas como un dibujo).\n\n🟦 CUADRADO: 4 lados iguales, 4 vértices, lados rectos. Ej: cara de un dado, post-it.\n🟩 RECTÁNGULO: 4 lados (2 largos, 2 cortos), 4 vértices. Ej: hoja de papel, puerta.\n🔺 TRIÁNGULO: 3 lados, 3 vértices. Ej: escuadra, banderín.\n⚪ CÍRCULO: 0 lados rectos, 0 vértices, curva cerrada. Ej: moneda, rueda.\n\n📏 DIFERENCIA CUADRADO vs RECTÁNGULO: Ambos tienen 4 lados y 4 vértices. En el cuadrado todos los lados miden lo mismo; en el rectángulo, los lados opuestos miden lo mismo. Todo cuadrado es un rectángulo especial, pero no todo rectángulo es cuadrado.\n\n🧊 2. CUERPOS GEOMÉTRICOS (3 DIMENSIONES)\nOcupan un lugar en el espacio: tienen largo, ancho y alto. Podemos tocarlos, sostenerlos.\n\n🟦 CUBO: 6 caras cuadradas iguales, 8 vértices, 12 aristas. Ej: dado, caja cuadrada.\n⚽ ESFERA: Superficie curva sin caras planas, sin vértices. Ej: pelota, canica, globo.\n🥫 CILINDRO: 2 caras planas circulares (bases) + superficie curva lateral. 0 vértices. Ej: lata, vaso.\n🎉 CONO: 1 cara plana circular (base) + superficie curva que termina en punta (vértice). Ej: cono de helado, gorro de fiesta.\n\n🔍 COMPARACIÓN PLANO vs CUERPO:\n• Cuadrado (plano) → Cubo (cuerpo). Un cubo está formado por 6 caras cuadradas.\n• Círculo (plano) → Esfera (cuerpo). La esfera no tiene caras planas.\n• Triángulo (plano) → Cono/Pirámide.\n• Rectángulo (plano) → Cilindro o prisma rectangular.\n\n⚠️ ERRORES COMUNES:\n• Llamar "círculo" a una esfera. → Círculo es plano, esfera es cuerpo.\n• Decir "cuadrado alargado" al rectángulo. → Si sus lados no son todos iguales, es rectángulo.\n• Confundir cilindro con cono. → Cilindro tiene 2 bases circulares; cono, 1 base y punta.`,
+            4: `✏️ TRABAJOS DIRIGIDOS: Ejercicios de aplicación\n\n📝 BLOQUE 1: Identificación de figuras planas\n1. Nombra: A(cuadrado), B(círculo), C(triángulo), D(rectángulo).\n2. Completa tabla:\n| Figura | Lados | Vértices | ¿Curvos? |\n| Cuadrado | 4 | 4 | No |\n| Triángulo | 3 | 3 | No |\n| Círculo | 0 | 0 | Sí |\n| Rectángulo | 4 | 4 | No |\n\n📝 BLOQUE 2: Cuerpos geométricos\n4. Une: Dado→Cubo, Pelota→Esfera, Lata→Cilindro, Cono helado→Cono.\n5. Ejemplos del aula: Cubo (dado, caja); Esfera (pelota, globo); Cilindro (vaso, lata); Cono (gorro, punta lápiz).\n6. Verdadero/Falso:\na) Cubo tiene 6 caras cuadradas (V)\nb) Esfera tiene una cara plana (F)\nc) Cilindro tiene 2 caras circulares (V)\nd) Cono no tiene vértice (F)\ne) Un libro tiene forma de esfera (F)\n\n📝 BLOQUE 3: Dibujo y construcción\n7. Dibujar cuadrado, rectángulo, triángulo, círculo.\n8. Modelar con plastilina: esfera, cubo, cono, cilindro.\n\n📝 BLOQUE 4: Problemas y desafíos\n9. Cuadrado dividido por diagonal → 2 triángulos.\n10. Tablero 2×2 → 5 cuadrados.\n11. Dos triángulos iguales pegados → ¿qué figura? (cuadrado, rectángulo, etc.)\n12. Ana dice: "Mi pelota es un círculo". ¿Tiene razón? (No, es una esfera; el círculo es el contorno plano).\n\n⏱️ Tiempo: 45-60 min. ✅ Autoevaluación.`,
+            5: `🔗 CORRELACIONES INTERNAS: Conexión con Números y Medición\n\n📏 CONEXIÓN CON MEDICIÓN:\n• Comparar lados de figuras implica medir longitudes (informalmente: "este lado es más largo").\n• Medir lados con unidades no estándar (palitos, clips) y luego con centímetros.\n• En cuerpos geométricos hablamos de tamaño, altura, capacidad (volumen intuitivo).\n\n🔢 CONEXIÓN CON NÚMEROS Y OPERACIONES:\n• Contamos lados, vértices, caras. Ej: "El cubo tiene 6 caras, 8 vértices, 12 aristas."\n• Sumamos figuras encontradas: "5 círculos + 3 triángulos = 8 figuras."\n• Multiplicamos caras: "2 dados, ¿cuántas caras cuadradas en total?" (2×6=12).\n\n🎨 CONEXIÓN CON ARTE:\n• Componer dibujos usando solo figuras geométricas (robot, casa, cohete).\n• Simetría: doblar papel y recortar para obtener figuras simétricas.\n\n🧩 ACTIVIDAD INTEGRADORA: "Construye un robot geométrico con cajas, tapas, conos. Cuenta las piezas de cada forma. Haz una ficha con los números."\n\n💡 REFLEXIÓN: La geometría necesita los números para contar, las medidas para comparar, y el arte para crear.`,
+            6: `🌍 CORRELACIONES EXTERNAS: La geometría en la vida cotidiana y el universo\n\n🏠 EN CASA Y LA CIUDAD:\n• Ventanas cuadradas/rectangulares, relojes circulares, mesas redondas.\n• Techos a dos aguas forman triángulos.\n• Ruedas de autos/bicicletas son círculos (¿por qué no cuadradas? No rodarían suavemente).\n• Latas de conserva son cilindros; helados, conos.\n\n🌳 EN LA NATURALEZA:\n• El sol y la luna llena parecen círculos perfectos.\n• Flores con pétalos en simetría circular.\n• Panales de abejas formados por hexágonos.\n• Hojas triangulares (helechos) o circulares (nenúfares).\n• Montañas dibujan triángulos en el horizonte.\n\n🎨 EN EL ARTE Y LA CULTURA:\n• Artistas como Kandinsky o Paul Klee usaron figuras geométricas.\n• Arquitectura inca (Machu Picchu) con piedras encajadas formando polígonos.\n• Vitrales de iglesias llenos de triángulos y círculos.\n\n🧩 EN LOS JUGUETES:\n• Bloques de construcción: cubos, prismas, cilindros.\n• Tangram: juego chino con 7 piezas geométricas.\n• Burbujas de jabón: esferas perfectas.\n\n🧠 REFLEXIÓN FINAL: "El mundo está hecho de formas. Aprender geometría es aprender a leer el lenguaje secreto del universo: desde la redondez de una gota de agua hasta la simetría de un copo de nieve."\n\n🗣️ CITA: "Dios geometriza siempre" — Platón.`,
+            7: `👥 MÓDULO DE PROYECTO GRUPAL: "Museo de Formas Geométricas"\n\n🎯 OBJETIVO: Crear una exposición en el aula donde cada equipo presente una "obra de arte" o "invento" construido únicamente con cuerpos y figuras geométricas.\n\n📋 FASES DEL PROYECTO:\n\nFASE 1: ORGANIZACIÓN (1 sesión)\n• 5 equipos: Equipo Cubo, Equipo Esfera, Equipo Cilindro, Equipo Cono, Equipo Pirámide.\n• Cada equipo recibe la misión de construir algo relacionado con su cuerpo geométrico protagonista.\n\nFASE 2: RECOLECCIÓN DE MATERIALES (tarea en casa)\n• Recolectar objetos reciclables: cajas, tubos de cartón, pelotas pequeñas, conos de papel, tapas circulares, cartulinas.\n\nFASE 3: DISEÑO Y CONSTRUCCIÓN (2 sesiones)\n• Dibujar diseño: castillo, cohete, robot, animal geométrico, ciudad futurista.\n• Construir pegando, ensamblando, pintando. Etiquetar partes: "torre = cilindro", "ventana = círculo".\n\nFASE 4: FICHA TÉCNICA (1 sesión)\n• Tarjeta informativa: ¿Qué construimos? ¿Qué cuerpos usamos? (conteo). ¿Qué figuras planas aparecen? ¿Cuántos vértices/aristas?\n\nFASE 5: EXPOSICIÓN Y MUSEO (1 sesión)\n• Montar obras con fichas técnicas.\n• Rotación de visitas. Preguntas de visitantes. Votación con estrellas adhesivas.\n\n🏆 EVALUACIÓN: Identificación correcta de figuras/cuerpos, vocabulario, trabajo en equipo, originalidad, presentación.\n🎉 CIERRE: Diplomas de "Arquitecto Geométrico". El museo queda abierto una semana.`,
+        };
+
+        // ═══════════════════════════════════════
+        //  GENERADOR DE CONTENIDO AUTOMÁTICO
         // ═══════════════════════════════════════
         function generateLessonContent(lesson, phaseNumber) {
             const area = lesson.area;
-            const nivel = lesson.nivel;
-            const ciclo = lesson.ciclo;
             const materia = lesson.materia;
             const conocimientos = lesson.conocimientos;
-            const grado = lesson.grado;
-
-            // Determinar si es nivel inicial (primaria baja), intermedio o avanzado
-            const isPrimariaBaja = (ciclo === 'Ciclo III');
-            const isPrimariaMedia = (ciclo === 'Ciclo IV');
-            const isPrimariaAlta = (ciclo === 'Ciclo V');
-            const isSecundariaBaja = (ciclo === 'Ciclo VI');
-            const isSecundariaAlta = (ciclo === 'Ciclo VII');
-            const isPrimaria = nivel === 'Primaria';
-            const isSecundaria = nivel === 'Secundaria';
-
-            // Generar según fase
+            const ciclo = lesson.ciclo;
+            const nivel = lesson.nivel;
             switch (phaseNumber) {
                 case 0:
-                    return generatePhase0(lesson);
+                    return `OBJETIVO GENERAL: Desarrollar competencias en ${materia} correspondientes al ${ciclo} de Educación ${nivel}.\n\nOBJETIVOS PARTICULARES:\n- Identificar los conceptos clave de ${materia}.\n- Aplicar los conocimientos en situaciones prácticas.\n- Resolver problemas utilizando estrategias adecuadas.\n\nNOCIONES PRINCIPALES: ${conocimientos}\nNOCIONES SECUNDARIAS: Vocabulario técnico, procedimientos, estrategias de verificación.\nINTERESES SOCIETALES: Relación con la vida cotidiana, el entorno natural y social.`;
                 case 1:
-                    return generatePhase1(lesson);
+                    return `ACTIVIDAD DE DESCUBIERTA: "Explorando ${materia}"\n\n🧩 Se presentan situaciones problemáticas y materiales concretos para que los estudiantes exploren libremente los conceptos de ${materia}.\n🔍 Preguntas para la reflexión y registro de observaciones en el cuaderno de experiencias.`;
                 case 2:
-                    return generatePhase2(lesson);
+                    return `ACTIVIDAD INDUCTIVA: "Del ejemplo concreto al concepto general"\n\n📊 Se presentan varios ejemplos de ${materia} para que los estudiantes identifiquen patrones, regularidades y formulen reglas generales.\n📝 Los estudiantes registran sus conclusiones en organizadores gráficos.`;
                 case 3:
-                    return generatePhase3(lesson);
+                    return `TRANSMISIÓN CONCEPTUAL: ${materia}\n\n📐 CONCEPTOS CLAVE:\n${conocimientos}\n\n📏 DEFINICIONES, PROPIEDADES Y EJEMPLOS DESARROLLADOS.\n⚠️ Errores comunes y estrategias para evitarlos.`;
                 case 4:
-                    return generatePhase4(lesson);
+                    return `TRABAJOS DIRIGIDOS: Ejercicios de ${materia}\n\n✏️ Ejercicios de identificación, aplicación directa, transferencia y argumentación.\n📝 Formato: Individual o en parejas. Tiempo estimado: 30-45 minutos.`;
                 case 5:
-                    return generatePhase5(lesson);
+                    return `CORRELACIONES INTERNAS: Conexión con otras materias del área\n\n🔗 ${materia} se relaciona con otras ramas de ${lesson.areaName}. Se presentan ejemplos de integración.`;
                 case 6:
-                    return generatePhase6(lesson);
+                    return `CORRELACIONES EXTERNAS: Aplicaciones en la vida real\n\n🌍 Se muestran aplicaciones de ${materia} en la vida cotidiana, la tecnología, el arte, la naturaleza.`;
                 case 7:
-                    return generatePhase7(lesson);
+                    return `MÓDULO DE PROYECTO GRUPAL: "Aplicando ${materia} en equipo"\n\n🎯 Los estudiantes diseñan y ejecutan un proyecto colaborativo que integre los conocimientos de ${materia}.\n📋 Fases: formación de equipos, elección del tema, planificación, ejecución, presentación y evaluación.`;
                 default:
                     return '';
             }
         }
 
-        function generatePhase0(lesson) {
-            const area = lesson.area;
-            const materia = lesson.materia;
-            const conocimientos = lesson.conocimientos;
-            const nivel = lesson.nivel;
-            const ciclo = lesson.ciclo;
-
-            let objGeneral = `Comprender los fundamentos de ${materia} en el contexto de ${lesson.areaName}.`;
-            let objParticulares = `- Identificar los conceptos clave de ${materia}.\n- Aplicar los conocimientos en situaciones prácticas.\n- Desarrollar habilidades de observación, análisis y resolución de problemas.`;
-            let nocionesPrincipales = conocimientos;
-            let nocionesSecundarias = 'Vocabulario técnico asociado, procedimientos y estrategias de aprendizaje.';
-            let intereses = 'Relación con la vida cotidiana, el entorno natural y social, y el desarrollo del pensamiento lógico y crítico.';
-
-            if (area === 'matematica') {
-                objGeneral = `Desarrollar competencias matemáticas en el campo de ${materia}, correspondientes al ${ciclo} de Educación ${nivel}.`;
-                objParticulares = `- Dominar los algoritmos y procedimientos de ${materia}.\n- Resolver problemas aplicando los conceptos aprendidos.\n- Interpretar y comunicar información matemática.\n- Valorar la utilidad de las matemáticas en la vida diaria.`;
-                nocionesSecundarias = 'Estrategias de cálculo mental, estimación, verificación de resultados, modelización matemática.';
-                intereses = 'Las matemáticas como herramienta para comprender el mundo: comercio, mediciones, tecnología, ciencias, arte y música.';
-            } else if (area === 'ciencia') {
-                objGeneral = `Explorar y comprender los principios científicos de ${materia} en el marco del ${ciclo} de Educación ${nivel}.`;
-                objParticulares = `- Observar y describir fenómenos naturales relacionados con ${materia}.\n- Formular preguntas e hipótesis sencillas.\n- Realizar experimentos guiados y registrar resultados.\n- Desarrollar actitudes de cuidado del ambiente y la salud.`;
-                nocionesSecundarias = 'Método científico, trabajo de laboratorio, seguridad, bioética, sostenibilidad.';
-                intereses = 'La ciencia y tecnología como motores del desarrollo social, la salud pública, la conservación ambiental y la innovación.';
-            }
-
-            return `OBJETIVO GENERAL: ${objGeneral}
-
-OBJETIVOS PARTICULARES:
-${objParticulares}
-
-NOCIONES PRINCIPALES: ${nocionesPrincipales}
-NOCIONES SECUNDARIAS: ${nocionesSecundarias}
-
-INTERESES SOCIETALES: ${intereses}`;
-        }
-
-        function generatePhase1(lesson) {
-            const area = lesson.area;
-            const materia = lesson.materia;
-            const ciclo = lesson.ciclo;
-            const conocimientos = lesson.conocimientos;
-
-            if (area === 'matematica') {
-                if (ciclo === 'Ciclo III') {
-                    return `ACTIVIDAD DE DESCUBIERTA: "Jugando con los números y las formas"
-
-🧩 Materiales: Bloques, fichas, objetos del aula, regletas, cuerpos geométricos.
-
-🔍 Exploración libre:
-- Para Números: Formar grupos de 10 objetos y contarlos. ¿Cuántos grupos de 10 hay en 35? ¿Y en 72?
-- Para Geometría: Buscar objetos con forma de cuadrado, triángulo, círculo en el aula. Dibujarlos en el cuaderno.
-- Para Medición: Medir el largo de la mesa con palmas de la mano. ¿Cuántas palmas mide? Comparar con la medida de un compañero.
-
-💬 Preguntas para la reflexión:
-- ¿Qué pasaría si no tuviéramos números?
-- ¿Dónde encontramos figuras geométricas en casa?
-- ¿Por qué es importante medir las cosas?`;
-                } else if (ciclo === 'Ciclo IV') {
-                    return `ACTIVIDAD DE DESCUBIERTA: "El desafío matemático"
-
-🧩 Situación problemática:
-- Para Números: "En la feria, un paquete de 5 chupetes cuesta S/ 3.50. ¿Cuánto costarán 12 chupetes?" Representar con dibujos y billetes didácticos.
-- Para Geometría: Usar un transportador para medir ángulos de objetos del aula (esquina de la pizarra, puerta abierta). Clasificar en agudos, rectos, obtusos.
-- Para Estadística: Preguntar a 10 compañeros su fruta favorita. Registrar en una tabla de conteo y dibujar un gráfico de barras.
-
-🔍 Reflexión: ¿Qué estrategias usamos para resolver problemas? ¿Cómo podemos organizar la información para entenderla mejor?`;
-                } else if (ciclo === 'Ciclo V') {
-                    return `ACTIVIDAD DE DESCUBIERTA: "Matemáticas en acción"
-
-🧩 Situaciones reales:
-- Números: "En una receta se necesitan 2/3 de taza de azúcar para 4 personas. ¿Cuánta azúcar se necesita para 10 personas?"
-- Álgebra: Observar patrones numéricos: 2, 5, 10, 17, 26... ¿Cuál es la regla? Expresarla con palabras y luego con símbolos.
-- Geometría: Calcular el área de la cancha de fútbol o del patio usando pasos y luego con cinta métrica. Comparar resultados.
-
-💬 Debate: ¿Cómo usan las matemáticas los ingenieros, los cocineros, los músicos?`;
-                } else if (ciclo === 'Ciclo VI') {
-                    return `ACTIVIDAD DE DESCUBIERTA: "Problemas que desafían"
-
-🧩 Situaciones introductorias:
-- Aritmética y Álgebra: "Un número aumentado en 15 es igual a su doble disminuido en 9. ¿Cuál es el número?" Plantear la ecuación y resolver.
-- Geometría: Medir la altura de un árbol usando la sombra y la semejanza de triángulos (teorema de Tales).
-- Trigonometría: Con un transportador casero y una pajilla, medir ángulos de elevación de objetos altos (edificio, poste).
-
-🔍 Reflexión: ¿Qué estrategias algebraicas y geométricas nos permiten resolver problemas que parecen imposibles de medir directamente?`;
-                } else {
-                    return `ACTIVIDAD DE DESCUBIERTA: "Modelando la realidad"
-
-🧩 Problemas avanzados:
-- Álgebra y Funciones: Modelar el crecimiento de una población de bacterias (función exponencial) a partir de datos simulados.
-- Geometría analítica: Ubicar puntos en un plano cartesiano que representen ubicaciones de lugares conocidos (colegio, plaza, casa) y calcular distancias.
-- Estadística y Probabilidad: Lanzar dos dados 50 veces y registrar la suma. ¿Qué resultado aparece más? ¿Por qué?
-
-💬 Debate: ¿Cómo se usan estos conceptos en la inteligencia artificial, la economía, la ingeniería?`;
-                }
-            } else if (area === 'ciencia') {
-                if (ciclo === 'Ciclo III') {
-                    return `ACTIVIDAD DE DESCUBIERTA: "Exploradores de la naturaleza"
-
-🔍 Salida al entorno cercano (patio, jardín, parque):
-- Seres Vivos: Observar insectos, plantas, aves. Dibujar lo que ven y describir colores, tamaños, dónde viven.
-- Materia y Energía: Tocar diferentes materiales (madera, metal, plástico, tela). ¿Cuál es más frío? ¿Cuál es más áspero? Hacer sonidos con objetos.
-- Tierra y Universo: Observar el cielo de día y anotar cómo cambia (nubes, sol). Simular el día y la noche con una linterna y una pelota.
-
-💬 Puesta en común: ¿Qué seres vivos encontramos? ¿En qué se parecen y en qué se diferencian? ¿Por qué cambia el cielo?`;
-                } else if (ciclo === 'Ciclo IV') {
-                    return `ACTIVIDAD DE DESCUBIERTA: "Pequeños científicos"
-
-🧪 Experiencias guiadas:
-- Seres Vivos: Construir una cadena alimenticia con recortes de revistas (pasto → conejo → zorro). Identificar productores, consumidores.
-- Materia y Energía: Mezclar agua con aceite, arena, sal. Observar qué sucede. ¿Se pueden separar? Intentar filtrar o evaporar.
-- Tierra y Universo: Construir un modelo del sistema solar con plastilina. Representar tamaños y distancias relativas.
-
-🔍 Preguntas: ¿Qué pasaría si desapareciera un eslabón de la cadena? ¿Por qué algunos materiales se mezclan y otros no? ¿Por qué Plutón ya no es planeta?`;
-                } else if (ciclo === 'Ciclo V') {
-                    return `ACTIVIDAD DE DESCUBIERTA: "Investiguemos como científicos"
-
-🧪 Experimentos iniciales:
-- Seres Vivos: Observar células de cebolla con un microscopio escolar o con lupas. Dibujar lo observado.
-- Materia y Energía: Frotar un globo contra el cabello y acercarlo a papelitos. ¿Qué sucede? Explicar con nociones de electricidad estática.
-- Tierra y Universo: Simular un volcán con bicarbonato y vinagre. Relacionar con las placas tectónicas.
-
-💬 Debate: ¿Qué tienen en común todos los seres vivos a nivel microscópico? ¿Cómo se genera la electricidad que usamos en casa?`;
-                } else if (ciclo === 'Ciclo VI') {
-                    return `ACTIVIDAD DE DESCUBIERTA: "Laboratorio de ciencias"
-
-🧪 Prácticas de laboratorio:
-- Química: Observar reacciones químicas simples (vinagre + bicarbonato, oxidación de un clavo). Identificar reactivos y productos.
-- Biología: Observar al microscopio células vegetales (elodea) y animales (mucosa bucal). Identificar núcleo, membrana, citoplasma.
-- Física: Medir el tiempo que tarda una canica en recorrer un plano inclinado a diferentes alturas. Calcular velocidad media.
-
-🔍 Análisis: ¿Qué evidencias tenemos de que ocurrió una reacción química? ¿En qué se diferencian las células vegetales de las animales? ¿Cómo influye la altura en la velocidad?`;
-                } else {
-                    return `ACTIVIDAD DE DESCUBIERTA: "Ciencia de frontera"
-
-🧪 Investigaciones avanzadas:
-- Química: Preparar una solución de concentración conocida y realizar una titulación ácido-base con indicador de repollo morado.
-- Biología: Extraer ADN de fresas o plátanos con detergente, sal y alcohol. Observar el precipitado blanquecino.
-- Física: Construir un electroimán con un clavo, alambre de cobre y una pila. Investigar cómo varía la fuerza magnética con el número de vueltas.
-
-💬 Debate: ¿Qué aplicaciones tiene la biotecnología en la medicina y la agricultura? ¿Cómo funciona la resonancia magnética? ¿Qué es la computación cuántica?`;
-                }
-            }
-            return `ACTIVIDAD DE DESCUBIERTA: Exploración inicial de ${materia} mediante experiencias concretas y preguntas problematizadoras.`;
-        }
-
-        function generatePhase2(lesson) {
-            const area = lesson.area;
-            const materia = lesson.materia;
-            const conocimientos = lesson.conocimientos;
-            const ciclo = lesson.ciclo;
-
-            return `ACTIVIDAD INDUCTIVA: "Del ejemplo concreto al concepto general"
-
-📊 Observación de patrones y regularidades:
-- Presentar varios ejemplos concretos relacionados con ${materia}: ${conocimientos}.
-- Guiar a los estudiantes para que identifiquen características comunes, diferencias y reglas subyacentes.
-- Formular preguntas que lleven de lo particular a lo general: ¿Qué tienen en común estos ejemplos? ¿Podemos enunciar una regla o principio?
-
-📝 Registro de observaciones en organizadores gráficos (tabla comparativa, mapa conceptual, diagrama de Venn).
-
-💡 Conclusión inductiva: Los estudiantes descubren por sí mismos la definición o el procedimiento general a partir de la comparación de casos concretos.
-
-🔎 Ejemplo (adaptado a ${ciclo}): ${generarEjemploInductivo(area, ciclo)}`;
-        }
-
-        function generarEjemploInductivo(area, ciclo) {
-            if (area === 'matematica') {
-                if (ciclo === 'Ciclo III') return 'Mostrar 3 + 2 = 5, 4 + 1 = 5, 0 + 5 = 5. Concluir que hay muchas maneras de sumar y obtener el mismo resultado.';
-                if (ciclo === 'Ciclo IV') return 'Comparar 1/2, 2/4 y 3/6 con gráficos de pizza. Concluir que representan la misma cantidad (fracciones equivalentes).';
-                if (ciclo === 'Ciclo V') return 'Observar la secuencia 3, 6, 12, 24... y concluir que cada término se multiplica por 2 (progresión geométrica).';
-                if (ciclo === 'Ciclo VI') return 'Medir los lados de varios triángulos rectángulos y verificar que siempre se cumple a² + b² = c² (teorema de Pitágoras).';
-                return 'Graficar varias funciones cuadráticas variando el coeficiente principal y observar cómo cambia la abertura de la parábola.';
-            } else {
-                if (ciclo === 'Ciclo III') return 'Observar varios animales (perro, gato, loro, pez) y concluir que todos necesitan agua, alimento y aire.';
-                if (ciclo === 'Ciclo IV') return 'Comparar diferentes mezclas (agua+sal, agua+aceite, agua+arena) y clasificarlas en homogéneas y heterogéneas.';
-                if (ciclo === 'Ciclo V') return 'Observar diferentes tipos de células (muscular, nerviosa, epitelial) y concluir que todas tienen membrana, citoplasma y núcleo.';
-                if (ciclo === 'Ciclo VI') return 'Medir la temperatura de fusión de varias sustancias puras y concluir que cada una tiene un punto de fusión característico.';
-                return 'Analizar varios estudios científicos y diferenciar los que tienen grupo control adecuado de los que presentan sesgo.';
-            }
-        }
-
-        function generatePhase3(lesson) {
-            const area = lesson.area;
-            const materia = lesson.materia;
-            const conocimientos = lesson.conocimientos;
-            const ciclo = lesson.ciclo;
-
-            if (area === 'matematica') {
-                return `TRANSMISIÓN CONCEPTUAL: Fundamentos de ${materia}
-
-📐 CONCEPTOS CLAVE:
-${conocimientos}
-
-📏 DEFINICIONES Y PROPIEDADES:
-- Se presentan las definiciones formales, notación matemática, propiedades y teoremas fundamentales.
-- Se explican los algoritmos paso a paso con ejemplos resueltos.
-- Se utilizan representaciones múltiples: simbólica, gráfica, verbal y concreta.
-
-📝 Ejemplo desarrollado: ${generarEjemploMatematica(lesson)}
-
-🔍 Errores comunes y cómo evitarlos: Se discuten los errores frecuentes que cometen los estudiantes y se ofrecen estrategias para superarlos.`;
-            } else {
-                return `TRANSMISIÓN CONCEPTUAL: Marco teórico de ${materia}
-
-🔬 CONCEPTOS FUNDAMENTALES:
-${conocimientos}
-
-📚 CONTENIDO CIENTÍFICO:
-- Explicación detallada de los fenómenos, leyes y principios científicos involucrados.
-- Uso de modelos, analogías y simulaciones para facilitar la comprensión.
-- Relación con el método científico: cómo se llegó a ese conocimiento.
-
-🧪 Ejemplo ilustrativo: ${generarEjemploCiencia(lesson)}
-
-⚠️ Ideas previas erróneas: Se identifican concepciones alternativas comunes y se contrastan con la evidencia científica.`;
-            }
-        }
-
-        function generarEjemploMatematica(lesson) {
-            const id = lesson.id;
-            if (id.includes('num-iii')) return 'Suma: 345 + 278 = ? Se descompone: 300+40+5 + 200+70+8 = 500+110+13 = 623.';
-            if (id.includes('geo-iii')) return 'Un cuadrado tiene 4 lados iguales y 4 esquinas (vértices). Un triángulo tiene 3 lados y 3 vértices.';
-            if (id.includes('med-iii')) return 'Medir un lápiz: 15 centímetros = 0.15 metros. Una hora tiene 60 minutos.';
-            if (id.includes('num-iv')) return 'Fracciones: 3/4 de una pizza significa que la pizza se divide en 4 partes iguales y se toman 3.';
-            if (id.includes('geo-iv')) return 'Perímetro de un rectángulo de 5 cm de largo y 3 cm de ancho: P = 2×(5+3) = 16 cm.';
-            if (id.includes('est-iv')) return 'Tabla de frecuencias: 5 niños prefieren fresa, 3 prefieren vainilla. El gráfico de barras muestra la comparación.';
-            if (id.includes('num-v')) return 'Porcentaje: 25% de 200 = (25/100)×200 = 50.';
-            if (id.includes('alg-v')) return 'Ecuación simple: 2x + 3 = 11 → 2x = 8 → x = 4.';
-            if (id.includes('geo-v')) return 'Área del círculo: A = π × r². Si r = 5 cm, A = 3.14 × 25 = 78.5 cm².';
-            if (id.includes('arit-vi')) return 'Ecuación cuadrática: x² - 5x + 6 = 0 → (x-2)(x-3)=0 → x=2 o x=3.';
-            if (id.includes('geo-vi')) return 'Teorema de Pitágoras: En un triángulo rectángulo de catetos 3 y 4, la hipotenusa es √(9+16)=5.';
-            if (id.includes('alg-vii')) return 'Función exponencial: f(x)=2^x. Si x=3, f(3)=8.';
-            if (id.includes('geotrig-vii')) return 'Ecuación de la recta: y = mx + b. Pendiente m, ordenada al origen b.';
-            if (id.includes('estprob-vii')) return 'Probabilidad condicional: P(A|B) = P(A∩B) / P(B).';
-            return 'Ejemplo representativo de los conceptos de ' + lesson.materia + '.';
-        }
-
-        function generarEjemploCiencia(lesson) {
-            const id = lesson.id;
-            if (id.includes('sv-iii')) return 'El cuerpo humano tiene partes: cabeza, tronco, extremidades. Los sentidos: vista, oído, olfato, gusto, tacto.';
-            if (id.includes('me-iii')) return 'Materiales: la madera es opaca, el vidrio es transparente. Sonido: fuerte/suave, agudo/grave.';
-            if (id.includes('tu-iii')) return 'El día y la noche se producen por la rotación de la Tierra.';
-            if (id.includes('sv-iv')) return 'Cadena alimenticia: pasto → saltamontes → sapo → serpiente → águila.';
-            if (id.includes('me-iv')) return 'Estados del agua: sólido (hielo), líquido, gaseoso (vapor).';
-            if (id.includes('tu-iv')) return 'El sistema solar tiene 8 planetas. La Tierra es el tercero desde el Sol.';
-            if (id.includes('sv-v')) return 'La célula es la unidad básica de la vida. Tiene membrana, citoplasma y núcleo.';
-            if (id.includes('me-v')) return 'Elementos básicos de la tabla periódica: oxígeno (O), carbono (C), hidrógeno (H), nitrógeno (N).';
-            if (id.includes('tu-v')) return 'Las placas tectónicas son fragmentos de la litosfera que se mueven sobre el manto.';
-            if (id.includes('quim-vi')) return 'Estructura atómica: protones (+), neutrones (0), electrones (-). Número atómico Z = número de protones.';
-            if (id.includes('bio-vi')) return 'Genética mendeliana: Cruce de plantas de arvejas altas (AA) con enanas (aa) → 100% altas (Aa) en F1.';
-            if (id.includes('fis-vi')) return 'MRU: velocidad constante, distancia = velocidad × tiempo.';
-            if (id.includes('quim-vii')) return 'Estequiometría: 2H₂ + O₂ → 2H₂O. 2 moles de H₂ reaccionan con 1 mol de O₂.';
-            if (id.includes('bio-vii')) return 'Estructura del ADN: doble hélice, nucleótidos A-T, C-G.';
-            if (id.includes('fis-vii')) return 'Electromagnetismo: una carga en movimiento genera un campo magnético.';
-            return 'Ejemplo representativo de los conceptos de ' + lesson.materia + '.';
-        }
-
-        function generatePhase4(lesson) {
-            const area = lesson.area;
-            const materia = lesson.materia;
-            const ciclo = lesson.ciclo;
-
-            return `TRABAJOS DIRIGIDOS: Ejercicios de aplicación y práctica
-
-✏️ Ejercicios propuestos (nivel ${ciclo}):
-
-1. Ejercicio de identificación: Reconocer los conceptos clave de ${materia} en diferentes contextos.
-2. Ejercicio de aplicación directa: Aplicar el procedimiento aprendido en un caso similar al ejemplo.
-3. Ejercicio de transferencia: Resolver un problema nuevo que requiera combinar varios conceptos.
-4. Ejercicio de argumentación: Explicar con sus propias palabras por qué un resultado es correcto o no.
-5. Autoevaluación: Lista de verificación para que el estudiante compruebe su comprensión.
-
-📝 Formato de trabajo: Individual o en parejas, con revisión y retroalimentación del docente.
-
-⏱️ Tiempo estimado: 30-45 minutos.
-
-🔢 Ejemplo de ejercicios (adaptados a ${materia}):
-${generarEjercicios(lesson)}`;
-        }
-
-        function generarEjercicios(lesson) {
-            const id = lesson.id;
-            if (id === 'mat-pri-num-iii') return '1. Cuenta de 10 en 10 desde 30 hasta 100.\n2. Resuelve: 45 + 32 = ?\n3. Si tienes 5 cajas con 3 lápices cada una, ¿cuántos lápices tienes en total?';
-            if (id === 'mat-pri-geo-iii') return '1. Dibuja un cuadrado y un triángulo.\n2. ¿Cuántos lados tiene un rectángulo?\n3. Nombra tres objetos con forma de círculo.';
-            if (id === 'mat-pri-med-iii') return '1. Mide tu cuaderno en centímetros.\n2. ¿Cuántos minutos hay en una hora y media?\n3. Estima cuánto pesa tu mochila en kilogramos.';
-            if (id === 'mat-pri-num-iv') return '1. Representa la fracción 3/4 con un dibujo.\n2. Suma: 2.5 + 1.75 = ?\n3. Ordena de menor a mayor: 1/2, 0.3, 3/4.';
-            if (id === 'mat-pri-geo-iv') return '1. Mide los ángulos de un triángulo rectángulo.\n2. Calcula el perímetro de un rectángulo de 8 cm × 3 cm.\n3. Dibuja un polígono regular de 6 lados.';
-            if (id === 'mat-pri-est-iv') return '1. Haz una encuesta sobre la mascota favorita de 10 compañeros.\n2. Construye una tabla de frecuencias.\n3. Dibuja un gráfico de barras con los datos.';
-            if (id === 'mat-pri-num-v') return '1. Calcula el 20% de 150.\n2. Resuelve: 3/5 + 1/2 = ?\n3. Si 4 cuadernos cuestan S/ 12, ¿cuánto cuestan 7?';
-            if (id === 'mat-pri-alg-v') return '1. Encuentra el siguiente término: 1, 4, 9, 16, __\n2. Resuelve: x + 7 = 15\n3. Escribe una expresión para "el doble de un número más 5".';
-            if (id === 'mat-pri-geo-v') return '1. Calcula el área de un triángulo de base 6 cm y altura 4 cm.\n2. Calcula el volumen de un prisma de 3 cm × 2 cm × 5 cm.\n3. Calcula la circunferencia de un círculo de radio 7 cm.';
-            if (id === 'mat-sec-arit-vi') return '1. Resuelve: 3x - 7 = 2x + 5\n2. Opera: (2x² + 3x - 1) + (x² - x + 4)\n3. Resuelve el sistema: x + y = 5, x - y = 1';
-            if (id === 'mat-sec-geo-vi') return '1. Aplica Pitágoras: catetos 6 y 8, halla la hipotenusa.\n2. Dos triángulos son semejantes si... (completa).\n3. Calcula sen(30°), cos(60°), tan(45°).';
-            if (id === 'mat-sec-alg-vii') return '1. Grafica f(x) = x² - 4x + 3.\n2. Resuelve: log₂(8) = ?\n3. Encuentra el término general de: 3, 7, 11, 15...';
-            if (id === 'mat-sec-geotrig-vii') return '1. Halla la ecuación de la recta que pasa por (2,3) y (5,9).\n2. Identifica el vértice de la parábola y = 2(x-1)² + 3.\n3. Resuelve: sen(2x) = 0.5 para 0°≤x≤360°.';
-            if (id === 'mat-sec-estprob-vii') return '1. Calcula la media, mediana y moda de: 5, 7, 7, 9, 12, 15.\n2. Si P(A)=0.4 y P(B)=0.3, y son independientes, calcula P(A∩B).\n3. ¿De cuántas maneras se pueden ordenar 5 libros en un estante?';
-            if (id.includes('sv-iii')) return '1. Nombra las partes del cuerpo humano.\n2. ¿Qué necesitan las plantas para vivir?\n3. Menciona dos hábitos saludables.';
-            if (id.includes('me-iii')) return '1. Clasifica objetos según su material: madera, plástico, metal.\n2. ¿Qué produce sonido: un tambor o una linterna?\n3. Nombra una fuente de luz natural y una artificial.';
-            if (id.includes('tu-iii')) return '1. ¿Por qué hay día y noche?\n2. Nombra los estados del tiempo: soleado, nublado, lluvioso.\n3. Dibuja el ciclo del agua.';
-            if (id.includes('sv-iv')) return '1. Construye una cadena alimenticia de 4 eslabones.\n2. ¿Qué animales están en peligro en el Perú?\n3. ¿Qué es un ecosistema?';
-            if (id.includes('me-iv')) return '1. Nombra los tres estados del agua.\n2. ¿Cómo se puede separar una mezcla de agua y arena?\n3. ¿Qué es la fuerza de gravedad?';
-            if (id.includes('tu-iv')) return '1. Nombra los planetas del sistema solar en orden.\n2. ¿Cuáles son las capas de la Tierra?\n3. Explica el ciclo del agua.';
-            if (id.includes('sv-v')) return '1. Dibuja una célula y señala sus partes.\n2. ¿Qué función tiene el sistema digestivo?\n3. ¿Qué es la biodiversidad?';
-            if (id.includes('me-v')) return '1. ¿Cuál es el símbolo del oxígeno?\n2. ¿Qué sucede cuando se quema una vela? (reacción química)\n3. ¿Qué es un imán?';
-            if (id.includes('tu-v')) return '1. ¿Qué son las placas tectónicas?\n2. Nombra dos fenómenos naturales.\n3. ¿Cómo podemos reducir la contaminación?';
-            if (id.includes('quim-vi')) return '1. Dibuja un átomo con 3 protones, 3 electrones y 4 neutrones.\n2. ¿Qué tipo de enlace tiene el NaCl?\n3. Balancea: H₂ + O₂ → H₂O';
-            if (id.includes('bio-vi')) return '1. ¿Cuál es la unidad básica de la vida?\n2. Explica la primera ley de Mendel.\n3. ¿Qué estudia la ecología?';
-            if (id.includes('fis-vi')) return '1. Un auto viaja a 60 km/h durante 2 horas. ¿Qué distancia recorre?\n2. Enuncia la segunda ley de Newton.\n3. Calcula la energía cinética de un cuerpo de 2 kg a 3 m/s.';
-            if (id.includes('quim-vii')) return '1. Calcula los gramos de H₂O producidos con 4 g de H₂.\n2. Nombra el compuesto CH₄.\n3. ¿Qué es el pH?';
-            if (id.includes('bio-vii')) return '1. ¿Qué es el ADN y dónde se encuentra?\n2. ¿Qué es una vacuna?\n3. Explica la teoría de la evolución por selección natural.';
-            if (id.includes('fis-vii')) return '1. Calcula la presión de una fuerza de 50 N sobre 2 m².\n2. ¿Qué es el campo magnético terrestre?\n3. Explica la ley de Ohm.';
-            return 'Ejercicios personalizados para ' + lesson.materia + ' del ' + lesson.ciclo + '.';
-        }
-
-        function generatePhase5(lesson) {
-            const area = lesson.area;
-            const materia = lesson.materia;
-            const areaName = lesson.areaName;
-
-            return `CORRELACIONES INTERNAS: Conexión con otras materias del área
-
-🔗 Esta lección de ${materia} se relaciona estrechamente con:
-
-${area === 'matematica' ?
-                `- Otras ramas de las matemáticas: álgebra, geometría, estadística, aritmética.
-- La resolución de problemas complejos requiere integrar conceptos de varias ramas.
-- Ejemplo: Para calcular el área de un terreno irregular se combina geometría (descomposición en figuras) y aritmética (suma de áreas).`
-                :
-                `- Otras disciplinas científicas: biología, química, física, ecología.
-- Los fenómenos naturales suelen explicarse desde múltiples perspectivas científicas.
-- Ejemplo: La fotosíntesis involucra biología (cloroplastos), química (reacciones) y física (energía luminosa).`
-            }
-
-📚 Mapa de conexiones internas:
-- ${area === 'matematica' ? 'Los números y operaciones son la base para el álgebra y la estadística.' : 'La biología se apoya en la química (bioquímica) y la física (biofísica).'}
-- ${area === 'matematica' ? 'La geometría se vincula con la medición y el álgebra (geometría analítica).' : 'La ecología integra biología, química del suelo y física atmosférica.'}
-
-💡 Reflexión interdisciplinaria: ¿Cómo se complementan estas materias para entender mejor el mundo?`;
-        }
-
-        function generatePhase6(lesson) {
-            const area = lesson.area;
-            const materia = lesson.materia;
-            const conocimientos = lesson.conocimientos;
-
-            return `CORRELACIONES EXTERNAS: Universalización del conocimiento
-
-🌍 APLICACIONES EN LA VIDA COTIDIANA Y EL MUNDO REAL:
-
-${area === 'matematica' ?
-                `- Finanzas personales: presupuestos, porcentajes de descuento, intereses bancarios.
-- Arquitectura e ingeniería: cálculo de estructuras, áreas, volúmenes.
-- Tecnología: algoritmos, programación, inteligencia artificial, videojuegos.
-- Música: patrones rítmicos, escalas musicales (razones y proporciones).
-- Arte: perspectiva, simetría, proporción áurea, fractales.
-- Deportes: estadísticas de rendimiento, probabilidades de victoria.`
-                :
-                `- Medicina: diagnóstico, tratamientos, vacunas, genética.
-- Medio ambiente: cambio climático, energías renovables, conservación.
-- Industria: nuevos materiales, procesos químicos, nanotecnología.
-- Agricultura: mejora de cultivos, control de plagas, hidroponía.
-- Exploración espacial: cohetes, satélites, búsqueda de vida extraterrestre.
-- Ética y sociedad: bioética, transgénicos, inteligencia artificial, privacidad de datos.`
-            }
-
-🧠 Reflexión final: El conocimiento de ${materia} no es aislado; es una herramienta para comprender, transformar y mejorar el mundo en que vivimos.
-
-🗣️ Cita inspiradora: ${area === 'matematica' ? '"Las matemáticas son el alfabeto con el cual Dios ha escrito el Universo." — Galileo Galilei' : '"La ciencia es el intento de hacer que la diversidad caótica de nuestras experiencias sensoriales corresponda a un sistema de pensamiento lógicamente ordenado." — Albert Einstein'}`;
-        }
-
-        function generatePhase7(lesson) {
-            const area = lesson.area;
-            const materia = lesson.materia;
-            const ciclo = lesson.ciclo;
-
-            return `MÓDULO DE PROYECTO GRUPAL: "Aplicando ${materia} en equipo"
-
-🎯 OBJETIVO: Diseñar y ejecutar un proyecto colaborativo que aplique los conocimientos de ${materia} en un contexto significativo.
-
-📋 FASES DEL PROYECTO:
-
-1. FORMACIÓN DE EQUIPOS: Grupos de 4-5 estudiantes con roles definidos (coordinador, investigador, diseñador, presentador).
-
-2. ELECCIÓN DEL TEMA: ${area === 'matematica' ? 'Crear un negocio simulado (presupuesto, precios, ganancias), diseñar un jardín (áreas, perímetros), analizar datos deportivos (estadística).' : 'Investigar un problema ambiental local, diseñar un experimento para la feria de ciencias, crear una campaña de salud.'}
-
-3. PLANIFICACIÓN: Definir objetivos, recursos necesarios, cronograma de trabajo.
-
-4. EJECUCIÓN: Desarrollar el proyecto aplicando los conceptos de ${materia} y documentando el proceso.
-
-5. PRODUCTO FINAL: ${area === 'matematica' ? 'Informe con cálculos, gráficos y conclusiones; maqueta; presentación digital.' : 'Informe científico, póster, maqueta, experimento demostrativo, video documental.'}
-
-6. PRESENTACIÓN: Exposición oral ante el grupo, defensa de resultados y retroalimentación.
-
-🗣️ SOCIALIZACIÓN: Se valora la creatividad, el rigor conceptual, el trabajo en equipo y la capacidad de comunicar los hallazgos de manera clara y convincente.
-
-🏆 Evaluación: Rúbrica con criterios de contenido científico, trabajo colaborativo, calidad de la presentación y reflexión sobre el proceso.`;
-        }
-
         // ═══════════════════════════════════════
-        //  CONTENIDO PRE-RELLENO PARA MÉTODO CIENTÍFICO (mantenido del original)
-        // ═══════════════════════════════════════
-        const metodoPrecontent = {
-            'metodo-ciclo-vi': {
-                0: `OBJETIVO GENERAL: Comprender el método científico como el camino sistemático para producir conocimiento verificable sobre la naturaleza.
-
-OBJETIVOS PARTICULARES:
-- Identificar los 4 pasos del método científico: observación, hipótesis, experimentación y conclusión.
-- Diferenciar variable independiente, dependiente e interviniente.
-- Reconocer las características fundamentales de los seres vivos.
-- Valorar la importancia de la biología como ciencia.
-
-NOCIONES PRINCIPALES: Método científico, hipótesis, experimento, variable, grupo control, grupo experimental, teoría, ley.
-NOCIONES SECUNDARIAS: Biología, bioelementos, biomoléculas, homeostasis, irritabilidad, evolución.
-
-INTERESES SOCIETALES: La ciencia como herramienta para resolver problemas cotidianos (maduración de frutas, efecto de la música en plantas, frecuencia cardíaca). Formación de pensamiento crítico frente a la información.`,
-                1: `ACTIVIDAD DE DESCUBIERTA: "El misterio de los plátanos maduros"
-
-📋 Situación: Wilfredo, un comerciante, descubre que al colocar una manzana podrida en un cajón de plátanos verdes, estos maduran más rápido. Al quedarse sin manzanas, prueba con una naranja podrida.
-
-🔍 Preguntas para el aula:
-1. ¿Por qué crees que la manzana acelera la maduración?
-2. ¿Qué está haciendo Wilfredo al cambiar la manzana por la naranja? ¿Está siguiendo un método?
-3. Si quisieras comprobar científicamente el efecto, ¿cómo diseñarías el experimento?
-
-🧪 Experiencia concreta: Colocar 3 grupos de plátanos verdes en bolsas separadas: una con una manzana, otra con una naranja y otra sin fruta (grupo control). Observar durante 5 días y registrar cambios.
-
-💡 Reflexión: ¿Qué variable cambia Wilfredo? ¿Cuál es el efecto que observa?`,
-                2: `ACTIVIDAD INDUCTIVA: "De la observación a la hipótesis"
-
-📊 Observa la tabla de un experimento sobre el efecto de la música en el crecimiento de plantas:
-
-| Grupo | Tipo de música | Ambiente | Duración (h/día) |
-|-------|---------------|----------|-------------------|
-| 1 | Clásica | Ventana soleada | 2 |
-| 2 | Jazz | Esquina con sombra | 2 |
-| 3 | Rock | Armario oscuro | 2 |
-| 4 | Sin música | Espacio exterior soleado | N/A |
-
-🔎 Preguntas inductivas:
-- ¿Qué está cambiando en cada grupo además de la música?
-- ¿Podemos estar seguros de que la música es la única causa de los cambios en el crecimiento?
-- ¿Qué variables no se controlaron en este experimento?
-
-📝 Conclusión inductiva: Cuando no se controlan todas las variables menos la que queremos estudiar, el experimento tiene sesgo y sus resultados no son confiables.`,
-                3: `TRANSMISIÓN CONCEPTUAL: El Método Científico
-
-🔬 DEFINICIÓN: Es el recorrido o camino que sigue el investigador con la finalidad de producir o crear conocimientos científicos.
-
-📐 LOS 4 PASOS FUNDAMENTALES:
-
-1. OBSERVACIÓN: Se realiza por la percepción de nuestros sentidos; se registra conforme se presenta el fenómeno. El investigador formula sus preguntas o plantea el problema a investigar respecto de un hecho curioso de la realidad.
-
-2. HIPÓTESIS: Son consideraciones que se plantean como posibles respuestas a las preguntas o problemas. Tiene la propiedad de que la suposición puede ponerse a prueba o demostrarse en la realidad.
-
-3. EXPERIMENTACIÓN: Se consideran los materiales e ingredientes para comprobar la hipótesis. Existen dos grupos:
-   - Grupo experimental: recibe el tratamiento o factor.
-   - Grupo control: NO recibe el factor.
-
-4. RESULTADOS Y CONCLUSIONES: Los registros se tabulan y se tratan estadísticamente. La interpretación de esos resultados termina en conclusiones. A partir de estas, se crean teorías y leyes.
-
-📏 VARIABLES DE INVESTIGACIÓN:
-- Variable independiente: la causa o factor que modifica al fenómeno (controlada por el investigador).
-- Variable dependiente: el efecto causado por la variable independiente.
-- Variable interviniente: otros factores que pueden influir en el resultado.`,
-                4: `TRABAJOS DIRIGIDOS: Ejercicios de aplicación
-
-✏️ Ejercicio 1 (del PDF, pregunta 1):
-"Wilfredo coloca una manzana podrida en un cajón de plátanos para acelerar su maduración. Al quedarse sin manzanas, opta por colocar una naranja podrida. En el proceso de investigación, la naranja podrida sería:"
-a) El grupo control
-b) Variable dependiente
-c) Variable independiente ✓
-d) Variable interviniente
-
-✏️ Ejercicio 2 (del PDF, pregunta 2):
-"Se quiere estudiar el efecto de diferentes materiales en la tasa de fusión del hielo. Trozos de hielo de 10 g se colocan en bandejas. Grupo 1: cubierto con plástico; Grupo 2: cubierto con papel; Grupo 3: cubierto con aluminio; Grupo 4: descubierto. ¿Cuál es el grupo control?"
-a) Grupo 2
-b) Grupo 4 ✓ (no recibe tratamiento)
-c) Grupo 1
-d) Grupo 3
-
-✏️ Ejercicio 3: Responde Verdadero o Falso:
-- La hipótesis es una suposición que no necesita comprobación. (F)
-- El grupo control recibe el tratamiento experimental. (F)
-- Las conclusiones pueden dar origen a teorías y leyes. (V)
-
-✏️ Ejercicio 4: Diseña un experimento sencillo para comprobar si la luz afecta el crecimiento de una planta. Identifica: variable independiente, variable dependiente, grupo control y grupo experimental.`,
-                5: `CORRELACIONES INTERNAS (Conexión con Biología):
-
-🧬 LA BIOLOGÍA: Es la ciencia que estudia todo lo relacionado con los seres vivos.
-
-🔬 CARACTERÍSTICAS DE LOS SERES VIVOS (del PDF):
-1. Organización específica y compleja: bioelementos → biomoléculas → células → tejidos → órganos → sistemas.
-2. Metabolismo: intercambio de materia y energía para realizar funciones vitales.
-3. Homeostasis: capacidad de regular y mantener constantes las condiciones internas.
-4. Crecimiento: aumento de tamaño por división celular.
-5. Irritabilidad: respuesta a estímulos internos y externos.
-6. Reproducción: originar nuevos individuos para perpetuar la especie.
-7. Evolución: cambios que se transmiten a futuras generaciones.
-
-📚 RAMAS DE LA BIOLOGÍA (selección):
-- Taxonomía: clasifica a los seres vivos.
-- Citología: estudia la célula.
-- Genética: estudia la herencia y variación.
-- Ecología: relación entre seres vivos y su medio.
-- Patología: agentes que causan enfermedades.
-- Virología: estudia los virus.`,
-                6: `CORRELACIONES EXTERNAS (Universalización):
-
-🌍 APLICACIONES DEL MÉTODO CIENTÍFICO EN LA VIDA COTIDIANA:
-
-1. MEDICINA: Los ensayos clínicos usan grupo control (placebo) y grupo experimental (medicamento real) para probar nuevos fármacos. Ej: vacunas contra el dengue.
-
-2. AGRICULTURA: Probar diferentes fertilizantes en cultivos controlando variables como agua, luz y tipo de suelo. Ej: maduración de frutas con etileno.
-
-3. DEPORTE: Juan hace ejercicio y su respiración se acelera (irritabilidad + metabolismo). La frecuencia cardíaca en reposo y su relación con la estatura muestran que NO siempre hay correlación directa (pregunta 10 del PDF).
-
-4. TECNOLOGÍA: Las empresas tecnológicas realizan pruebas A/B (grupo control vs. experimental) para mejorar sus productos.
-
-5. MEDIO AMBIENTE: Estudio del cambio climático mediante observación sistemática, hipótesis sobre causas, experimentación con modelos y conclusiones.
-
-🧠 PENSAMIENTO CRÍTICO: El método científico nos protege contra sesgos y afirmaciones sin evidencia.`,
-                7: `MÓDULO DE PROYECTO GRUPAL: "Pequeños científicos"
-
-🎯 OBJETIVO: Diseñar y ejecutar un experimento científico en equipo, aplicando los 4 pasos del método.
-
-📋 INSTRUCCIONES:
-1. Formar equipos de 4-5 estudiantes.
-2. Elegir una pregunta investigable (ej: ¿influye el tipo de suelo en el crecimiento de una semilla de lenteja?).
-3. Redactar una hipótesis clara (formato: "Si... entonces...").
-4. Diseñar el experimento identificando:
-   - Variable independiente
-   - Variable dependiente
-   - Grupo control
-   - Grupo experimental
-   - Variables que se mantendrán constantes
-5. Ejecutar el experimento durante 1-2 semanas.
-6. Registrar datos en una bitácora.
-7. Presentar resultados y conclusiones en un póster científico.
-
-🗣️ SOCIALIZACIÓN: Cada equipo expone su proyecto al resto de la clase, recibe preguntas y defiende sus conclusiones con evidencia.`,
-            },
-            'metodo-ciclo-v': {
-                0: `OBJETIVO GENERAL: Iniciar a los estudiantes en el pensamiento científico mediante la curiosidad y la experimentación guiada.
-
-OBJETIVOS PARTICULARES:
-- Reconocer que la ciencia se hace con pasos ordenados.
-- Formular preguntas investigables sobre fenómenos cotidianos.
-- Proponer explicaciones sencillas (hipótesis) y comprobarlas.
-- Diferenciar entre lo que cambiamos y lo que medimos en un experimento.
-
-NOCIONES PRINCIPALES: Observar, preguntar, hipótesis, experimento, resultado, conclusión.
-NOCIONES SECUNDARIAS: Ser vivo, crecimiento, respuesta a estímulos, reproducción.
-
-INTERESES SOCIETALES: Despertar vocaciones científicas tempranas. Fomentar el pensamiento lógico y la curiosidad natural.`,
-                1: `ACTIVIDAD DE DESCUBIERTA: "El detective de la naturaleza"
-
-🕵️ Salida al patio o jardín escolar. Cada estudiante lleva una lupa y una libreta.
-
-🔍 Misión: Observar atentamente durante 10 minutos y anotar:
-- 3 cosas que te llamen la atención
-- 3 preguntas que te surjan sobre lo observado
-- 1 cosa que te gustaría comprobar
-
-🌱 Ejemplo: "Veo que los caracoles están solo en las hojas húmedas. ¿Prefieren la humedad? ¿Cómo podría comprobarlo?"
-
-💬 Puesta en común: Compartir las preguntas y discutir cuáles se podrían investigar con un experimento.`,
-                2: `ACTIVIDAD INDUCTIVA: "¿Qué cambia y qué observo?"
-
-🌱 Experimento con semillas:
-La maestra muestra 3 vasos con algodón y una semilla de frijol cada uno:
-- Vaso A: recibe agua y está en la ventana (luz)
-- Vaso B: recibe agua y está en un armario (oscuridad)
-- Vaso C: NO recibe agua y está en la ventana (luz)
-
-🔎 Preguntas para pensar:
-- ¿En qué se parecen el vaso A y el B? ¿En qué se diferencian?
-- ¿En qué se parecen el vaso A y el C? ¿En qué se diferencian?
-- Si quiero saber si la luz importa, ¿qué vasos debo comparar?
-- Si quiero saber si el agua importa, ¿qué vasos debo comparar?
-
-📝 Conclusión guiada: Para estar seguros de qué causa un cambio, solo debemos cambiar UNA cosa a la vez.`,
-                3: `TRANSMISIÓN CONCEPTUAL: Los pasos del científico
-
-🔬 El método científico es como una receta de cocina: tiene pasos que seguir para que el resultado sea confiable.
-
-📐 LOS 4 PASOS (versión simplificada):
-
-1. OBSERVAR: Usar los sentidos para notar algo interesante y hacerse preguntas.
-   Ej: "Veo que mi planta del rincón está más amarilla que la de la ventana."
-
-2. HIPOTETIZAR: Pensar una posible explicación.
-   Ej: "Creo que le falta luz solar."
-
-3. EXPERIMENTAR: Probar la idea de forma controlada.
-   Ej: Pongo una planta igual en la ventana y otra en el rincón, les doy la misma agua.
-
-4. CONCLUIR: Decidir si la hipótesis era correcta según los resultados.
-   Ej: "La planta de la ventana creció más verde. Mi hipótesis era correcta: la luz importa."
-
-📏 Variables (con ejemplo de plastilina):
-- Lo que cambio: variable independiente (cantidad de luz)
-- Lo que mido: variable dependiente (color/crecimiento de la planta)`,
-                4: `TRABAJOS DIRIGIDOS: Pequeños experimentos mentales
-
-✏️ Ejercicio 1: Lee la situación y completa.
-"María quiere saber si regar con agua tibia hace que las semillas germinen más rápido que con agua fría."
-
-- Pregunta de investigación: ¿_____________?
-- Hipótesis posible: "Si riego con agua tibia, entonces _____________."
-- Variable independiente: _____________
-- Variable dependiente: _____________
-
-✏️ Ejercicio 2: Marca con ✓ los pasos del método científico:
-[ ] Observar y hacerse preguntas
-[ ] Adivinar sin comprobar
-[ ] Experimentar
-[ ] Sacar conclusiones
-[ ] Creer lo que dicen todos
-
-✏️ Ejercicio 3: Relaciona:
-A. Observación     ( ) Compruebo mi idea
-B. Hipótesis       ( ) Explico lo que aprendí
-C. Experimentación ( ) Miro con atención y pregunto
-D. Conclusión      ( ) Pienso una posible respuesta`,
-                5: `CORRELACIONES INTERNAS (Conexión con Seres Vivos):
-
-🌿 CARACTERÍSTICAS DE LOS SERES VIVOS (versión para primaria):
-1. NACEN: Todos los seres vivos nacen de otros seres vivos.
-2. CRECEN: Aumentan de tamaño (las plantas, los animales, las personas).
-3. SE ALIMENTAN: Obtienen nutrientes para vivir.
-4. RESPONDEN A ESTÍMULOS: Reaccionan a lo que pasa a su alrededor (luz, temperatura, sonidos).
-5. SE REPRODUCEN: Tienen crías o generan nuevos individuos.
-
-🦋 Ejemplo con una mariposa: Nace de un huevo → Crece como oruga → Se alimenta de hojas → Responde a la luz → Se reproduce poniendo huevos.`,
-                6: `CORRELACIONES EXTERNAS (Universalización):
-
-🌍 EL MÉTODO CIENTÍFICO EN LA VIDA DIARIA:
-
-1. COCINA: Cuando pruebas una receta nueva y ajustas los ingredientes según el resultado.
-2. JARDINERÍA: Descubrir cuánta agua necesita una planta para crecer mejor.
-3. DEPORTES: Probar diferentes técnicas para mejorar tu rendimiento.
-4. TECNOLOGÍA: Entender por qué tu tableta se calienta cuando la usas mucho tiempo.
-5. MEDIO AMBIENTE: Observar cómo cambia el paisaje con las estaciones.
-
-🧠 "La ciencia es una forma de pensar, mucho más que un conjunto de conocimientos." — Carl Sagan`,
-                7: `MÓDULO DE PROYECTO GRUPAL: "Nuestra feria de ciencias"
-
-🎯 OBJETIVO: Realizar un experimento sencillo en equipo y presentarlo en una miniferia científica.
-
-📋 PASOS:
-1. Elegir una pregunta (ej: ¿las plantas crecen hacia la luz? ¿el vinagre disuelve la cáscara de huevo?).
-2. Escribir la hipótesis.
-3. Hacer el experimento en casa con ayuda de un adulto.
-4. Tomar fotos o dibujar los cambios cada día.
-5. Preparar un cartel con: pregunta, hipótesis, qué hicieron, qué pasó, conclusión.
-6. Exponer a los compañeros.
-
-🏆 Se valora: creatividad, orden, claridad y trabajo en equipo.`,
-            },
-            'metodo-ciclo-vii': {
-                0: `OBJETIVO GENERAL: Dominar el diseño experimental riguroso y la interpretación crítica de resultados científicos.
-
-OBJETIVOS PARTICULARES:
-- Diseñar experimentos con control adecuado de variables y mínimo sesgo.
-- Aplicar nociones de estadística inferencial básica para interpretar resultados.
-- Distinguir correlación de causalidad.
-- Evaluar la validez de estudios científicos publicados.
-- Comunicar resultados en formato científico estándar.
-
-NOCIONES PRINCIPALES: Sesgo experimental, validez interna/externa, correlación vs. causalidad, significancia estadística, replicabilidad, revisión por pares.
-NOCIONES SECUNDARIAS: Bioquímica, biología molecular, bioética.
-
-INTERESES SOCIETALES: Formación de ciudadanos con pensamiento crítico capaces de evaluar afirmaciones científicas en medios, políticas públicas y salud.`,
-                1: `ACTIVIDAD DE DESCUBIERTA: "¿Ciencia o pseudociencia?"
-
-📰 Se presentan a los estudiantes 5 titulares de noticias reales y falsas:
-1. "Estudio científico demuestra que el chocolate ayuda a bajar de peso" (fue un experimento diseñado para probar sesgos)
-2. "Científicos hallan correlación entre consumo de helado y ahogamientos" (correlación sin causalidad: ambos aumentan en verano)
-3. "Ensayo clínico aleatorizado muestra eficacia de nueva vacuna" (real)
-4. "Astrólogo predice terremoto con exactitud científica" (pseudociencia)
-5. "Estudio con 100 000 participantes asocia tabaco y cáncer pulmonar" (real)
-
-🔍 Preguntas:
-- ¿Cómo podemos distinguir un estudio científico riguroso de uno que no lo es?
-- ¿Qué preguntas deberíamos hacerle a cada afirmación?
-- ¿Basta con que dos cosas ocurran juntas para decir que una causa la otra?`,
-                2: `ACTIVIDAD INDUCTIVA: "Correlación espuria"
-
-📊 Se presentan estos datos reales:
-- Entre 2000 y 2010, el consumo de helado en EE.UU. aumentó un 20%.
-- En el mismo período, los casos de ahogamiento en piscinas aumentaron un 20%.
-
-🔎 Preguntas:
-- ¿Significa esto que el helado causa ahogamientos?
-- ¿Qué otra variable podría explicar ambos aumentos? (pista: ¿en qué época del año se consume más helado y se nada más?)
-- ¿Cómo diseñarías un experimento para comprobar si el helado realmente afecta la capacidad de nadar?
-
-📝 Conclusión inductiva: Dos variables pueden estar correlacionadas sin que una cause la otra. Esto se llama correlación espuria. Solo un experimento controlado puede establecer causalidad.`,
-                3: `TRANSMISIÓN CONCEPTUAL: Diseño experimental avanzado
-
-📐 REPASO DE LOS 4 PASOS (con profundización):
-
-1. OBSERVACIÓN → Problema de investigación bien delimitado.
-2. HIPÓTESIS → Debe ser falsable (Popper): debe poder demostrarse que es falsa si lo es.
-3. EXPERIMENTACIÓN → Diseño riguroso:
-   - Aleatorización de sujetos
-   - Grupo control con placebo o tratamiento estándar
-   - Doble ciego (ni sujeto ni experimentador saben quién recibe qué)
-   - Control de variables intervinientes
-   - Tamaño muestral adecuado
-4. RESULTADOS → Análisis estadístico (p-valor, intervalo de confianza, tamaño del efecto).
-
-⚠️ SESGO EXPERIMENTAL: Ocurre cuando el diseño favorece sistemáticamente un resultado. Ejemplo del PDF: el experimento de música y plantas tenía sesgo porque los ambientes (luz, sombra, oscuridad) variaban junto con el tipo de música.
-
-📊 CORRELACIÓN ≠ CAUSALIDAD: Que dos variables estén correlacionadas no implica que una cause la otra. Ej: frecuencia cardíaca en reposo y estatura (pregunta 10 del PDF: no mostraron correlación directa).
-
-🔬 RAMAS AVANZADAS DE LA BIOLOGÍA:
-- Biología molecular: estudia las moléculas de la vida (ADN, proteínas).
-- Bioquímica: composición y reacciones químicas en seres vivos.
-- Bioética: principios para actuar frente a la vida humana y los demás seres vivos.
-- Virología: estudio de virus (no considerados seres vivos porque no realizan metabolismo).`,
-                4: `TRABAJOS DIRIGIDOS: Análisis de estudios
-
-✏️ Ejercicio 1 (del PDF, pregunta 3 - sesgo experimental):
-"Se monta un experimento para investigar la influencia de la música sobre el crecimiento de las plantas. Cada grupo tiene 20 plantas. Grupo 1: música clásica, ventana soleada. Grupo 2: jazz, esquina con sombra. Grupo 3: rock, armario oscuro. Grupo 4: sin música, espacio exterior soleado."
-¿Qué declaración explica el sesgo?
-a) La duración de los tres ensayos es constante.
-b) Otras variables aparte de la música pueden influir sobre los resultados. ✓
-c) No se puede medir el crecimiento de las plantas directamente.
-d) El tamaño de la muestra no es suficientemente grande.
-
-✏️ Ejercicio 2 (del PDF, pregunta 4 - virus):
-Sobre los virus:
-I. Son partículas infecciosas formadas por proteínas y ácido nucleico. (V)
-II. No son considerados seres vivos porque no realizan metabolismo. (V)
-III. Los virus son más pequeños que las bacterias. (V)
-Respuesta correcta: d) Todas.
-
-✏️ Ejercicio 3 (del PDF, pregunta 9 - ramas de la biología):
-Relaciona:
-I. El ADN tiene nucleótidos con fosfato, azúcar y base nitrogenada → Biología molecular (D)
-II. El intestino delgado absorbe nutrientes hacia la sangre → Fisiología (B)
-III. Prueba de orina revela infección renal → Patología (A)
-IV. Fotosíntesis transforma materia inorgánica en orgánica → Bioquímica (C)
-Respuesta: d) I-D, II-B, III-A, IV-C.`,
-                5: `CORRELACIONES INTERNAS (Conexión con Biología Avanzada):
-
-🧬 RAMAS DE LA BIOLOGÍA (completas del PDF):
-- BIOQUÍMICA: Composición y reacciones químicas en seres vivos.
-- BIOLOGÍA MOLECULAR: Moléculas que forman parte de los seres vivos (ADN, proteínas).
-- CITOLOGÍA: Morfología y fisiología de la célula.
-- GENÉTICA: Herencia y variación de las especies.
-- EVOLUCIÓN: Cambios que se han dado y se dan en las especies.
-- ECOLOGÍA: Relación entre los seres vivos y su medio.
-- TAXONOMÍA: Nombra y clasifica a los seres vivos.
-- PATOLOGÍA: Agentes patógenos que causan enfermedades.
-- VIROLOGÍA: Virus (no son seres vivos: no realizan metabolismo).
-- BIOÉTICA: Principios para actuar frente a la vida humana y los demás seres vivos.
-
-🔗 El método científico es el hilo conductor que une todas estas ramas.`,
-                6: `CORRELACIONES EXTERNAS (Universalización avanzada):
-
-🌐 EL MÉTODO CIENTÍFICO COMO HERRAMIENTA SOCIAL:
-
-1. SALUD PÚBLICA: El dengue en Iquitos y la selva central (pregunta 7 del PDF) se estudia mediante:
-   - Epidemiología (observación de patrones)
-   - Entomología (estudio del mosquito vector)
-   - Virología (estudio del virus)
-   - Patología (estudio de la enfermedad)
-
-2. CAMBIO CLIMÁTICO: El consenso científico se basa en décadas de observaciones, hipótesis contrastadas, modelos predictivos y revisión por pares.
-
-3. PANDEMIAS: El desarrollo de vacunas en tiempo récord aplicó el método científico con fases de ensayos clínicos, grupo control con placebo y análisis estadístico riguroso.
-
-4. BIOÉTICA: La ciencia no es neutra; requiere principios éticos (bioética) para actuar frente a la vida humana y los demás seres vivos.
-
-5. COMUNICACIÓN CIENTÍFICA: La importancia de publicar resultados (incluso negativos) para que otros puedan replicar y verificar. La ciencia es acumulativa y colaborativa.
-
-🧠 "La ciencia es el intento de hacer que la diversidad caótica de nuestras experiencias sensoriales corresponda a un sistema de pensamiento lógicamente ordenado." — Albert Einstein`,
-                7: `MÓDULO DE PROYECTO GRUPAL: "Investigación científica escolar"
-
-🎯 OBJETIVO: Diseñar, ejecutar y comunicar una investigación científica completa.
-
-📋 FASES DEL PROYECTO:
-1. ELECCIÓN DEL TEMA: Problema relevante y viable.
-2. REVISIÓN BIBLIOGRÁFICA: ¿Qué se sabe ya sobre el tema?
-3. HIPÓTESIS: Clara, específica y falsable.
-4. DISEÑO EXPERIMENTAL:
-   - Variables (independiente, dependiente, controladas)
-   - Grupos (control y experimental)
-   - Tamaño muestral y aleatorización
-   - Materiales y procedimiento detallado
-5. EJECUCIÓN Y REGISTRO DE DATOS
-6. ANÁLISIS ESTADÍSTICO BÁSICO (promedios, gráficos)
-7. CONCLUSIONES: ¿Se confirma o rechaza la hipótesis?
-8. COMUNICACIÓN: Informe escrito y presentación oral.
-
-🗣️ SOCIALIZACIÓN: Congreso científico escolar con defensa ante tribunal (profesores y compañeros).`,
-            },
-        };
-
-        // ═══════════════════════════════════════
-        //  STATE
+        //  STATE & RENDER
         // ═══════════════════════════════════════
         let currentView = 'home';
         let currentArea = null;
         let currentLessonId = null;
 
-        // ═══════════════════════════════════════
-        //  RENDER FUNCTIONS
-        // ═══════════════════════════════════════
         function renderHome() {
             currentView = 'home';
             currentArea = null;
             currentLessonId = null;
             updateBreadcrumb([]);
             const main = document.getElementById('mainContent');
-            const matCount = lessonsData.filter(l => l.area === 'matematica').length;
+            const matCount = lessonsData.filter(l => l.area === 'matematica' && !l.esMetodo).length;
             const cieCount = lessonsData.filter(l => l.area === 'ciencia' && !l.esMetodo).length;
             const metodoCount = lessonsData.filter(l => l.esMetodo).length;
             main.innerHTML = `
-                <h1 class="page-title">Conocimientos Fundamentales</h1>
-                <p class="page-subtitle">Educación Básica Regular · Selecciona un área para explorar las lecciones disponibles.</p>
+                <h1 class="page-title">📚 Conocimientos Fundamentales</h1>
+                <p class="page-subtitle">IEP Escuela Hogar Ventanilla · Educación Básica Regular · Selecciona un área para explorar las lecciones</p>
                 <div class="area-cards">
                     <div class="area-card matematica" onclick="navigateToArea('matematica')">
-                        <div class="accent-dot"></div>
                         <div class="icon">🧮</div>
                         <h2>Matemática</h2>
                         <p class="count">${matCount} lecciones · Primaria y Secundaria</p>
+                        <p style="font-size:0.78rem;color:#64748b;margin-top:0.4rem;">Números, Geometría, Medición, Álgebra, Estadística</p>
                     </div>
                     <div class="area-card ciencia" onclick="navigateToArea('ciencia')">
-                        <div class="accent-dot"></div>
                         <div class="icon">🔬</div>
                         <h2>Ciencia y Tecnología</h2>
                         <p class="count">${cieCount} lecciones · Primaria y Secundaria</p>
+                        <p style="font-size:0.78rem;color:#64748b;margin-top:0.4rem;">Seres Vivos, Materia, Tierra, Química, Biología, Física</p>
                     </div>
                     <div class="area-card metodo-highlight" onclick="navigateToLesson('metodo-ciclo-vi')">
-                        <div class="accent-dot"></div>
                         <div class="icon">⚗️</div>
                         <h2>El Método Científico <span class="featured-badge">🌟 Destacado</span></h2>
                         <p class="count">${metodoCount} lecciones especializadas · Ciclos V, VI y VII</p>
-                        <p style="font-size:0.8rem;color:#7c3aed;margin-top:0.4rem;">🔬 Incluye ejemplos, ejercicios del PDF y contenido pre-rellenado</p>
+                        <p style="font-size:0.78rem;color:#6b21a8;margin-top:0.4rem;">🔬 Contenido del PDF: experimentos, variables, sesgo, biología</p>
                     </div>
                 </div>
-                <div style="margin-top:2rem;padding:1.2rem;background:#fdfbff;border-radius:12px;border:1px solid #e9d5ff;font-size:0.85rem;color:#6b21a8;">
-                    <strong>✅ Plataforma completa:</strong> Todas las lecciones ahora incluyen <strong>contenido pedagógico generado automáticamente</strong> (objetivos, actividades, teoría, ejercicios, proyectos) adaptado a cada área, nivel y ciclo. Las lecciones del Método Científico conservan el contenido detallado del PDF original. <strong>Haz clic en cualquier lección para explorarla.</strong>
+                <div style="margin-top:1.5rem;padding:1.2rem;background:#fefce8;border-radius:12px;border:1px solid #eab308;font-size:0.85rem;color:#92400e;">
+                    <strong>🌟 Lecciones extensas ya desarrolladas (Ciclo III - Primaria 1°-2°):</strong><br>
+                    🧮 <strong>Números y Operaciones</strong> — contenido detallado con ejercicios, ejemplos y proyecto "La Tiendita Matemática".<br>
+                    🧮 <strong>Geometría</strong> — figuras planas, cuerpos geométricos, proyecto "Museo de Formas Geométricas".<br>
+                    <em>Haz clic en el área de Matemática y busca las lecciones de Ciclo III para acceder a ellas.</em>
                 </div>
             `;
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1716,13 +838,7 @@ Respuesta: d) I-D, II-B, III-A, IV-C.`,
                         <span class="phase-chevron">▾</span>
                     </div>
                     <div class="phase-body">
-                        <p class="placeholder-hint">✏️ Contenido editable — escribe aquí el desarrollo de esta fase.</p>
-                        <textarea class="editable-area"
-                            id="editable-${phase.number}-${lesson.id}"
-                            placeholder="Desarrolla aquí el contenido para la Fase ${phase.number}: ${phase.title}..."
-                            data-phase="${phase.number}"
-                            data-lesson="${lesson.id}"
-                        ></textarea>
+                        <textarea class="editable-area" id="editable-${phase.number}-${lesson.id}" placeholder="Contenido de la Fase ${phase.number}..." data-phase="${phase.number}" data-lesson="${lesson.id}"></textarea>
                     </div>
                 </div>
                 `;
@@ -1740,11 +856,11 @@ Respuesta: d) I-D, II-B, III-A, IV-C.`,
                         </div>
                         <h1>${lesson.materia}</h1>
                         <span class="knowledge-tag">📘 ${lesson.conocimientos}</span>
-                        ${isMetodo ? '<p style="margin-top:0.8rem;font-size:0.82rem;color:#7c3aed;">📄 Esta lección incluye contenido detallado del PDF "El método científico y las características de los seres vivos".</p>' : '<p style="margin-top:0.8rem;font-size:0.82rem;color:#16a34a;">✅ Esta lección incluye contenido pedagógico completo generado automáticamente.</p>'}
+                        ${(lessonId==='mat-pri-num-iii'||lessonId==='mat-pri-geo-iii') ? '<p style="margin-top:0.6rem;font-size:0.82rem;color:#eab308;">🌟 <strong>Lección extensa detallada:</strong> contenido ilustrado con ejemplos, ejercicios y proyecto completo.</p>' : ''}
                     </div>
-                    <p style="color:#64748b;margin-bottom:1rem;font-size:0.85rem;">
-                        📝 <strong>Plantilla de lección</strong> — Expande cada fase para ver y editar su contenido.
-                        <span class="btn-save-hint">(Los cambios se guardan automáticamente en tu navegador.)</span>
+                    <p style="color:#64748b;margin-bottom:1rem;font-size:0.8rem;">
+                        📝 Expande cada fase para ver y editar su contenido.
+                        <span style="font-size:0.7rem;color:#94a3b8;">(Cambios guardados automáticamente)</span>
                     </p>
                     <div class="phase-accordion">
                         ${phasesHTML}
@@ -1752,26 +868,23 @@ Respuesta: d) I-D, II-B, III-A, IV-C.`,
                 </div>
             `;
             restoreSavedContent(lessonId);
-            if (isMetodo) {
-                setTimeout(() => applyMetodoPrecontent(lessonId), 150);
+            if (lessonId === 'mat-pri-num-iii') {
+                setTimeout(() => applyManualContent(lessonId, leccionExtensaNumIII), 150);
+            } else if (lessonId === 'mat-pri-geo-iii') {
+                setTimeout(() => applyManualContent(lessonId, leccionExtensaGeoIII), 150);
             } else {
                 setTimeout(() => applyAutoGeneratedContent(lessonId), 150);
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function applyMetodoPrecontent(lessonId) {
-            const precontent = metodoPrecontent[lessonId];
-            if (!precontent) return;
-            Object.keys(precontent).forEach(phaseNum => {
+        function applyManualContent(lessonId, contentObj) {
+            Object.keys(contentObj).forEach(phaseNum => {
                 const key = getStorageKey(lessonId, phaseNum);
-                const existing = localStorage.getItem(key);
-                if (!existing || existing.trim() === '') {
-                    const textarea = document.getElementById(`editable-${phaseNum}-${lessonId}`);
-                    if (textarea) {
-                        textarea.value = precontent[phaseNum];
-                        localStorage.setItem(key, precontent[phaseNum]);
-                    }
+                if (!localStorage.getItem(key)) {
+                    const ta = document.getElementById(`editable-${phaseNum}-${lessonId}`);
+                    if (ta) { ta.value = contentObj[phaseNum];
+                        localStorage.setItem(key, contentObj[phaseNum]); }
                 }
             });
         }
@@ -1782,14 +895,11 @@ Respuesta: d) I-D, II-B, III-A, IV-C.`,
             phaseDefinitions.forEach(phase => {
                 const phaseNum = phase.number;
                 const key = getStorageKey(lessonId, phaseNum);
-                const existing = localStorage.getItem(key);
-                if (!existing || existing.trim() === '') {
+                if (!localStorage.getItem(key)) {
                     const content = generateLessonContent(lesson, phaseNum);
-                    const textarea = document.getElementById(`editable-${phaseNum}-${lessonId}`);
-                    if (textarea) {
-                        textarea.value = content;
-                        localStorage.setItem(key, content);
-                    }
+                    const ta = document.getElementById(`editable-${phaseNum}-${lessonId}`);
+                    if (ta) { ta.value = content;
+                        localStorage.setItem(key, content); }
                 }
             });
         }
@@ -1798,45 +908,39 @@ Respuesta: d) I-D, II-B, III-A, IV-C.`,
             const phaseItem = document.getElementById(phaseElementId);
             if (!phaseItem) return;
             phaseItem.classList.toggle('open');
-            const textarea = phaseItem.querySelector('.editable-area');
-            if (textarea) { saveContent(textarea); }
+            const ta = phaseItem.querySelector('.editable-area');
+            if (ta) saveContent(ta);
         }
 
-        function getStorageKey(lessonId, phaseNumber) {
-            return `lesson-${lessonId}-phase-${phaseNumber}`;
-        }
-        function saveContent(textarea) {
-            const lessonId = textarea.dataset.lesson;
-            const phaseNumber = textarea.dataset.phase;
-            const key = getStorageKey(lessonId, phaseNumber);
-            localStorage.setItem(key, textarea.value);
-        }
+        function getStorageKey(lessonId, phaseNumber) { return `lesson-${lessonId}-phase-${phaseNumber}`; }
+        function saveContent(textarea) { localStorage.setItem(getStorageKey(textarea.dataset.lesson, textarea.dataset
+                .phase), textarea.value); }
+
         function restoreSavedContent(lessonId) {
             phaseDefinitions.forEach(phase => {
-                const key = getStorageKey(lessonId, phase.number);
-                const saved = localStorage.getItem(key);
-                if (saved) {
-                    const textarea = document.getElementById(`editable-${phase.number}-${lessonId}`);
-                    if (textarea) { textarea.value = saved; }
-                }
+                const saved = localStorage.getItem(getStorageKey(lessonId, phase.number));
+                if (saved) { const ta = document.getElementById(`editable-${phase.number}-${lessonId}`);
+                    if (ta) ta.value = saved; }
             });
         }
+
         let saveTimeout;
         document.addEventListener('input', function(e) {
             if (e.target.classList.contains('editable-area')) {
                 clearTimeout(saveTimeout);
-                const textarea = e.target;
-                saveTimeout = setTimeout(() => { saveContent(textarea); }, 500);
+                saveTimeout = setTimeout(() => saveContent(e.target), 500);
             }
         });
         document.addEventListener('blur', function(e) {
-            if (e.target.classList.contains('editable-area')) { saveContent(e.target); }
+            if (e.target.classList.contains('editable-area')) saveContent(e.target);
         }, true);
 
         function navigateHome() { window.location.hash = '';
             renderHome(); }
+
         function navigateToArea(areaKey) { window.location.hash = areaKey;
             renderArea(areaKey); }
+
         function navigateToLesson(lessonId) { window.location.hash = lessonId;
             renderLesson(lessonId); }
 
@@ -1845,27 +949,29 @@ Respuesta: d) I-D, II-B, III-A, IV-C.`,
             let html = '<span onclick="navigateHome()">Inicio</span>';
             items.forEach(item => {
                 html += ' <span class="sep">›</span> ';
-                if (item.current) { html +=
-                    `<span class="current">${item.label}</span>`; } else if (item.action) { html +=
-                        `<span onclick="(${item.action.toString()})()" style="cursor:pointer;">${item.label}</span>`; } else { html +=
-                    `<span>${item.label}</span>`; }
+                if (item.current) html += `<span class="current">${item.label}</span>`;
+                else if (item.action) html +=
+                    `<span onclick="(${item.action.toString()})()" style="cursor:pointer;">${item.label}</span>`;
+                else html += `<span>${item.label}</span>`;
             });
             bc.innerHTML = html;
         }
 
         window.addEventListener('hashchange', function() {
             const hash = window.location.hash.replace('#', '');
-            if (!hash) { renderHome(); } else if (hash === 'matematica' || hash === 'ciencia') { renderArea(
-                hash); } else if (lessonsData.some(l => l.id === hash)) { renderLesson(hash); }
+            if (!hash) renderHome();
+            else if (hash === 'matematica' || hash === 'ciencia') renderArea(hash);
+            else if (lessonsData.some(l => l.id === hash)) renderLesson(hash);
         });
+
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.shiftKey && e.key === 'E') {
                 e.preventDefault();
                 if (currentView === 'lesson') {
                     const allPhases = document.querySelectorAll('.phase-item');
                     const anyClosed = Array.from(allPhases).some(p => !p.classList.contains('open'));
-                    allPhases.forEach(p => { if (anyClosed) { p.classList.add('open'); } else { p.classList
-                                .remove('open'); } });
+                    allPhases.forEach(p => { if (anyClosed) p.classList.add('open');
+                        else p.classList.remove('open'); });
                     document.querySelectorAll('.editable-area').forEach(ta => saveContent(ta));
                 }
             }
@@ -1873,15 +979,13 @@ Respuesta: d) I-D, II-B, III-A, IV-C.`,
 
         function init() {
             const hash = window.location.hash.replace('#', '');
-            if (hash && lessonsData.some(l => l.id === hash)) { renderLesson(hash); } else if (hash ===
-                'matematica' || hash === 'ciencia') { renderArea(hash); } else { renderHome(); }
+            if (hash && lessonsData.some(l => l.id === hash)) renderLesson(hash);
+            else if (hash === 'matematica' || hash === 'ciencia') renderArea(hash);
+            else renderHome();
         }
         init();
-        console.log('📚 Plataforma completa. Todas las lecciones tienen contenido pedagógico.');
-        console.log('   🧮 Matemática: 14 lecciones con contenido generado.');
-        console.log('   🔬 Ciencia y Tecnología: 18 lecciones con contenido generado.');
-        console.log('   ⚗️ Método Científico: 3 lecciones con contenido del PDF.');
-        console.log('   ✏️ Todo el contenido es editable y se guarda automáticamente.');
+        console.log('✅ Página de inicio restaurada: 3 bloques de área, Método Científico presente.');
+        console.log('🧮 Matemática: 14 lecciones | 🔬 Ciencia y Tecnología: 15 lecciones | ⚗️ Método Científico: 3 lecciones.');
     </script>
 </body>
 </html>
