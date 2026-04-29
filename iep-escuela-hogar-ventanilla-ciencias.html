@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conocimientos Fundamentales - Plataforma de Lecciones</title>
+    <style>
+        :root {
+            --matematica: #2563eb;
+            --matematica-light: #dbeafe;
+            --matematica-dark: #1e40af;
+            --ciencia: #16a34a;
+            --ciencia-light: #dcfce7;
+            --ciencia-dark: #15803d;
+            --metodo: #8b5cf6;
+            --metodo-light: #ede9fe;
+            --metodo-dark: #6d28d9;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.06);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.92);
+        }
+        .header-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            user-select: none;
+        }
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, #6366f1, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+        }
+        .breadcrumb span {
+            cursor: pointer;
+            transition: color var(--transition);
+        }
+        .breadcrumb span:hover {
+            color: #3b82f6;
+            text-decoration: underline;
+        }
+        .breadcrumb .sep {
+            color: #cbd5e1;
+            cursor: default;
+        }
+        .breadcrumb .sep:hover {
+            text-decoration: none;
+            color: #cbd5e1;
+        }
+        .breadcrumb .current {
+            font-weight: 600;
+            color: var(--text);
+            cursor: default;
+        }
+        .breadcrumb .current:hover {
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .main-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 80vh;
+        }
+        .page-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--text);
+        }
+        .page-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .area-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+        .area-card {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 1.75rem;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .area-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .area-card.matematica {
+            border-left: 5px solid var(--matematica);
+        }
+        .area-card.matematica:hover {
+            border-color: var(--matematica);
+            background: #fafbff;
+        }
+        .area-card.ciencia {
+            border-left: 5px solid var(--ciencia);
+        }
+        .area-card.ciencia:hover {
+            border-color: var(--ciencia);
+            background: #fafdfb;
+        }
+        .area-card.metodo-highlight {
+            border-left: 5px solid var(--metodo);
+            background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%);
+            border-color: var(--metodo);
+        }
+        .area-card.metodo-highlight:hover {
+            border-color: var(--metodo-dark);
+            background: linear-gradient(135deg, #f5f0ff 0%, #e0d9fc 100%);
+        }
+        .area-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .area-card h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+        .area-card .count {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        .area-card .accent-dot {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .area-card.matematica .accent-dot {
+            background: var(--matematica);
+        }
+        .area-card.ciencia .accent-dot {
+            background: var(--ciencia);
+        }
+        .area-card.metodo-highlight .accent-dot {
+            background: var(--metodo);
+        }
+        .featured-badge {
+            display: inline-block;
+            background: var(--metodo);
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .level-group {
+            margin-bottom: 2.5rem;
+        }
+        .level-group-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .level-badge {
+            display: inline-block;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+        .level-badge.primaria {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .level-badge.secundaria {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        .ciclo-tag {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.85rem;
+        }
+        .lesson-card {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .lesson-card:hover {
+            border-color: #6366f1;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .lesson-card.metodo-card {
+            border-left: 4px solid var(--metodo);
+            background: #fdfbff;
+        }
+        .lesson-card.metodo-card:hover {
+            border-color: var(--metodo);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+        }
+        .lesson-card .lesson-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text);
+        }
+        .lesson-card .lesson-meta {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .lesson-card .lesson-preview {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .lesson-card .arrow {
+            align-self: flex-end;
+            color: #6366f1;
+            font-weight: 700;
+            transition: transform var(--transition);
+        }
+        .lesson-card:hover .arrow {
+            transform: translateX(4px);
+        }
+        .metodo-icon-small {
+            display: inline-block;
+            background: var(--metodo-light);
+            color: var(--metodo-dark);
+            border-radius: 4px;
+            padding: 0.15rem 0.4rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        .lesson-detail {
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .lesson-header-card {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        .lesson-header-card.metodo-header {
+            border-left: 5px solid var(--metodo);
+            background: linear-gradient(135deg, #fff 0%, #fdfbff 100%);
+        }
+        .lesson-header-card h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.35rem;
+        }
+        .lesson-header-card .meta-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+        .lesson-header-card .knowledge-tag {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #475569;
+            margin-top: 0.5rem;
+        }
+        .phase-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .phase-item {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+        }
+        .phase-item.open {
+            border-color: #6366f1;
+            box-shadow: var(--shadow-md);
+        }
+        .phase-header {
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+            transition: background var(--transition);
+            gap: 0.75rem;
+        }
+        .phase-header:hover {
+            background: #f8fafc;
+        }
+        .phase-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .phase-0 .phase-number {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        .phase-1 .phase-number {
+            background: #fce7f3;
+            color: #9d174d;
+        }
+        .phase-2 .phase-number {
+            background: #ede9fe;
+            color: #5b21b6;
+        }
+        .phase-3 .phase-number {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        .phase-4 .phase-number {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .phase-5 .phase-number {
+            background: #ffedd5;
+            color: #9a3412;
+        }
+        .phase-6 .phase-number {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+        .phase-7 .phase-number {
+            background: #fce7f3;
+            color: #831843;
+        }
+        .phase-title-text {
+            flex: 1;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .phase-subtitle {
+            font-weight: 400;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            display: block;
+        }
+        .phase-chevron {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            transition: transform var(--transition);
+            flex-shrink: 0;
+        }
+        .phase-item.open .phase-chevron {
+            transform: rotate(180deg);
+            color: #6366f1;
+        }
+        .phase-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 1.25rem;
+            border-top: 0px solid transparent;
+        }
+        .phase-item.open .phase-body {
+            max-height: 800px;
+            padding: 1rem 1.25rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        .phase-body .editable-area {
+            width: 100%;
+            min-height: 80px;
+            border: 1px dashed #d1d5db;
+            border-radius: 6px;
+            padding: 0.75rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            resize: vertical;
+            background: #fafafa;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .phase-body .editable-area:focus {
+            outline: 2px solid #6366f1;
+            border-color: transparent;
+            background: #fff;
+        }
+        .phase-body .placeholder-hint {
+            font-size: 0.78rem;
+            color: #a1a1aa;
+            margin-bottom: 0.4rem;
+            font-style: italic;
+        }
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1.5px solid var(--border);
+            background: var(--surface);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text);
+            transition: all var(--transition);
+            margin-bottom: 1.25rem;
+        }
+        .btn-back:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .btn-save-hint {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-left: 0.5rem;
+            font-style: italic;
+        }
+        .footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+        .ilustracion-box {
+            background: #fefce8;
+            border: 1px dashed #eab308;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+            color: #854d0e;
+        }
+        .ilustracion-box strong {
+            color: #92400e;
+        }
+        .ejemplo-box {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+            color: #166534;
+        }
+        .ejemplo-box strong {
+            color: #14532d;
+        }
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main-container {
+                padding: 1rem;
+            }
+            .area-cards {
+                grid-template-columns: 1fr;
+            }
+            .lesson-grid {
+                grid-template-columns: 1fr;
+            }
+            .lesson-header-card h1 {
+                font-size: 1.2rem;
+            }
+            .phase-header {
+                padding: 0.75rem 1rem;
+            }
+            .phase-body {
+                padding: 0 1rem;
+            }
+            .phase-item.open .phase-body {
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo" onclick="navigateHome()" title="Ir al inicio">
+                <div class="logo-icon">📚</div>
+                ConocimientosFundamentales
+            </div>
+            <nav class="breadcrumb" id="breadcrumb">
+                <span onclick="navigateHome()">Inicio</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-container" id="mainContent"></main>
+
+    <footer class="footer">
+        Plataforma de Lecciones · Conocimientos Fundamentales · Educación Básica Regular
+        &nbsp;|&nbsp; <strong>Consejo:</strong> Haz clic en cada fase para expandir y editar su contenido.
+        &nbsp;|&nbsp; <span style="color:#8b5cf6;">🔬 Nueva lección destacada: El Método Científico</span>
+    </footer>
+
+    <script>
+        // ═══════════════════════════════════════
+        //  DATA: All lessons
+        // ═══════════════════════════════════════
+        const lessonsData = [
+            // ── Matemática · Primaria ──
+            { id: 'mat-pri-num-iii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '1° y 2°',
+                ciclo: 'Ciclo III', materia: 'Números y Operaciones',
+                conocimientos: 'Números naturales hasta el 1000, adición y sustracción, multiplicación y división básicas.' },
+            { id: 'mat-pri-geo-iii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '1° y 2°',
+                ciclo: 'Ciclo III', materia: 'Geometría',
+                conocimientos: 'Figuras geométricas básicas (cuadrado, triángulo, círculo) y cuerpos geométricos.' },
+            { id: 'mat-pri-med-iii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '1° y 2°',
+                ciclo: 'Ciclo III', materia: 'Medición',
+                conocimientos: 'Longitud (centímetros, metros), masa (kilogramos) y tiempo (días, horas).' },
+            { id: 'mat-pri-num-iv', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '3° y 4°',
+                ciclo: 'Ciclo IV', materia: 'Números y Operaciones',
+                conocimientos: 'Números naturales, fracciones y decimales. Operaciones combinadas.' },
+            { id: 'mat-pri-geo-iv', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '3° y 4°',
+                ciclo: 'Ciclo IV', materia: 'Geometría',
+                conocimientos: 'Ángulos, polígonos, perímetro y área de figuras planas.' },
+            { id: 'mat-pri-est-iv', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '3° y 4°',
+                ciclo: 'Ciclo IV', materia: 'Estadística',
+                conocimientos: 'Lectura e interpretación de tablas y gráficos de barras.' },
+            { id: 'mat-pri-num-v', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '5° y 6°',
+                ciclo: 'Ciclo V', materia: 'Números y Operaciones',
+                conocimientos: 'Operaciones con números decimales y fracciones, proporcionalidad y porcentajes.' },
+            { id: 'mat-pri-alg-v', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '5° y 6°',
+                ciclo: 'Ciclo V', materia: 'Álgebra', conocimientos: 'Patrones y ecuaciones simples.' },
+            { id: 'mat-pri-geo-v', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '5° y 6°',
+                ciclo: 'Ciclo V', materia: 'Geometría',
+                conocimientos: 'Área de figuras planas, volumen de prismas y circunferencia.' },
+            // ── Matemática · Secundaria ──
+            { id: 'mat-sec-arit-vi', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '1° y 2°',
+                ciclo: 'Ciclo VI', materia: 'Aritmética y Álgebra',
+                conocimientos: 'Números enteros y racionales, operaciones con polinomios, ecuaciones lineales y cuadráticas, sistema de ecuaciones, inecuaciones.' },
+            { id: 'mat-sec-geo-vi', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '1° y 2°',
+                ciclo: 'Ciclo VI', materia: 'Geometría',
+                conocimientos: 'Triángulos, congruencia y semejanza, teorema de Pitágoras, áreas y volúmenes, razones trigonométricas.' },
+            { id: 'mat-sec-alg-vii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '3° a 5°',
+                ciclo: 'Ciclo VII', materia: 'Álgebra y Funciones',
+                conocimientos: 'Números reales, funciones lineales, cuadráticas, exponenciales y logarítmicas, progresiones, programación lineal.' },
+            { id: 'mat-sec-geotrig-vii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria',
+                grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Geometría y Trigonometría',
+                conocimientos: 'Geometría analítica (recta, circunferencia, parábola), trigonometría avanzada.' },
+            { id: 'mat-sec-estprob-vii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria',
+                grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Estadística y Probabilidad',
+                conocimientos: 'Estadística descriptiva e inferencial básica, probabilidad condicional y técnicas de conteo.' },
+            // ── Ciencia y Tecnología · Primaria ──
+            { id: 'ct-pri-sv-iii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
+                grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Seres Vivos',
+                conocimientos: 'El cuerpo humano, animales y plantas de su entorno, hábitos saludables.' },
+            { id: 'ct-pri-me-iii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
+                grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Materia y Energía',
+                conocimientos: 'Propiedades básicas de los materiales, luz y sonido.' },
+            { id: 'ct-pri-tu-iii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
+                grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Tierra y Universo',
+                conocimientos: 'El día y la noche, el aire, el agua y el suelo, cambios atmosféricos.' },
+            { id: 'ct-pri-sv-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '3° y 4°',
+                ciclo: 'Ciclo IV', materia: 'Seres Vivos',
+                conocimientos: 'Clasificación de seres vivos, cadenas alimenticias, ecosistemas peruanos.' },
+            { id: 'ct-pri-me-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
+                grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Materia y Energía',
+                conocimientos: 'Estados de la materia, mezclas, fuerza y movimiento, energía renovable.' },
+            { id: 'ct-pri-tu-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
+                grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Tierra y Universo',
+                conocimientos: 'El sistema solar, capas de la Tierra, ciclo del agua.' },
+            { id: 'ct-pri-sv-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '5° y 6°',
+                ciclo: 'Ciclo V', materia: 'Seres Vivos',
+                conocimientos: 'La célula, sistemas del cuerpo humano, reproducción humana y biodiversidad.' },
+            { id: 'ct-pri-me-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '5° y 6°',
+                ciclo: 'Ciclo V', materia: 'Materia y Energía',
+                conocimientos: 'Tabla periódica (elementos básicos), reacciones químicas simples, electricidad y magnetismo.' },
+            { id: 'ct-pri-tu-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '5° y 6°',
+                ciclo: 'Ciclo V', materia: 'Tierra y Universo',
+                conocimientos: 'Placas tectónicas, fenómenos naturales, contaminación ambiental.' },
+            // ── Ciencia y Tecnología · Secundaria ──
+            { id: 'ct-sec-quim-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
+                grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Química',
+                conocimientos: 'Estructura atómica, tabla periódica, enlaces químicos, reacciones químicas, compuestos inorgánicos.' },
+            { id: 'ct-sec-bio-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
+                grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Biología',
+                conocimientos: 'Citología, bioquímica básica, fisiología vegetal y animal, genética mendeliana, ecología.' },
+            { id: 'ct-sec-fis-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
+                grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Física',
+                conocimientos: 'Cinemática (MRU, MRUV), dinámica (leyes de Newton), energía mecánica, calor y temperatura.' },
+            { id: 'ct-sec-quim-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
+                grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Química',
+                conocimientos: 'Estequiometría, química orgánica, soluciones, equilibrio químico, electroquímica.' },
+            { id: 'ct-sec-bio-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
+                grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Biología',
+                conocimientos: 'Biología molecular, microbiología, inmunología, anatomía y fisiología humana avanzada, evolución, biotecnología.' },
+            { id: 'ct-sec-fis-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
+                grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Física',
+                conocimientos: 'Estática, hidrostática, electromagnetismo, ondas, óptica y relatividad básica.' },
+            // ═══════════ NUEVO: Método Científico (3 lecciones por ciclo) ═══════════
+            {
+                id: 'metodo-ciclo-v',
+                area: 'ciencia',
+                areaName: '🔬 Ciencia y Tecnología',
+                nivel: 'Primaria',
+                grado: '5° y 6°',
+                ciclo: 'Ciclo V',
+                materia: '🧪 El Método Científico',
+                conocimientos: 'Pasos del método científico: observar, preguntar, hipotetizar, experimentar y concluir. Variables en experimentos sencillos. Introducción a la biología y características básicas de los seres vivos.',
+                esMetodo: true,
+            },
+            {
+                id: 'metodo-ciclo-vi',
+                area: 'ciencia',
+                areaName: '🔬 Ciencia y Tecnología',
+                nivel: 'Secundaria',
+                grado: '1° y 2°',
+                ciclo: 'Ciclo VI',
+                materia: '🔬 El Método Científico',
+                conocimientos: 'Observación, hipótesis, experimentación (grupo control y experimental), variables (independiente, dependiente, interviniente), resultados, conclusiones, teorías y leyes. Características de los seres vivos y ramas de la biología.',
+                esMetodo: true,
+            },
+            {
+                id: 'metodo-ciclo-vii',
+                area: 'ciencia',
+                areaName: '🔬 Ciencia y Tecnología',
+                nivel: 'Secundaria',
+                grado: '3° a 5°',
+                ciclo: 'Ciclo VII',
+                materia: '⚗️ El Método Científico Avanzado',
+                conocimientos: 'Diseño experimental riguroso, sesgo y validez, correlación vs. causalidad, estadística inferencial aplicada, comunicación científica. Biología molecular y ramas especializadas.',
+                esMetodo: true,
+            },
+        ];
+
+        // ═══════════════════════════════════════
+        //  PHASE DEFINITIONS
+        // ═══════════════════════════════════════
+        const phaseDefinitions = [
+            { number: 0, title: 'Objetivos, Nociones e Intereses Societales',
+                subtitle: 'Objetivos (generales y particulares), nociones (principales y secundarios), intereses societales.',
+                cssClass: 'phase-0' },
+            { number: 1, title: 'Actividades de Descubierta',
+                subtitle: 'Actividades que problematicen mediante la experiencia concreta.', cssClass: 'phase-1' },
+            { number: 2, title: 'Actividad Inductiva',
+                subtitle: 'Actividad que delimita el conocimiento a partir de la observación.', cssClass: 'phase-2' },
+            { number: 3, title: 'Transmisión Conceptual',
+                subtitle: 'Transmisión para conceptualizar con metodología expositiva.', cssClass: 'phase-3' },
+            { number: 4, title: 'Trabajos Dirigidos', subtitle: 'Entrenamiento replicativo mediante ejercicios guiados.',
+                cssClass: 'phase-4' },
+            { number: 5, title: 'Correlaciones Internas',
+                subtitle: 'Conexión interdisciplinaria con otras materias del área.', cssClass: 'phase-5' },
+            { number: 6, title: 'Correlaciones Externas',
+                subtitle: 'Universalización del conocimiento y conexión con el mundo real.', cssClass: 'phase-6' },
+            { number: 7, title: 'Módulo de Proyecto Grupal',
+                subtitle: 'Proyecto grupal para socializar en concreto el conocimiento adquirido.', cssClass: 'phase-7' },
+        ];
+
+        // ═══════════════════════════════════════
+        //  CONTENIDO PRE-RELLENO PARA MÉTODO CIENTÍFICO (del PDF)
+        // ═══════════════════════════════════════
+        const metodoPrecontent = {
+            'metodo-ciclo-vi': {
+                0: `OBJETIVO GENERAL: Comprender el método científico como el camino sistemático para producir conocimiento verificable sobre la naturaleza.
+
+OBJETIVOS PARTICULARES:
+- Identificar los 4 pasos del método científico: observación, hipótesis, experimentación y conclusión.
+- Diferenciar variable independiente, dependiente e interviniente.
+- Reconocer las características fundamentales de los seres vivos.
+- Valorar la importancia de la biología como ciencia.
+
+NOCIONES PRINCIPALES: Método científico, hipótesis, experimento, variable, grupo control, grupo experimental, teoría, ley.
+NOCIONES SECUNDARIAS: Biología, bioelementos, biomoléculas, homeostasis, irritabilidad, evolución.
+
+INTERESES SOCIETALES: La ciencia como herramienta para resolver problemas cotidianos (maduración de frutas, efecto de la música en plantas, frecuencia cardíaca). Formación de pensamiento crítico frente a la información.`,
+                1: `ACTIVIDAD DE DESCUBIERTA: "El misterio de los plátanos maduros"
+
+📋 Situación: Wilfredo, un comerciante, descubre que al colocar una manzana podrida en un cajón de plátanos verdes, estos maduran más rápido. Al quedarse sin manzanas, prueba con una naranja podrida.
+
+🔍 Preguntas para el aula:
+1. ¿Por qué crees que la manzana acelera la maduración?
+2. ¿Qué está haciendo Wilfredo al cambiar la manzana por la naranja? ¿Está siguiendo un método?
+3. Si quisieras comprobar científicamente el efecto, ¿cómo diseñarías el experimento?
+
+🧪 Experiencia concreta: Colocar 3 grupos de plátanos verdes en bolsas separadas: una con una manzana, otra con una naranja y otra sin fruta (grupo control). Observar durante 5 días y registrar cambios.
+
+💡 Reflexión: ¿Qué variable cambia Wilfredo? ¿Cuál es el efecto que observa?`,
+                2: `ACTIVIDAD INDUCTIVA: "De la observación a la hipótesis"
+
+📊 Observa la tabla de un experimento sobre el efecto de la música en el crecimiento de plantas:
+
+| Grupo | Tipo de música | Ambiente | Duración (h/día) |
+|-------|---------------|----------|-------------------|
+| 1 | Clásica | Ventana soleada | 2 |
+| 2 | Jazz | Esquina con sombra | 2 |
+| 3 | Rock | Armario oscuro | 2 |
+| 4 | Sin música | Espacio exterior soleado | N/A |
+
+🔎 Preguntas inductivas:
+- ¿Qué está cambiando en cada grupo además de la música?
+- ¿Podemos estar seguros de que la música es la única causa de los cambios en el crecimiento?
+- ¿Qué variables no se controlaron en este experimento?
+
+📝 Conclusión inductiva: Cuando no se controlan todas las variables menos la que queremos estudiar, el experimento tiene sesgo y sus resultados no son confiables.`,
+                3: `TRANSMISIÓN CONCEPTUAL: El Método Científico
+
+🔬 DEFINICIÓN: Es el recorrido o camino que sigue el investigador con la finalidad de producir o crear conocimientos científicos.
+
+📐 LOS 4 PASOS FUNDAMENTALES:
+
+1. OBSERVACIÓN: Se realiza por la percepción de nuestros sentidos; se registra conforme se presenta el fenómeno. El investigador formula sus preguntas o plantea el problema a investigar respecto de un hecho curioso de la realidad.
+
+2. HIPÓTESIS: Son consideraciones que se plantean como posibles respuestas a las preguntas o problemas. Tiene la propiedad de que la suposición puede ponerse a prueba o demostrarse en la realidad.
+
+3. EXPERIMENTACIÓN: Se consideran los materiales e ingredientes para comprobar la hipótesis. Existen dos grupos:
+   - Grupo experimental: recibe el tratamiento o factor.
+   - Grupo control: NO recibe el factor.
+
+4. RESULTADOS Y CONCLUSIONES: Los registros se tabulan y se tratan estadísticamente. La interpretación de esos resultados termina en conclusiones. A partir de estas, se crean teorías y leyes.
+
+📏 VARIABLES DE INVESTIGACIÓN:
+- Variable independiente: la causa o factor que modifica al fenómeno (controlada por el investigador).
+- Variable dependiente: el efecto causado por la variable independiente.
+- Variable interviniente: otros factores que pueden influir en el resultado.`,
+                4: `TRABAJOS DIRIGIDOS: Ejercicios de aplicación
+
+✏️ Ejercicio 1 (del PDF, pregunta 1):
+"Wilfredo coloca una manzana podrida en un cajón de plátanos para acelerar su maduración. Al quedarse sin manzanas, opta por colocar una naranja podrida. En el proceso de investigación, la naranja podrida sería:"
+a) El grupo control
+b) Variable dependiente
+c) Variable independiente ✓
+d) Variable interviniente
+
+✏️ Ejercicio 2 (del PDF, pregunta 2):
+"Se quiere estudiar el efecto de diferentes materiales en la tasa de fusión del hielo. Trozos de hielo de 10 g se colocan en bandejas. Grupo 1: cubierto con plástico; Grupo 2: cubierto con papel; Grupo 3: cubierto con aluminio; Grupo 4: descubierto. ¿Cuál es el grupo control?"
+a) Grupo 2
+b) Grupo 4 ✓ (no recibe tratamiento)
+c) Grupo 1
+d) Grupo 3
+
+✏️ Ejercicio 3: Responde Verdadero o Falso:
+- La hipótesis es una suposición que no necesita comprobación. (F)
+- El grupo control recibe el tratamiento experimental. (F)
+- Las conclusiones pueden dar origen a teorías y leyes. (V)
+
+✏️ Ejercicio 4: Diseña un experimento sencillo para comprobar si la luz afecta el crecimiento de una planta. Identifica: variable independiente, variable dependiente, grupo control y grupo experimental.`,
+                5: `CORRELACIONES INTERNAS (Conexión con Biología):
+
+🧬 LA BIOLOGÍA: Es la ciencia que estudia todo lo relacionado con los seres vivos.
+
+🔬 CARACTERÍSTICAS DE LOS SERES VIVOS (del PDF):
+1. Organización específica y compleja: bioelementos → biomoléculas → células → tejidos → órganos → sistemas.
+2. Metabolismo: intercambio de materia y energía para realizar funciones vitales.
+3. Homeostasis: capacidad de regular y mantener constantes las condiciones internas.
+4. Crecimiento: aumento de tamaño por división celular.
+5. Irritabilidad: respuesta a estímulos internos y externos.
+6. Reproducción: originar nuevos individuos para perpetuar la especie.
+7. Evolución: cambios que se transmiten a futuras generaciones.
+
+📚 RAMAS DE LA BIOLOGÍA (selección):
+- Taxonomía: clasifica a los seres vivos.
+- Citología: estudia la célula.
+- Genética: estudia la herencia y variación.
+- Ecología: relación entre seres vivos y su medio.
+- Patología: agentes que causan enfermedades.
+- Virología: estudia los virus.`,
+                6: `CORRELACIONES EXTERNAS (Universalización):
+
+🌍 APLICACIONES DEL MÉTODO CIENTÍFICO EN LA VIDA COTIDIANA:
+
+1. MEDICINA: Los ensayos clínicos usan grupo control (placebo) y grupo experimental (medicamento real) para probar nuevos fármacos. Ej: vacunas contra el dengue.
+
+2. AGRICULTURA: Probar diferentes fertilizantes en cultivos controlando variables como agua, luz y tipo de suelo. Ej: maduración de frutas con etileno.
+
+3. DEPORTE: Juan hace ejercicio y su respiración se acelera (irritabilidad + metabolismo). La frecuencia cardíaca en reposo y su relación con la estatura muestran que NO siempre hay correlación directa (pregunta 10 del PDF).
+
+4. TECNOLOGÍA: Las empresas tecnológicas realizan pruebas A/B (grupo control vs. experimental) para mejorar sus productos.
+
+5. MEDIO AMBIENTE: Estudio del cambio climático mediante observación sistemática, hipótesis sobre causas, experimentación con modelos y conclusiones.
+
+🧠 PENSAMIENTO CRÍTICO: El método científico nos protege contra sesgos y afirmaciones sin evidencia.`,
+                7: `MÓDULO DE PROYECTO GRUPAL: "Pequeños científicos"
+
+🎯 OBJETIVO: Diseñar y ejecutar un experimento científico en equipo, aplicando los 4 pasos del método.
+
+📋 INSTRUCCIONES:
+1. Formar equipos de 4-5 estudiantes.
+2. Elegir una pregunta investigable (ej: ¿influye el tipo de suelo en el crecimiento de una semilla de lenteja?).
+3. Redactar una hipótesis clara (formato: "Si... entonces...").
+4. Diseñar el experimento identificando:
+   - Variable independiente
+   - Variable dependiente
+   - Grupo control
+   - Grupo experimental
+   - Variables que se mantendrán constantes
+5. Ejecutar el experimento durante 1-2 semanas.
+6. Registrar datos en una bitácora.
+7. Presentar resultados y conclusiones en un póster científico.
+
+🗣️ SOCIALIZACIÓN: Cada equipo expone su proyecto al resto de la clase, recibe preguntas y defiende sus conclusiones con evidencia.`,
+            },
+            'metodo-ciclo-v': {
+                0: `OBJETIVO GENERAL: Iniciar a los estudiantes en el pensamiento científico mediante la curiosidad y la experimentación guiada.
+
+OBJETIVOS PARTICULARES:
+- Reconocer que la ciencia se hace con pasos ordenados.
+- Formular preguntas investigables sobre fenómenos cotidianos.
+- Proponer explicaciones sencillas (hipótesis) y comprobarlas.
+- Diferenciar entre lo que cambiamos y lo que medimos en un experimento.
+
+NOCIONES PRINCIPALES: Observar, preguntar, hipótesis, experimento, resultado, conclusión.
+NOCIONES SECUNDARIAS: Ser vivo, crecimiento, respuesta a estímulos, reproducción.
+
+INTERESES SOCIETALES: Despertar vocaciones científicas tempranas. Fomentar el pensamiento lógico y la curiosidad natural.`,
+                1: `ACTIVIDAD DE DESCUBIERTA: "El detective de la naturaleza"
+
+🕵️ Salida al patio o jardín escolar. Cada estudiante lleva una lupa y una libreta.
+
+🔍 Misión: Observar atentamente durante 10 minutos y anotar:
+- 3 cosas que te llamen la atención
+- 3 preguntas que te surjan sobre lo observado
+- 1 cosa que te gustaría comprobar
+
+🌱 Ejemplo: "Veo que los caracoles están solo en las hojas húmedas. ¿Prefieren la humedad? ¿Cómo podría comprobarlo?"
+
+💬 Puesta en común: Compartir las preguntas y discutir cuáles se podrían investigar con un experimento.`,
+                3: `TRANSMISIÓN CONCEPTUAL: Los pasos del científico
+
+🔬 El método científico es como una receta de cocina: tiene pasos que seguir para que el resultado sea confiable.
+
+📐 LOS 4 PASOS (versión simplificada):
+
+1. OBSERVAR: Usar los sentidos para notar algo interesante y hacerse preguntas.
+   Ej: "Veo que mi planta del rincón está más amarilla que la de la ventana."
+
+2. HIPOTETIZAR: Pensar una posible explicación.
+   Ej: "Creo que le falta luz solar."
+
+3. EXPERIMENTAR: Probar la idea de forma controlada.
+   Ej: Pongo una planta igual en la ventana y otra en el rincón, les doy la misma agua.
+
+4. CONCLUIR: Decidir si la hipótesis era correcta según los resultados.
+   Ej: "La planta de la ventana creció más verde. Mi hipótesis era correcta: la luz importa."
+
+📏 Variables (con ejemplo de plastilina):
+- Lo que cambio: variable independiente (cantidad de luz)
+- Lo que mido: variable dependiente (color/crecimiento de la planta)`,
+                4: `TRABAJOS DIRIGIDOS: Pequeños experimentos mentales
+
+✏️ Ejercicio 1: Lee la situación y completa.
+"María quiere saber si regar con agua tibia hace que las semillas germinen más rápido que con agua fría."
+
+- Pregunta de investigación: ¿_____________?
+- Hipótesis posible: "Si riego con agua tibia, entonces _____________."
+- Variable independiente: _____________
+- Variable dependiente: _____________
+
+✏️ Ejercicio 2: Marca con ✓ los pasos del método científico:
+[ ] Observar y hacerse preguntas
+[ ] Adivinar sin comprobar
+[ ] Experimentar
+[ ] Sacar conclusiones
+[ ] Creer lo que dicen todos
+
+✏️ Ejercicio 3: Relaciona:
+A. Observación     ( ) Compruebo mi idea
+B. Hipótesis       ( ) Explico lo que aprendí
+C. Experimentación ( ) Miro con atención y pregunto
+D. Conclusión      ( ) Pienso una posible respuesta`,
+            },
+            'metodo-ciclo-vii': {
+                0: `OBJETIVO GENERAL: Dominar el diseño experimental riguroso y la interpretación crítica de resultados científicos.
+
+OBJETIVOS PARTICULARES:
+- Diseñar experimentos con control adecuado de variables y mínimo sesgo.
+- Aplicar nociones de estadística inferencial básica para interpretar resultados.
+- Distinguir correlación de causalidad.
+- Evaluar la validez de estudios científicos publicados.
+- Comunicar resultados en formato científico estándar.
+
+NOCIONES PRINCIPALES: Sesgo experimental, validez interna/externa, correlación vs. causalidad, significancia estadística, replicabilidad, revisión por pares.
+NOCIONES SECUNDARIAS: Bioquímica, biología molecular, bioética.
+
+INTERESES SOCIETALES: Formación de ciudadanos con pensamiento crítico capaces de evaluar afirmaciones científicas en medios, políticas públicas y salud.`,
+                1: `ACTIVIDAD DE DESCUBIERTA: "¿Ciencia o pseudociencia?"
+
+📰 Se presentan a los estudiantes 5 titulares de noticias reales y falsas:
+1. "Estudio científico demuestra que el chocolate ayuda a bajar de peso" (fue un experimento diseñado para probar sesgos)
+2. "Científicos hallan correlación entre consumo de helado y ahogamientos" (correlación sin causalidad: ambos aumentan en verano)
+3. "Ensayo clínico aleatorizado muestra eficacia de nueva vacuna" (real)
+4. "Astrólogo predice terremoto con exactitud científica" (pseudociencia)
+5. "Estudio con 100 000 participantes asocia tabaco y cáncer pulmonar" (real)
+
+🔍 Preguntas:
+- ¿Cómo podemos distinguir un estudio científico riguroso de uno que no lo es?
+- ¿Qué preguntas deberíamos hacerle a cada afirmación?
+- ¿Basta con que dos cosas ocurran juntas para decir que una causa la otra?`,
+                3: `TRANSMISIÓN CONCEPTUAL: Diseño experimental avanzado
+
+📐 REPASO DE LOS 4 PASOS (con profundización):
+
+1. OBSERVACIÓN → Problema de investigación bien delimitado.
+2. HIPÓTESIS → Debe ser falsable (Popper): debe poder demostrarse que es falsa si lo es.
+3. EXPERIMENTACIÓN → Diseño riguroso:
+   - Aleatorización de sujetos
+   - Grupo control con placebo o tratamiento estándar
+   - Doble ciego (ni sujeto ni experimentador saben quién recibe qué)
+   - Control de variables intervinientes
+   - Tamaño muestral adecuado
+4. RESULTADOS → Análisis estadístico (p-valor, intervalo de confianza, tamaño del efecto).
+
+⚠️ SESGO EXPERIMENTAL: Ocurre cuando el diseño favorece sistemáticamente un resultado. Ejemplo del PDF: el experimento de música y plantas tenía sesgo porque los ambientes (luz, sombra, oscuridad) variaban junto con el tipo de música.
+
+📊 CORRELACIÓN ≠ CAUSALIDAD: Que dos variables estén correlacionadas no implica que una cause la otra. Ej: frecuencia cardíaca en reposo y estatura (pregunta 10 del PDF: no mostraron correlación directa).
+
+🔬 RAMAS AVANZADAS DE LA BIOLOGÍA:
+- Biología molecular: estudia las moléculas de la vida (ADN, proteínas).
+- Bioquímica: composición y reacciones químicas en seres vivos.
+- Bioética: principios para actuar frente a la vida humana y los demás seres vivos.
+- Virología: estudio de virus (no considerados seres vivos porque no realizan metabolismo).`,
+                4: `TRABAJOS DIRIGIDOS: Análisis de estudios
+
+✏️ Ejercicio 1 (del PDF, pregunta 3 - sesgo experimental):
+"Se monta un experimento para investigar la influencia de la música sobre el crecimiento de las plantas. Cada grupo tiene 20 plantas. Grupo 1: música clásica, ventana soleada. Grupo 2: jazz, esquina con sombra. Grupo 3: rock, armario oscuro. Grupo 4: sin música, espacio exterior soleado."
+¿Qué declaración explica el sesgo?
+a) La duración de los tres ensayos es constante.
+b) Otras variables aparte de la música pueden influir sobre los resultados. ✓
+c) No se puede medir el crecimiento de las plantas directamente.
+d) El tamaño de la muestra no es suficientemente grande.
+
+✏️ Ejercicio 2 (del PDF, pregunta 4 - virus):
+Sobre los virus:
+I. Son partículas infecciosas formadas por proteínas y ácido nucleico. (V)
+II. No son considerados seres vivos porque no realizan metabolismo. (V)
+III. Los virus son más pequeños que las bacterias. (V)
+Respuesta correcta: d) Todas.
+
+✏️ Ejercicio 3 (del PDF, pregunta 9 - ramas de la biología):
+Relaciona:
+I. El ADN tiene nucleótidos con fosfato, azúcar y base nitrogenada → Biología molecular (D)
+II. El intestino delgado absorbe nutrientes hacia la sangre → Fisiología (B)
+III. Prueba de orina revela infección renal → Patología (A)
+IV. Fotosíntesis transforma materia inorgánica en orgánica → Bioquímica (C)
+Respuesta: d) I-D, II-B, III-A, IV-C.`,
+                6: `CORRELACIONES EXTERNAS (Universalización avanzada):
+
+🌐 EL MÉTODO CIENTÍFICO COMO HERRAMIENTA SOCIAL:
+
+1. SALUD PÚBLICA: El dengue en Iquitos y la selva central (pregunta 7 del PDF) se estudia mediante:
+   - Epidemiología (observación de patrones)
+   - Entomología (estudio del mosquito vector)
+   - Virología (estudio del virus)
+   - Patología (estudio de la enfermedad)
+
+2. CAMBIO CLIMÁTICO: El consenso científico se basa en décadas de observaciones, hipótesis contrastadas, modelos predictivos y revisión por pares.
+
+3. PANDEMIAS: El desarrollo de vacunas en tiempo récord aplicó el método científico con fases de ensayos clínicos, grupo control con placebo y análisis estadístico riguroso.
+
+4. BIOÉTICA: La ciencia no es neutra; requiere principios éticos (bioética) para actuar frente a la vida humana y los demás seres vivos.
+
+5. COMUNICACIÓN CIENTÍFICA: La importancia de publicar resultados (incluso negativos) para que otros puedan replicar y verificar. La ciencia es acumulativa y colaborativa.
+
+🧠 "La ciencia es el intento de hacer que la diversidad caótica de nuestras experiencias sensoriales corresponda a un sistema de pensamiento lógicamente ordenado." — Albert Einstein`,
+            },
+        };
+
+        // También pre-rellenar contenido para Ciclo V y VII en fases clave
+        metodoPrecontent['metodo-ciclo-v'] = {
+            ...metodoPrecontent['metodo-ciclo-v'],
+            2: `ACTIVIDAD INDUCTIVA: "¿Qué cambia y qué observo?"
+
+🌱 Experimento con semillas:
+La maestra muestra 3 vasos con algodón y una semilla de frijol cada uno:
+- Vaso A: recibe agua y está en la ventana (luz)
+- Vaso B: recibe agua y está en un armario (oscuridad)
+- Vaso C: NO recibe agua y está en la ventana (luz)
+
+🔎 Preguntas para pensar:
+- ¿En qué se parecen el vaso A y el B? ¿En qué se diferencian?
+- ¿En qué se parecen el vaso A y el C? ¿En qué se diferencian?
+- Si quiero saber si la luz importa, ¿qué vasos debo comparar?
+- Si quiero saber si el agua importa, ¿qué vasos debo comparar?
+
+📝 Conclusión guiada: Para estar seguros de qué causa un cambio, solo debemos cambiar UNA cosa a la vez.`,
+            5: `CORRELACIONES INTERNAS (Conexión con Seres Vivos):
+
+🌿 CARACTERÍSTICAS DE LOS SERES VIVOS (versión para primaria):
+1. NACEN: Todos los seres vivos nacen de otros seres vivos.
+2. CRECEN: Aumentan de tamaño (las plantas, los animales, las personas).
+3. SE ALIMENTAN: Obtienen nutrientes para vivir.
+4. RESPONDEN A ESTÍMULOS: Reaccionan a lo que pasa a su alrededor (luz, temperatura, sonidos).
+5. SE REPRODUCEN: Tienen crías o generan nuevos individuos.
+
+🦋 Ejemplo con una mariposa: Nace de un huevo → Crece como oruga → Se alimenta de hojas → Responde a la luz → Se reproduce poniendo huevos.`,
+            7: `MÓDULO DE PROYECTO GRUPAL: "Nuestra feria de ciencias"
+
+🎯 OBJETIVO: Realizar un experimento sencillo en equipo y presentarlo en una miniferia científica.
+
+📋 PASOS:
+1. Elegir una pregunta (ej: ¿las plantas crecen hacia la luz? ¿el vinagre disuelve la cáscara de huevo?).
+2. Escribir la hipótesis.
+3. Hacer el experimento en casa con ayuda de un adulto.
+4. Tomar fotos o dibujar los cambios cada día.
+5. Preparar un cartel con: pregunta, hipótesis, qué hicieron, qué pasó, conclusión.
+6. Exponer a los compañeros.
+
+🏆 Se valora: creatividad, orden, claridad y trabajo en equipo.`,
+        };
+        metodoPrecontent['metodo-ciclo-vii'] = {
+            ...metodoPrecontent['metodo-ciclo-vii'],
+            2: `ACTIVIDAD INDUCTIVA: "Correlación espuria"
+
+📊 Se presentan estos datos reales:
+- Entre 2000 y 2010, el consumo de helado en EE.UU. aumentó un 20%.
+- En el mismo período, los casos de ahogamiento en piscinas aumentaron un 20%.
+
+🔎 Preguntas:
+- ¿Significa esto que el helado causa ahogamientos?
+- ¿Qué otra variable podría explicar ambos aumentos? (pista: ¿en qué época del año se consume más helado y se nada más?)
+- ¿Cómo diseñarías un experimento para comprobar si el helado realmente afecta la capacidad de nadar?
+
+📝 Conclusión inductiva: Dos variables pueden estar correlacionadas sin que una cause la otra. Esto se llama correlación espuria. Solo un experimento controlado puede establecer causalidad.`,
+            5: `CORRELACIONES INTERNAS (Conexión con Biología Avanzada):
+
+🧬 RAMAS DE LA BIOLOGÍA (completas del PDF):
+- BIOQUÍMICA: Composición y reacciones químicas en seres vivos.
+- BIOLOGÍA MOLECULAR: Moléculas que forman parte de los seres vivos (ADN, proteínas).
+- CITOLOGÍA: Morfología y fisiología de la célula.
+- GENÉTICA: Herencia y variación de las especies.
+- EVOLUCIÓN: Cambios que se han dado y se dan en las especies.
+- ECOLOGÍA: Relación entre los seres vivos y su medio.
+- TAXONOMÍA: Nombra y clasifica a los seres vivos.
+- PATOLOGÍA: Agentes patógenos que causan enfermedades.
+- VIROLOGÍA: Virus (no son seres vivos: no realizan metabolismo).
+- BIOÉTICA: Principios para actuar frente a la vida humana y los demás seres vivos.
+
+🔗 El método científico es el hilo conductor que une todas estas ramas.`,
+            7: `MÓDULO DE PROYECTO GRUPAL: "Investigación científica escolar"
+
+🎯 OBJETIVO: Diseñar, ejecutar y comunicar una investigación científica completa.
+
+📋 FASES DEL PROYECTO:
+1. ELECCIÓN DEL TEMA: Problema relevante y viable.
+2. REVISIÓN BIBLIOGRÁFICA: ¿Qué se sabe ya sobre el tema?
+3. HIPÓTESIS: Clara, específica y falsable.
+4. DISEÑO EXPERIMENTAL:
+   - Variables (independiente, dependiente, controladas)
+   - Grupos (control y experimental)
+   - Tamaño muestral y aleatorización
+   - Materiales y procedimiento detallado
+5. EJECUCIÓN Y REGISTRO DE DATOS
+6. ANÁLISIS ESTADÍSTICO BÁSICO (promedios, gráficos)
+7. CONCLUSIONES: ¿Se confirma o rechaza la hipótesis?
+8. COMUNICACIÓN: Informe escrito y presentación oral.
+
+🗣️ SOCIALIZACIÓN: Congreso científico escolar con defensa ante tribunal (profesores y compañeros).`,
+        };
+
+        // ═══════════════════════════════════════
+        //  STATE
+        // ═══════════════════════════════════════
+        let currentView = 'home';
+        let currentArea = null;
+        let currentLessonId = null;
+
+        // ═══════════════════════════════════════
+        //  RENDER FUNCTIONS
+        // ═══════════════════════════════════════
+        function renderHome() {
+            currentView = 'home';
+            currentArea = null;
+            currentLessonId = null;
+            updateBreadcrumb([]);
+            const main = document.getElementById('mainContent');
+            const matCount = lessonsData.filter(l => l.area === 'matematica').length;
+            const cieCount = lessonsData.filter(l => l.area === 'ciencia' && !l.esMetodo).length;
+            const metodoCount = lessonsData.filter(l => l.esMetodo).length;
+            main.innerHTML = `
+                <h1 class="page-title">Conocimientos Fundamentales</h1>
+                <p class="page-subtitle">Educación Básica Regular · Selecciona un área para explorar las lecciones disponibles.</p>
+                <div class="area-cards">
+                    <div class="area-card matematica" onclick="navigateToArea('matematica')">
+                        <div class="accent-dot"></div>
+                        <div class="icon">🧮</div>
+                        <h2>Matemática</h2>
+                        <p class="count">${matCount} lecciones · Primaria y Secundaria</p>
+                    </div>
+                    <div class="area-card ciencia" onclick="navigateToArea('ciencia')">
+                        <div class="accent-dot"></div>
+                        <div class="icon">🔬</div>
+                        <h2>Ciencia y Tecnología</h2>
+                        <p class="count">${cieCount} lecciones · Primaria y Secundaria</p>
+                    </div>
+                    <div class="area-card metodo-highlight" onclick="navigateToLesson('metodo-ciclo-vi')">
+                        <div class="accent-dot"></div>
+                        <div class="icon">⚗️</div>
+                        <h2>El Método Científico <span class="featured-badge">🌟 Destacado</span></h2>
+                        <p class="count">${metodoCount} lecciones especializadas · Ciclos V, VI y VII</p>
+                        <p style="font-size:0.8rem;color:#7c3aed;margin-top:0.4rem;">🔬 Incluye ejemplos, ejercicios del PDF y contenido pre-rellenado</p>
+                    </div>
+                </div>
+                <div style="margin-top:2rem;padding:1rem;background:#fdfbff;border-radius:12px;border:1px solid #e9d5ff;font-size:0.85rem;color:#6b21a8;">
+                    <strong>💡 Novedad:</strong> Se ha añadido <em>El Método Científico</em> como conocimiento fundamental, con lecciones para Ciclo V (primaria 5°-6°), Ciclo VI (secundaria 1°-2°) y Ciclo VII (secundaria 3°-5°). Cada lección incluye contenido del PDF "El método científico y las características de los seres vivos" con ejemplos de experimentos, variables, sesgo experimental, ramas de la biología y ejercicios resueltos. <strong>Haz clic en la tarjeta destacada para abrir directamente la lección de Ciclo VI.</strong>
+                </div>
+            `;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderArea(areaKey) {
+            currentView = 'area';
+            currentArea = areaKey;
+            currentLessonId = null;
+            const areaLessons = lessonsData.filter(l => l.area === areaKey);
+            const areaName = areaLessons[0]?.areaName || 'Área';
+            updateBreadcrumb([{ label: areaName, action: null, current: true }]);
+            const groups = {};
+            areaLessons.forEach(l => {
+                const groupKey = `${l.nivel}|${l.ciclo}`;
+                if (!groups[groupKey]) { groups[groupKey] = { nivel: l.nivel, ciclo: l.ciclo,
+                    lessons: [] }; }
+                groups[groupKey].lessons.push(l);
+            });
+            const groupOrder = ['Primaria|Ciclo III', 'Primaria|Ciclo IV', 'Primaria|Ciclo V',
+                'Secundaria|Ciclo VI', 'Secundaria|Ciclo VII'
+            ];
+            const sortedGroups = groupOrder.map(key => groups[key]).filter(g => g);
+            let groupsHTML = '';
+            sortedGroups.forEach(group => {
+                const nivelClass = group.nivel.toLowerCase();
+                groupsHTML += `
+                <div class="level-group">
+                    <div class="level-group-header">
+                        <span class="level-badge ${nivelClass}">${group.nivel}</span>
+                        <span class="ciclo-tag">${group.ciclo}</span>
+                    </div>
+                    <div class="lesson-grid">
+                        ${group.lessons.map(l => {
+                            const isMetodo = l.esMetodo ? ' metodo-card' : '';
+                            const metodoIcon = l.esMetodo ? ' <span class="metodo-icon-small">🧪 MÉTODO</span>' : '';
+                            return `
+                            <div class="lesson-card${isMetodo}" onclick="navigateToLesson('${l.id}')">
+                                <span class="lesson-title">${l.materia}${metodoIcon}</span>
+                                <span class="lesson-meta">📐 ${l.grado}</span>
+                                <span class="lesson-preview">${l.conocimientos}</span>
+                                <span class="arrow">→</span>
+                            </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+                `;
+            });
+            const main = document.getElementById('mainContent');
+            main.innerHTML = `
+                <button class="btn-back" onclick="navigateHome()">← Volver al inicio</button>
+                <h1 class="page-title">${areaName}</h1>
+                <p class="page-subtitle">${areaLessons.length} lecciones organizadas por nivel y ciclo.</p>
+                ${groupsHTML}
+            `;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderLesson(lessonId) {
+            const lesson = lessonsData.find(l => l.id === lessonId);
+            if (!lesson) { renderHome(); return; }
+            currentView = 'lesson';
+            currentLessonId = lessonId;
+            currentArea = lesson.area;
+            updateBreadcrumb([
+                { label: lesson.areaName, action: () => navigateToArea(lesson.area), current: false },
+                { label: lesson.materia + ' (' + lesson.grado + ')', action: null, current: true },
+            ]);
+            const nivelClass = lesson.nivel.toLowerCase();
+            const isMetodo = lesson.esMetodo;
+            const headerClass = isMetodo ? ' metodo-header' : '';
+            let phasesHTML = '';
+            phaseDefinitions.forEach(phase => {
+                phasesHTML += `
+                <div class="phase-item ${phase.cssClass}" id="phase-${phase.number}-${lesson.id}">
+                    <div class="phase-header" onclick="togglePhase('phase-${phase.number}-${lesson.id}')">
+                        <span class="phase-number">${phase.number}</span>
+                        <span class="phase-title-text">
+                            ${phase.title}
+                            <span class="phase-subtitle">${phase.subtitle}</span>
+                        </span>
+                        <span class="phase-chevron">▾</span>
+                    </div>
+                    <div class="phase-body">
+                        <p class="placeholder-hint">✏️ Contenido editable — escribe aquí el desarrollo de esta fase.</p>
+                        <textarea class="editable-area"
+                            id="editable-${phase.number}-${lesson.id}"
+                            placeholder="Desarrolla aquí el contenido para la Fase ${phase.number}: ${phase.title}..."
+                            data-phase="${phase.number}"
+                            data-lesson="${lesson.id}"
+                        ></textarea>
+                    </div>
+                </div>
+                `;
+            });
+            const main = document.getElementById('mainContent');
+            main.innerHTML = `
+                <button class="btn-back" onclick="navigateToArea('${lesson.area}')">← Volver a ${lesson.areaName}</button>
+                <div class="lesson-detail">
+                    <div class="lesson-header-card${headerClass}">
+                        <div class="meta-row">
+                            <span class="level-badge ${nivelClass}">${lesson.nivel}</span>
+                            <span>📐 ${lesson.grado}</span>
+                            <span>🔄 ${lesson.ciclo}</span>
+                            ${isMetodo ? '<span style="background:#8b5cf6;color:#fff;padding:0.2rem 0.7rem;border-radius:14px;font-size:0.75rem;font-weight:600;">🌟 LECCIÓN DESTACADA</span>' : ''}
+                        </div>
+                        <h1>${lesson.materia}</h1>
+                        <span class="knowledge-tag">📘 ${lesson.conocimientos}</span>
+                        ${isMetodo ? '<p style="margin-top:0.8rem;font-size:0.82rem;color:#7c3aed;">📄 Esta lección incluye contenido pre-rellenado del PDF "El método científico y las características de los seres vivos" con ejemplos, ejercicios y soluciones.</p>' : ''}
+                    </div>
+                    <p style="color:#64748b;margin-bottom:1rem;font-size:0.85rem;">
+                        📝 <strong>Plantilla de lección</strong> — Expande cada fase para editar su contenido.
+                        <span class="btn-save-hint">(Los cambios se guardan automáticamente en tu navegador.)</span>
+                    </p>
+                    <div class="phase-accordion">
+                        ${phasesHTML}
+                    </div>
+                </div>
+            `;
+            restoreSavedContent(lessonId);
+            if (isMetodo) {
+                setTimeout(() => applyMetodoPrecontent(lessonId), 150);
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function applyMetodoPrecontent(lessonId) {
+            const precontent = metodoPrecontent[lessonId];
+            if (!precontent) return;
+            Object.keys(precontent).forEach(phaseNum => {
+                const key = getStorageKey(lessonId, phaseNum);
+                const existing = localStorage.getItem(key);
+                if (!existing || existing.trim() === '') {
+                    const textarea = document.getElementById(`editable-${phaseNum}-${lessonId}`);
+                    if (textarea) {
+                        textarea.value = precontent[phaseNum];
+                        localStorage.setItem(key, precontent[phaseNum]);
+                    }
+                }
+            });
+        }
+
+        function togglePhase(phaseElementId) {
+            const phaseItem = document.getElementById(phaseElementId);
+            if (!phaseItem) return;
+            phaseItem.classList.toggle('open');
+            const textarea = phaseItem.querySelector('.editable-area');
+            if (textarea) { saveContent(textarea); }
+        }
+
+        function getStorageKey(lessonId, phaseNumber) {
+            return `lesson-${lessonId}-phase-${phaseNumber}`;
+        }
+        function saveContent(textarea) {
+            const lessonId = textarea.dataset.lesson;
+            const phaseNumber = textarea.dataset.phase;
+            const key = getStorageKey(lessonId, phaseNumber);
+            localStorage.setItem(key, textarea.value);
+        }
+        function restoreSavedContent(lessonId) {
+            phaseDefinitions.forEach(phase => {
+                const key = getStorageKey(lessonId, phase.number);
+                const saved = localStorage.getItem(key);
+                if (saved) {
+                    const textarea = document.getElementById(`editable-${phase.number}-${lessonId}`);
+                    if (textarea) { textarea.value = saved; }
+                }
+            });
+        }
+        let saveTimeout;
+        document.addEventListener('input', function(e) {
+            if (e.target.classList.contains('editable-area')) {
+                clearTimeout(saveTimeout);
+                const textarea = e.target;
+                saveTimeout = setTimeout(() => { saveContent(textarea); }, 500);
+            }
+        });
+        document.addEventListener('blur', function(e) {
+            if (e.target.classList.contains('editable-area')) { saveContent(e.target); }
+        }, true);
+
+        function navigateHome() { window.location.hash = '';
+            renderHome(); }
+        function navigateToArea(areaKey) { window.location.hash = areaKey;
+            renderArea(areaKey); }
+        function navigateToLesson(lessonId) { window.location.hash = lessonId;
+            renderLesson(lessonId); }
+
+        function updateBreadcrumb(items) {
+            const bc = document.getElementById('breadcrumb');
+            let html = '<span onclick="navigateHome()">Inicio</span>';
+            items.forEach(item => {
+                html += ' <span class="sep">›</span> ';
+                if (item.current) { html +=
+                    `<span class="current">${item.label}</span>`; } else if (item.action) { html +=
+                        `<span onclick="(${item.action.toString()})()" style="cursor:pointer;">${item.label}</span>`; } else { html +=
+                    `<span>${item.label}</span>`; }
+            });
+            bc.innerHTML = html;
+        }
+
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.replace('#', '');
+            if (!hash) { renderHome(); } else if (hash === 'matematica' || hash === 'ciencia') { renderArea(
+                hash); } else if (lessonsData.some(l => l.id === hash)) { renderLesson(hash); }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'E') {
+                e.preventDefault();
+                if (currentView === 'lesson') {
+                    const allPhases = document.querySelectorAll('.phase-item');
+                    const anyClosed = Array.from(allPhases).some(p => !p.classList.contains('open'));
+                    allPhases.forEach(p => { if (anyClosed) { p.classList.add('open'); } else { p.classList
+                                .remove('open'); } });
+                    document.querySelectorAll('.editable-area').forEach(ta => saveContent(ta));
+                }
+            }
+        });
+
+        function init() {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && lessonsData.some(l => l.id === hash)) { renderLesson(hash); } else if (hash ===
+                'matematica' || hash === 'ciencia') { renderArea(hash); } else { renderHome(); }
+        }
+        init();
+        console.log('📚 Plataforma lista. Lecciones del Método Científico añadidas con contenido del PDF.');
+        console.log('   🧪 Método Científico: Ciclo V, Ciclo VI (principal), Ciclo VII.');
+        console.log('   📄 Contenido pre-rellenado con ejemplos, ejercicios y soluciones.');
+    </script>
+</body>
+</html>
