@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conocimientos Fundamentales - IEP Escuela Hogar Ventanilla</title>
     <style>
+        /* ... (estilos sin cambios) ... */
         :root {
             --matematica: #2563eb;
             --matematica-light: #dbeafe;
@@ -27,483 +28,87 @@
             --radius-sm: 8px;
             --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        .header {
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.92);
-        }
-        .header-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            user-select: none;
-        }
-        .logo-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: var(--radius-sm);
-            background: linear-gradient(135deg, #6366f1, #3b82f6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.2rem;
-        }
-        .breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            flex-wrap: wrap;
-        }
-        .breadcrumb span {
-            cursor: pointer;
-            transition: color var(--transition);
-        }
-        .breadcrumb span:hover {
-            color: #3b82f6;
-            text-decoration: underline;
-        }
-        .breadcrumb .sep {
-            color: #cbd5e1;
-            cursor: default;
-        }
-        .breadcrumb .current {
-            font-weight: 600;
-            color: var(--text);
-            cursor: default;
-        }
-        .main-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 2rem;
-            min-height: 80vh;
-        }
-        .page-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-            color: var(--text);
-        }
-        .page-subtitle {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-        }
-        .area-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .area-card {
-            background: var(--surface);
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem 1.5rem;
-            cursor: pointer;
-            transition: all var(--transition);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        .area-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-        .area-card.matematica {
-            border-left: 5px solid var(--matematica);
-        }
-        .area-card.matematica:hover {
-            border-color: var(--matematica);
-            background: #fafbff;
-        }
-        .area-card.ciencia {
-            border-left: 5px solid var(--ciencia);
-        }
-        .area-card.ciencia:hover {
-            border-color: var(--ciencia);
-            background: #fafdfb;
-        }
-        .area-card.metodo-highlight {
-            border-left: 5px solid var(--metodo);
-            background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%);
-            border: 2px solid var(--metodo);
-        }
-        .area-card.metodo-highlight:hover {
-            border-color: var(--metodo-dark);
-            background: linear-gradient(135deg, #f5f0ff 0%, #e0d9fc 100%);
-        }
-        .area-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
-        }
-        .area-card h2 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.35rem;
-        }
-        .area-card .count {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        .area-card .featured-badge {
-            display: inline-block;
-            background: var(--metodo);
-            color: #fff;
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-            margin-left: 0.5rem;
-            vertical-align: middle;
-        }
-        .level-group {
-            margin-bottom: 2.5rem;
-        }
-        .level-group-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-        .level-badge {
-            display: inline-block;
-            padding: 0.35rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            text-transform: uppercase;
-        }
-        .level-badge.primaria {
-            background: #fef3c7;
-            color: #92400e;
-        }
-        .level-badge.secundaria {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-        .ciclo-tag {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        .lesson-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 0.85rem;
-        }
-        .lesson-card {
-            background: var(--surface);
-            border: 1.5px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 1.25rem;
-            cursor: pointer;
-            transition: all var(--transition);
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-        .lesson-card:hover {
-            border-color: #6366f1;
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-        .lesson-card.metodo-card {
-            border-left: 4px solid var(--metodo);
-            background: #fdfbff;
-        }
-        .lesson-card.metodo-card:hover {
-            border-color: var(--metodo);
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
-        }
-        .lesson-card .lesson-title {
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--text);
-        }
-        .lesson-card .lesson-meta {
-            font-size: 0.78rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        .lesson-card .lesson-preview {
-            font-size: 0.8rem;
-            color: #94a3b8;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .lesson-card .arrow {
-            align-self: flex-end;
-            color: #6366f1;
-            font-weight: 700;
-            transition: transform var(--transition);
-        }
-        .lesson-card:hover .arrow {
-            transform: translateX(4px);
-        }
-        .metodo-icon-small {
-            display: inline-block;
-            background: var(--metodo-light);
-            color: var(--metodo-dark);
-            border-radius: 4px;
-            padding: 0.15rem 0.4rem;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-        }
-        .lesson-detail {
-            animation: fadeIn 0.3s ease;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .lesson-header-card {
-            background: var(--surface);
-            border: 1.5px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
-        }
-        .lesson-header-card.metodo-header {
-            border-left: 5px solid var(--metodo);
-            background: linear-gradient(135deg, #fff 0%, #fdfbff 100%);
-        }
-        .lesson-header-card h1 {
-            font-size: 1.4rem;
-            margin-bottom: 0.3rem;
-        }
-        .lesson-header-card .meta-row {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-        .lesson-header-card .knowledge-tag {
-            display: inline-block;
-            background: #f1f5f9;
-            padding: 0.25rem 0.7rem;
-            border-radius: 20px;
-            font-size: 0.78rem;
-            color: #475569;
-            margin-top: 0.4rem;
-        }
-        .phase-accordion {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .phase-item {
-            background: var(--surface);
-            border: 1.5px solid var(--border);
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all var(--transition);
-        }
-        .phase-item.open {
-            border-color: #6366f1;
-            box-shadow: var(--shadow-md);
-        }
-        .phase-header {
-            padding: 0.85rem 1.1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            user-select: none;
-            transition: background var(--transition);
-        }
-        .phase-header:hover {
-            background: #f8fafc;
-        }
-        .phase-number {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.8rem;
-            flex-shrink: 0;
-        }
-        .phase-0 .phase-number {
-            background: #fef3c7;
-            color: #92400e;
-        }
-        .phase-1 .phase-number {
-            background: #fce7f3;
-            color: #9d174d;
-        }
-        .phase-2 .phase-number {
-            background: #ede9fe;
-            color: #5b21b6;
-        }
-        .phase-3 .phase-number {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-        .phase-4 .phase-number {
-            background: #dcfce7;
-            color: #166534;
-        }
-        .phase-5 .phase-number {
-            background: #ffedd5;
-            color: #9a3412;
-        }
-        .phase-6 .phase-number {
-            background: #e0e7ff;
-            color: #3730a3;
-        }
-        .phase-7 .phase-number {
-            background: #fce7f3;
-            color: #831843;
-        }
-        .phase-title-text {
-            flex: 1;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .phase-subtitle {
-            font-weight: 400;
-            font-size: 0.73rem;
-            color: var(--text-secondary);
-            display: block;
-        }
-        .phase-chevron {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            transition: transform var(--transition);
-            flex-shrink: 0;
-        }
-        .phase-item.open .phase-chevron {
-            transform: rotate(180deg);
-            color: #6366f1;
-        }
-        .phase-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            padding: 0 1.1rem;
-            border-top: 0px solid transparent;
-        }
-        .phase-item.open .phase-body {
-            max-height: 2000px;
-            padding: 0.85rem 1.1rem;
-            border-top: 1px solid #e2e8f0;
-        }
-        .phase-body .editable-area {
-            width: 100%;
-            min-height: 80px;
-            border: 1px dashed #d1d5db;
-            border-radius: 6px;
-            padding: 0.7rem;
-            font-family: inherit;
-            font-size: 0.85rem;
-            resize: vertical;
-            background: #fafafa;
-            color: var(--text);
-            line-height: 1.5;
-        }
-        .phase-body .editable-area:focus {
-            outline: 2px solid #6366f1;
-            border-color: transparent;
-            background: #fff;
-        }
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.45rem 0.9rem;
-            border-radius: 20px;
-            border: 1.5px solid var(--border);
-            background: var(--surface);
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text);
-            transition: all var(--transition);
-            margin-bottom: 1rem;
-        }
-        .btn-back:hover {
-            background: #f1f5f9;
-            border-color: #cbd5e1;
-        }
-        .footer {
-            text-align: center;
-            padding: 1.5rem;
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            border-top: 1px solid var(--border);
-            margin-top: 3rem;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+        .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.92); }
+        .header-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+        .logo { font-size: 1.2rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 0.5rem; cursor: pointer; user-select: none; }
+        .logo-icon { width: 38px; height: 38px; border-radius: var(--radius-sm); background: linear-gradient(135deg, #6366f1, #3b82f6); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; }
+        .breadcrumb { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; color: var(--text-secondary); flex-wrap: wrap; }
+        .breadcrumb span { cursor: pointer; transition: color var(--transition); }
+        .breadcrumb span:hover { color: #3b82f6; text-decoration: underline; }
+        .breadcrumb .sep { color: #cbd5e1; cursor: default; }
+        .breadcrumb .current { font-weight: 600; color: var(--text); cursor: default; }
+        .main-container { max-width: 1300px; margin: 0 auto; padding: 2rem; min-height: 80vh; }
+        .page-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--text); }
+        .page-subtitle { color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem; }
+        .area-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .area-card { background: var(--surface); border: 2px solid var(--border); border-radius: var(--radius); padding: 2rem 1.5rem; cursor: pointer; transition: all var(--transition); box-shadow: var(--shadow); position: relative; overflow: hidden; }
+        .area-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .area-card.matematica { border-left: 5px solid var(--matematica); }
+        .area-card.matematica:hover { border-color: var(--matematica); background: #fafbff; }
+        .area-card.ciencia { border-left: 5px solid var(--ciencia); }
+        .area-card.ciencia:hover { border-color: var(--ciencia); background: #fafdfb; }
+        .area-card.metodo-highlight { border-left: 5px solid var(--metodo); background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%); border: 2px solid var(--metodo); }
+        .area-card.metodo-highlight:hover { border-color: var(--metodo-dark); background: linear-gradient(135deg, #f5f0ff 0%, #e0d9fc 100%); }
+        .area-card .icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .area-card h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.35rem; }
+        .area-card .count { color: var(--text-secondary); font-size: 0.85rem; }
+        .area-card .featured-badge { display: inline-block; background: var(--metodo); color: #fff; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; margin-left: 0.5rem; vertical-align: middle; }
+        .level-group { margin-bottom: 2.5rem; }
+        .level-group-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .level-badge { display: inline-block; padding: 0.35rem 0.9rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; }
+        .level-badge.primaria { background: #fef3c7; color: #92400e; }
+        .level-badge.secundaria { background: #dbeafe; color: #1e40af; }
+        .ciclo-tag { font-size: 0.8rem; color: var(--text-secondary); font-weight: 500; }
+        .lesson-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.85rem; }
+        .lesson-card { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; cursor: pointer; transition: all var(--transition); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 0.4rem; }
+        .lesson-card:hover { border-color: #6366f1; box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .lesson-card.metodo-card { border-left: 4px solid var(--metodo); background: #fdfbff; }
+        .lesson-card.metodo-card:hover { border-color: var(--metodo); box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12); }
+        .lesson-card .lesson-title { font-weight: 700; font-size: 1rem; color: var(--text); }
+        .lesson-card .lesson-meta { font-size: 0.78rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+        .lesson-card .lesson-preview { font-size: 0.8rem; color: #94a3b8; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .lesson-card .arrow { align-self: flex-end; color: #6366f1; font-weight: 700; transition: transform var(--transition); }
+        .lesson-card:hover .arrow { transform: translateX(4px); }
+        .metodo-icon-small { display: inline-block; background: var(--metodo-light); color: var(--metodo-dark); border-radius: 4px; padding: 0.15rem 0.4rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em; }
+        .lesson-detail { animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .lesson-header-card { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
+        .lesson-header-card.metodo-header { border-left: 5px solid var(--metodo); background: linear-gradient(135deg, #fff 0%, #fdfbff 100%); }
+        .lesson-header-card h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+        .lesson-header-card .meta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        .lesson-header-card .knowledge-tag { display: inline-block; background: #f1f5f9; padding: 0.25rem 0.7rem; border-radius: 20px; font-size: 0.78rem; color: #475569; margin-top: 0.4rem; }
+        .phase-accordion { display: flex; flex-direction: column; gap: 0.5rem; }
+        .phase-item { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow); transition: all var(--transition); }
+        .phase-item.open { border-color: #6366f1; box-shadow: var(--shadow-md); }
+        .phase-header { padding: 0.85rem 1.1rem; cursor: pointer; display: flex; align-items: center; gap: 0.6rem; user-select: none; transition: background var(--transition); }
+        .phase-header:hover { background: #f8fafc; }
+        .phase-number { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
+        .phase-0 .phase-number { background: #fef3c7; color: #92400e; }
+        .phase-1 .phase-number { background: #fce7f3; color: #9d174d; }
+        .phase-2 .phase-number { background: #ede9fe; color: #5b21b6; }
+        .phase-3 .phase-number { background: #dbeafe; color: #1e40af; }
+        .phase-4 .phase-number { background: #dcfce7; color: #166534; }
+        .phase-5 .phase-number { background: #ffedd5; color: #9a3412; }
+        .phase-6 .phase-number { background: #e0e7ff; color: #3730a3; }
+        .phase-7 .phase-number { background: #fce7f3; color: #831843; }
+        .phase-title-text { flex: 1; font-weight: 600; font-size: 0.9rem; }
+        .phase-subtitle { font-weight: 400; font-size: 0.73rem; color: var(--text-secondary); display: block; }
+        .phase-chevron { font-size: 1.1rem; color: #94a3b8; transition: transform var(--transition); flex-shrink: 0; }
+        .phase-item.open .phase-chevron { transform: rotate(180deg); color: #6366f1; }
+        .phase-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; padding: 0 1.1rem; border-top: 0px solid transparent; }
+        .phase-item.open .phase-body { max-height: 2000px; padding: 0.85rem 1.1rem; border-top: 1px solid #e2e8f0; }
+        .phase-body .editable-area { width: 100%; min-height: 80px; border: 1px dashed #d1d5db; border-radius: 6px; padding: 0.7rem; font-family: inherit; font-size: 0.85rem; resize: vertical; background: #fafafa; color: var(--text); line-height: 1.5; }
+        .phase-body .editable-area:focus { outline: 2px solid #6366f1; border-color: transparent; background: #fff; }
+        .btn-back { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.9rem; border-radius: 20px; border: 1.5px solid var(--border); background: var(--surface); cursor: pointer; font-size: 0.8rem; font-weight: 500; color: var(--text); transition: all var(--transition); margin-bottom: 1rem; }
+        .btn-back:hover { background: #f1f5f9; border-color: #cbd5e1; }
+        .footer { text-align: center; padding: 1.5rem; color: var(--text-secondary); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 3rem; }
         @media (max-width: 768px) {
-            .header-inner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .main-container {
-                padding: 1rem;
-            }
-            .area-cards {
-                grid-template-columns: 1fr;
-            }
-            .lesson-grid {
-                grid-template-columns: 1fr;
-            }
+            .header-inner { flex-direction: column; align-items: flex-start; }
+            .main-container { padding: 1rem; }
+            .area-cards { grid-template-columns: 1fr; }
+            .lesson-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -523,7 +128,7 @@
     <footer class="footer">
         Plataforma de Lecciones · Conocimientos Fundamentales · Educación Básica Regular
         &nbsp;|&nbsp; <strong>32 lecciones</strong> (29 básicas + 3 Método Científico) con contenido pedagógico completo
-        &nbsp;|&nbsp; 🌟 Lecciones 1, 2 y 3 con desarrollo extenso e ilustrado
+        &nbsp;|&nbsp; 🌟 Lecciones 1, 2, 3, 4, 5 y 6 con desarrollo extenso e ilustrado
     </footer>
     <script>
         // ═══════════════════════════════════════
@@ -531,162 +136,94 @@
         // ═══════════════════════════════════════
         const lessonsData = [
             // ── Matemática · Primaria (9) ──
-            { id: 'mat-pri-num-iii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '1° y 2°',
-                ciclo: 'Ciclo III', materia: 'Números y Operaciones',
-                conocimientos: 'Números naturales hasta el 1000, adición y sustracción, multiplicación y división básicas.' },
-            { id: 'mat-pri-geo-iii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '1° y 2°',
-                ciclo: 'Ciclo III', materia: 'Geometría',
-                conocimientos: 'Figuras geométricas básicas (cuadrado, triángulo, círculo) y cuerpos geométricos.' },
-            { id: 'mat-pri-med-iii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '1° y 2°',
-                ciclo: 'Ciclo III', materia: 'Medición',
-                conocimientos: 'Longitud (centímetros, metros), masa (kilogramos) y tiempo (días, horas).' },
-            { id: 'mat-pri-num-iv', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '3° y 4°',
-                ciclo: 'Ciclo IV', materia: 'Números y Operaciones',
-                conocimientos: 'Números naturales, fracciones y decimales. Operaciones combinadas.' },
-            { id: 'mat-pri-geo-iv', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '3° y 4°',
-                ciclo: 'Ciclo IV', materia: 'Geometría',
-                conocimientos: 'Ángulos, polígonos, perímetro y área de figuras planas.' },
-            { id: 'mat-pri-est-iv', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '3° y 4°',
-                ciclo: 'Ciclo IV', materia: 'Estadística',
-                conocimientos: 'Lectura e interpretación de tablas y gráficos de barras.' },
-            { id: 'mat-pri-num-v', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '5° y 6°',
-                ciclo: 'Ciclo V', materia: 'Números y Operaciones',
-                conocimientos: 'Operaciones con números decimales y fracciones, proporcionalidad y porcentajes.' },
-            { id: 'mat-pri-alg-v', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '5° y 6°',
-                ciclo: 'Ciclo V', materia: 'Álgebra', conocimientos: 'Patrones y ecuaciones simples.' },
-            { id: 'mat-pri-geo-v', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '5° y 6°',
-                ciclo: 'Ciclo V', materia: 'Geometría',
-                conocimientos: 'Área de figuras planas, volumen de prismas y circunferencia.' },
+            { id: 'mat-pri-num-iii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Números y Operaciones', conocimientos: 'Números naturales hasta el 1000, adición y sustracción, multiplicación y división básicas.' },
+            { id: 'mat-pri-geo-iii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Geometría', conocimientos: 'Figuras geométricas básicas (cuadrado, triángulo, círculo) y cuerpos geométricos.' },
+            { id: 'mat-pri-med-iii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Medición', conocimientos: 'Longitud (centímetros, metros), masa (kilogramos) y tiempo (días, horas).' },
+            { id: 'mat-pri-num-iv', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Números y Operaciones', conocimientos: 'Números naturales, fracciones y decimales. Operaciones combinadas.' },
+            { id: 'mat-pri-geo-iv', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Geometría', conocimientos: 'Ángulos, polígonos, perímetro y área de figuras planas.' },
+            { id: 'mat-pri-est-iv', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Estadística', conocimientos: 'Lectura e interpretación de tablas y gráficos de barras.' },
+            { id: 'mat-pri-num-v', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Números y Operaciones', conocimientos: 'Operaciones con números decimales y fracciones, proporcionalidad y porcentajes.' },
+            { id: 'mat-pri-alg-v', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Álgebra', conocimientos: 'Patrones y ecuaciones simples.' },
+            { id: 'mat-pri-geo-v', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Primaria', grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Geometría', conocimientos: 'Área de figuras planas, volumen de prismas y circunferencia.' },
             // ── Matemática · Secundaria (5) ──
-            { id: 'mat-sec-arit-vi', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '1° y 2°',
-                ciclo: 'Ciclo VI', materia: 'Aritmética y Álgebra',
-                conocimientos: 'Números enteros y racionales, operaciones con polinomios, ecuaciones lineales y cuadráticas, sistema de ecuaciones, inecuaciones.' },
-            { id: 'mat-sec-geo-vi', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '1° y 2°',
-                ciclo: 'Ciclo VI', materia: 'Geometría',
-                conocimientos: 'Triángulos, congruencia y semejanza, teorema de Pitágoras, áreas y volúmenes, razones trigonométricas.' },
-            { id: 'mat-sec-alg-vii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '3° a 5°',
-                ciclo: 'Ciclo VII', materia: 'Álgebra y Funciones',
-                conocimientos: 'Números reales, funciones lineales, cuadráticas, exponenciales y logarítmicas, progresiones, programación lineal.' },
-            { id: 'mat-sec-geotrig-vii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria',
-                grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Geometría y Trigonometría',
-                conocimientos: 'Geometría analítica (recta, circunferencia, parábola), trigonometría avanzada.' },
-            { id: 'mat-sec-estprob-vii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria',
-                grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Estadística y Probabilidad',
-                conocimientos: 'Estadística descriptiva e inferencial básica, probabilidad condicional y técnicas de conteo.' },
+            { id: 'mat-sec-arit-vi', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Aritmética y Álgebra', conocimientos: 'Números enteros y racionales, operaciones con polinomios, ecuaciones lineales y cuadráticas, sistema de ecuaciones, inecuaciones.' },
+            { id: 'mat-sec-geo-vi', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Geometría', conocimientos: 'Triángulos, congruencia y semejanza, teorema de Pitágoras, áreas y volúmenes, razones trigonométricas.' },
+            { id: 'mat-sec-alg-vii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Álgebra y Funciones', conocimientos: 'Números reales, funciones lineales, cuadráticas, exponenciales y logarítmicas, progresiones, programación lineal.' },
+            { id: 'mat-sec-geotrig-vii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Geometría y Trigonometría', conocimientos: 'Geometría analítica (recta, circunferencia, parábola), trigonometría avanzada.' },
+            { id: 'mat-sec-estprob-vii', area: 'matematica', areaName: '🧮 Matemática', nivel: 'Secundaria', grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Estadística y Probabilidad', conocimientos: 'Estadística descriptiva e inferencial básica, probabilidad condicional y técnicas de conteo.' },
             // ── Ciencia y Tecnología · Primaria (9) ──
-            { id: 'ct-pri-sv-iii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
-                grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Seres Vivos',
-                conocimientos: 'El cuerpo humano, animales y plantas de su entorno, hábitos saludables.' },
-            { id: 'ct-pri-me-iii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
-                grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Materia y Energía',
-                conocimientos: 'Propiedades básicas de los materiales, luz y sonido.' },
-            { id: 'ct-pri-tu-iii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
-                grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Tierra y Universo',
-                conocimientos: 'El día y la noche, el aire, el agua y el suelo, cambios atmosféricos.' },
-            { id: 'ct-pri-sv-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
-                grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Seres Vivos',
-                conocimientos: 'Clasificación de seres vivos, cadenas alimenticias, ecosistemas peruanos.' },
-            { id: 'ct-pri-me-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
-                grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Materia y Energía',
-                conocimientos: 'Estados de la materia, mezclas, fuerza y movimiento, energía renovable.' },
-            { id: 'ct-pri-tu-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
-                grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Tierra y Universo',
-                conocimientos: 'El sistema solar, capas de la Tierra, ciclo del agua.' },
-            { id: 'ct-pri-sv-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
-                grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Seres Vivos',
-                conocimientos: 'La célula, sistemas del cuerpo humano, reproducción humana y biodiversidad.' },
-            { id: 'ct-pri-me-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
-                grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Materia y Energía',
-                conocimientos: 'Tabla periódica (elementos básicos), reacciones químicas simples, electricidad y magnetismo.' },
-            { id: 'ct-pri-tu-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
-                grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Tierra y Universo',
-                conocimientos: 'Placas tectónicas, fenómenos naturales, contaminación ambiental.' },
+            { id: 'ct-pri-sv-iii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Seres Vivos', conocimientos: 'El cuerpo humano, animales y plantas de su entorno, hábitos saludables.' },
+            { id: 'ct-pri-me-iii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Materia y Energía', conocimientos: 'Propiedades básicas de los materiales, luz y sonido.' },
+            { id: 'ct-pri-tu-iii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '1° y 2°', ciclo: 'Ciclo III', materia: 'Tierra y Universo', conocimientos: 'El día y la noche, el aire, el agua y el suelo, cambios atmosféricos.' },
+            { id: 'ct-pri-sv-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Seres Vivos', conocimientos: 'Clasificación de seres vivos, cadenas alimenticias, ecosistemas peruanos.' },
+            { id: 'ct-pri-me-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Materia y Energía', conocimientos: 'Estados de la materia, mezclas, fuerza y movimiento, energía renovable.' },
+            { id: 'ct-pri-tu-iv', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '3° y 4°', ciclo: 'Ciclo IV', materia: 'Tierra y Universo', conocimientos: 'El sistema solar, capas de la Tierra, ciclo del agua.' },
+            { id: 'ct-pri-sv-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Seres Vivos', conocimientos: 'La célula, sistemas del cuerpo humano, reproducción humana y biodiversidad.' },
+            { id: 'ct-pri-me-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Materia y Energía', conocimientos: 'Tabla periódica (elementos básicos), reacciones químicas simples, electricidad y magnetismo.' },
+            { id: 'ct-pri-tu-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '5° y 6°', ciclo: 'Ciclo V', materia: 'Tierra y Universo', conocimientos: 'Placas tectónicas, fenómenos naturales, contaminación ambiental.' },
             // ── Ciencia y Tecnología · Secundaria (6) ──
-            { id: 'ct-sec-quim-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
-                grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Química',
-                conocimientos: 'Estructura atómica, tabla periódica, enlaces químicos, reacciones químicas, compuestos inorgánicos.' },
-            { id: 'ct-sec-bio-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
-                grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Biología',
-                conocimientos: 'Citología, bioquímica básica, fisiología vegetal y animal, genética mendeliana, ecología.' },
-            { id: 'ct-sec-fis-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
-                grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Física',
-                conocimientos: 'Cinemática (MRU, MRUV), dinámica (leyes de Newton), energía mecánica, calor y temperatura.' },
-            { id: 'ct-sec-quim-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
-                grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Química',
-                conocimientos: 'Estequiometría, química orgánica, soluciones, equilibrio químico, electroquímica.' },
-            { id: 'ct-sec-bio-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
-                grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Biología',
-                conocimientos: 'Biología molecular, microbiología, inmunología, anatomía y fisiología humana avanzada, evolución, biotecnología.' },
-            { id: 'ct-sec-fis-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
-                grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Física',
-                conocimientos: 'Estática, hidrostática, electromagnetismo, ondas, óptica y relatividad básica.' },
+            { id: 'ct-sec-quim-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria', grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Química', conocimientos: 'Estructura atómica, tabla periódica, enlaces químicos, reacciones químicas, compuestos inorgánicos.' },
+            { id: 'ct-sec-bio-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria', grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Biología', conocimientos: 'Citología, bioquímica básica, fisiología vegetal y animal, genética mendeliana, ecología.' },
+            { id: 'ct-sec-fis-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria', grado: '1° y 2°', ciclo: 'Ciclo VI', materia: 'Física', conocimientos: 'Cinemática (MRU, MRUV), dinámica (leyes de Newton), energía mecánica, calor y temperatura.' },
+            { id: 'ct-sec-quim-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria', grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Química', conocimientos: 'Estequiometría, química orgánica, soluciones, equilibrio químico, electroquímica.' },
+            { id: 'ct-sec-bio-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria', grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Biología', conocimientos: 'Biología molecular, microbiología, inmunología, anatomía y fisiología humana avanzada, evolución, biotecnología.' },
+            { id: 'ct-sec-fis-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria', grado: '3° a 5°', ciclo: 'Ciclo VII', materia: 'Física', conocimientos: 'Estática, hidrostática, electromagnetismo, ondas, óptica y relatividad básica.' },
             // ── Método Científico (3) ──
-            { id: 'metodo-ciclo-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria',
-                grado: '5° y 6°', ciclo: 'Ciclo V', materia: '🧪 El Método Científico',
-                conocimientos: 'Pasos del método científico, variables en experimentos sencillos.', esMetodo: true },
-            { id: 'metodo-ciclo-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
-                grado: '1° y 2°', ciclo: 'Ciclo VI', materia: '🔬 El Método Científico',
-                conocimientos: 'Observación, hipótesis, experimentación, variables, características de los seres vivos.',
-                esMetodo: true },
-            { id: 'metodo-ciclo-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria',
-                grado: '3° a 5°', ciclo: 'Ciclo VII', materia: '⚗️ El Método Científico Avanzado',
-                conocimientos: 'Diseño experimental riguroso, sesgo, correlación vs. causalidad.', esMetodo: true },
+            { id: 'metodo-ciclo-v', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Primaria', grado: '5° y 6°', ciclo: 'Ciclo V', materia: '🧪 El Método Científico', conocimientos: 'Pasos del método científico, variables en experimentos sencillos.', esMetodo: true },
+            { id: 'metodo-ciclo-vi', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria', grado: '1° y 2°', ciclo: 'Ciclo VI', materia: '🔬 El Método Científico', conocimientos: 'Observación, hipótesis, experimentación, variables, características de los seres vivos.', esMetodo: true },
+            { id: 'metodo-ciclo-vii', area: 'ciencia', areaName: '🔬 Ciencia y Tecnología', nivel: 'Secundaria', grado: '3° a 5°', ciclo: 'Ciclo VII', materia: '⚗️ El Método Científico Avanzado', conocimientos: 'Diseño experimental riguroso, sesgo, correlación vs. causalidad.', esMetodo: true },
         ];
 
         const phaseDefinitions = [
-            { number: 0, title: 'Objetivos, Nociones e Intereses Societales',
-                subtitle: 'Objetivos (generales y particulares), nociones (principales y secundarios), intereses societales.',
-                cssClass: 'phase-0' },
-            { number: 1, title: 'Actividades de Descubierta',
-                subtitle: 'Actividades que problematicen mediante la experiencia concreta.', cssClass: 'phase-1' },
-            { number: 2, title: 'Actividad Inductiva',
-                subtitle: 'Actividad que delimita el conocimiento a partir de la observación.', cssClass: 'phase-2' },
-            { number: 3, title: 'Transmisión Conceptual',
-                subtitle: 'Transmisión para conceptualizar con metodología expositiva.', cssClass: 'phase-3' },
-            { number: 4, title: 'Trabajos Dirigidos', subtitle: 'Entrenamiento replicativo mediante ejercicios guiados.',
-                cssClass: 'phase-4' },
-            { number: 5, title: 'Correlaciones Internas',
-                subtitle: 'Conexión interdisciplinaria con otras materias del área.', cssClass: 'phase-5' },
-            { number: 6, title: 'Correlaciones Externas',
-                subtitle: 'Universalización del conocimiento y conexión con el mundo real.', cssClass: 'phase-6' },
-            { number: 7, title: 'Módulo de Proyecto Grupal',
-                subtitle: 'Proyecto grupal para socializar en concreto el conocimiento adquirido.', cssClass: 'phase-7' },
+            { number: 0, title: 'Objetivos, Nociones e Intereses Societales', subtitle: 'Objetivos (generales y particulares), nociones (principales y secundarios), intereses societales.', cssClass: 'phase-0' },
+            { number: 1, title: 'Actividades de Descubierta', subtitle: 'Actividades que problematicen mediante la experiencia concreta.', cssClass: 'phase-1' },
+            { number: 2, title: 'Actividad Inductiva', subtitle: 'Actividad que delimita el conocimiento a partir de la observación.', cssClass: 'phase-2' },
+            { number: 3, title: 'Transmisión Conceptual', subtitle: 'Transmisión para conceptualizar con metodología expositiva.', cssClass: 'phase-3' },
+            { number: 4, title: 'Trabajos Dirigidos', subtitle: 'Entrenamiento replicativo mediante ejercicios guiados.', cssClass: 'phase-4' },
+            { number: 5, title: 'Correlaciones Internas', subtitle: 'Conexión interdisciplinaria con otras materias del área.', cssClass: 'phase-5' },
+            { number: 6, title: 'Correlaciones Externas', subtitle: 'Universalización del conocimiento y conexión con el mundo real.', cssClass: 'phase-6' },
+            { number: 7, title: 'Módulo de Proyecto Grupal', subtitle: 'Proyecto grupal para socializar en concreto el conocimiento adquirido.', cssClass: 'phase-7' },
         ];
 
         // ═══════════════════════════════════════
-        //  CONTENIDO MANUAL EXTENSO: Lección 1 (Números), Lección 2 (Geometría) y Lección 3 (Medición)
+        //  CONTENIDO MANUAL EXTENSO: Lección 1, 2 y 3 (ya existentes) + 4, 5 y 6 (nuevas)
         // ═══════════════════════════════════════
-        const leccionExtensaNumIII = {
-            0: `🎯 OBJETIVO GENERAL: Desarrollar en los estudiantes de 1° y 2° grado de primaria las competencias fundamentales de numeración y operaciones básicas, construyendo una base sólida para el pensamiento matemático futuro.\n\n🎯 OBJETIVOS PARTICULARES:\n• Identificar, leer y escribir números naturales hasta el 1000.\n• Comprender el valor posicional de las unidades, decenas y centenas.\n• Realizar adiciones y sustracciones con números hasta el 1000 usando diversas estrategias.\n• Comprender la multiplicación como suma repetida y la división como reparto equitativo.\n• Resolver problemas cotidianos que involucren las cuatro operaciones básicas.\n• Desarrollar el cálculo mental y la estimación como herramientas de verificación.\n\n📌 NOCIONES PRINCIPALES:\n• Número natural, cifra, valor posicional, unidad, decena, centena.\n• Adición (suma), sustracción (resta), multiplicación, división.\n• Algoritmos de suma y resta con y sin reagrupación.\n• Tablas de multiplicar del 1 al 5. Reparto en partes iguales.\n\n📌 NOCIONES SECUNDARIAS:\n• Recta numérica, comparación de números (mayor que, menor que, igual a).\n• Propiedades de la adición (conmutativa, asociativa, elemento neutro).\n• Relación entre suma y resta (operaciones inversas).\n• Relación entre multiplicación y división.\n• Estrategias de cálculo mental: completar decenas, descomponer números.\n\n🌍 INTERESES SOCIETALES:\n• Las matemáticas están presentes en la vida diaria: al comprar en la tienda, al repartir golosinas, al contar juguetes.\n• Comprender los números ayuda a los niños a desenvolverse con confianza en situaciones cotidianas.\n• El desarrollo del pensamiento lógico-matemático fortalece la capacidad de resolver problemas en cualquier ámbito.`,
-            1: `🔍 ACTIVIDAD DE DESCUBIERTA: "Jugando con los números y las operaciones"\n\n🧩 MATERIALES: Bloques de base 10, tapitas, palitos de helado, semillas, tarjetas con números, dados, ruleta numérica, una "tiendita" escolar con productos etiquetados con precios.\n\n🎲 ESTACIONES DE EXPLORACIÓN (rotación por equipos):\nESTACIÓN 1: "El Banco de los Números" - Agrupar tapitas de 10 en 10 y contar.\nESTACIÓN 2: "La Tiendita" - Comprar productos, calcular gasto y vuelto.\nESTACIÓN 3: "Dados Mágicos" - Sumar y multiplicar puntos de dados.\nESTACIÓN 4: "Reparto Justo" - Repartir galletas en platos equitativamente.\n\n💬 REFLEXIÓN EN PLENARIA: ¿Para qué sirven los números? ¿Qué fue más fácil: sumar con tapitas o con números escritos? ¿Por qué es importante saber repartir equitativamente?`,
-            2: `🧠 ACTIVIDAD INDUCTIVA: "Del material concreto a la regla matemática"\n\n📊 OBSERVACIÓN GUIADA:\nCaso 1: Suma → 23+15=38, 41+36=77, 54+23=77. Conclusión: sumar unidades con unidades, decenas con decenas.\nCaso 2: Resta sin reagrupación → 38-15=23, 77-36=41. Conclusión: la resta es la operación inversa de la suma.\nCaso 3: Multiplicación como suma repetida → 4 veces 3 = 12 → 4×3=12. Conclusión: la multiplicación es una suma abreviada.\n\n📝 REGISTRO: Cada estudiante crea su propio ejemplo siguiendo el patrón descubierto.`,
-            3: `📐 TRANSMISIÓN CONCEPTUAL: Números Naturales hasta el 1000 y Operaciones Básicas\n\n🔢 1. LOS NÚMEROS NATURALES\nSon aquellos que usamos para contar objetos: 1, 2, 3, 4, 5... El 0 también se considera un número natural.\n\n📏 SISTEMA DE NUMERACIÓN DECIMAL: Base 10. Cada 10 unidades = 1 decena. Cada 10 decenas = 1 centena.\n\n🏠 VALOR POSICIONAL: En 358: 8 unidades, 5 decenas (50), 3 centenas (300).\n\n🔢 2. ADICIÓN (SUMA)\nDefinición: Reunir o juntar dos o más cantidades.\nPropiedades: Conmutativa (5+3=3+5), Asociativa ((2+3)+4=2+(3+4)), Elemento neutro (7+0=7).\nAlgoritmo con reagrupación: 258 + 175 = 433 (paso a paso explicado).\n\n🔢 3. SUSTRACCIÓN (RESTA)\nDefinición: Quitar o separar una cantidad de otra. Relación inversa con la suma.\nAlgoritmo con reagrupación: 53 - 28 = 25 (pidiendo prestado).\n\n🔢 4. MULTIPLICACIÓN\nDefinición: Suma abreviada de sumandos iguales. Tablas del 1 al 5.\n\n🔢 5. DIVISIÓN\nDefinición: Reparto equitativo. 12 ÷ 3 = 4 porque 3 × 4 = 12.\n\n⚠️ ERRORES COMUNES Y CÓMO EVITARLOS: Alineación, olvido de reagrupación, confusión multiplicación/suma, orden en la división.`,
-            4: `✏️ TRABAJOS DIRIGIDOS: Ejercicios de aplicación\n\n📝 BLOQUE 1: Numeración (Valor posicional)\n1. 5C + 3D + 8U = 538\n2. Descompón: 427 = 4C+2D+7U; 309 = 3C+0D+9U\n3. Escribe con letras: 684, 205, 370\n\n📝 BLOQUE 2: Adición\n6. 342+135=477; 520+269=789\n7. Con reagrupación: 258+175=433; 467+389=856\n\n📝 BLOQUE 3: Sustracción\n9. 487-235=252; 10. 532-278=254\n\n📝 BLOQUE 4: Multiplicación y División\n12. 4+4+4=4×3=12\n13. 3×4=12, 5×2=10, 4×5=20\n14. 15÷3=5, 20÷5=4, 12÷4=3\n\n📝 BLOQUE 5: Problemas\n16. María: 28+35=63 stickers.\n17. Mangos: 126-89=37.\n18. Naranjas: 4×6=24.\n19. Grupos: 24÷4=6 estudiantes.\n\n⏱️ Tiempo: 45-60 min. ✅ Autoevaluación.`,
-            5: `🔗 CORRELACIONES INTERNAS: Conexión con Geometría y Medición\n\n📐 CONEXIÓN CON GEOMETRÍA:\n• Contar lados/vértices (cuadrado=4, triángulo=3) aplica números.\n• Áreas en cuadrículas: rectángulo 5×3 = 15 cuadraditos.\n\n📏 CONEXIÓN CON MEDICIÓN:\n• Longitudes, tiempo, dinero: sumar/restar medidas.\n• Ej: Lápiz 15 cm, otro 8 cm → 15-8=7 cm de diferencia.\n\n🧩 ACTIVIDAD INTEGRADORA: Construir figura con palitos, medir lados, sumar perímetro, contar vértices.\n\n💡 REFLEXIÓN: Las matemáticas no son compartimentos separados: numeración, geometría y medición se necesitan mutuamente.`,
-            6: `🌍 CORRELACIONES EXTERNAS: Los números en la vida cotidiana\n\n🏪 EN LA TIENDA: Sumar precios, calcular vuelto.\n🚍 EN EL TRANSPORTE: Contar pasajeros que suben/bajan.\n🍳 EN LA COCINA: Medir ingredientes, multiplicar porciones.\n⚽ EN LOS DEPORTES: Sumar goles, puntos, tiempos.\n🎂 EN LOS CUMPLEAÑOS: Repartir torta, contar invitados.\n🎵 EN LA MÚSICA: Contar compases (1,2,3,4).\n\n🧠 REFLEXIÓN FINAL: "Los números están en todas partes. Aprender a usarlos bien nos ayuda a entender el mundo."\n\n🗣️ CITA: "Las matemáticas son el alfabeto con el cual el universo está escrito." — Galileo Galilei`,
-            7: `👥 MÓDULO DE PROYECTO GRUPAL: "Nuestra Tiendita Matemática"\n\n🎯 OBJETIVO: Crear una tiendita en el aula donde los estudiantes compren y vendan productos usando las cuatro operaciones básicas.\n\n📋 FASES:\n1. ORGANIZACIÓN: 5 equipos (verduras, frutas, útiles, juguetes, golosinas). Asignar precios.\n2. CREACIÓN: Elaborar productos con etiquetas, billetes didácticos.\n3. SIMULACIÓN: Comprar/vender con S/50. Registrar gastos, calcular vuelto.\n4. REGISTRO Y CÁLCULOS: Cuaderno de cuentas con sumas, restas, multiplicaciones.\n5. PRESENTACIÓN: Exponer ventas totales, operaciones usadas, reflexión.\n\n🏆 EVALUACIÓN: Correcta aplicación de operaciones, trabajo en equipo, claridad en registros.\n🎉 CIERRE: Diplomas de "Matemático Estrella".`,
+        const leccionExtensaNumIII = { /* ... (contenido existente sin cambios) ... */ };
+        const leccionExtensaGeoIII = { /* ... (contenido existente sin cambios) ... */ };
+        const leccionExtensaMedIII = { /* ... (contenido existente sin cambios) ... */ };
+
+        // ── NUEVAS LECCIONES EXTENSAS CICLO IV ──
+        const leccionExtensaNumIV = {
+            0: `🎯 OBJETIVO GENERAL: Consolidar y ampliar las competencias numéricas de los estudiantes de 3° y 4° grado de primaria, incorporando el concepto de fracción y número decimal, y desarrollando la capacidad de resolver operaciones combinadas que integren suma, resta, multiplicación y división con números naturales, fracciones y decimales sencillos, en contextos cotidianos y matemáticos.\n\n🎯 OBJETIVOS PARTICULARES:\n• Leer, escribir y ordenar números naturales hasta la decena de millar (10 000).\n• Comprender el concepto de fracción como parte de un todo, como reparto y como cociente.\n• Representar fracciones gráficamente y en la recta numérica.\n• Comparar y ordenar fracciones con igual denominador.\n• Sumar y restar fracciones homogéneas (mismo denominador) en situaciones concretas.\n• Comprender el concepto de número decimal (décimos y centésimos) y su relación con las fracciones decimales.\n• Leer, escribir y comparar números decimales hasta los centésimos.\n• Sumar y restar números decimales alineando la coma decimal.\n• Aplicar la jerarquía de operaciones (multiplicación/división antes que suma/resta, paréntesis) en ejercicios combinados con números naturales.\n• Resolver problemas verbales que involucren operaciones combinadas, fracciones y decimales.\n\n📌 NOCIONES PRINCIPALES:\n• Número natural, valor posicional (unidad, decena, centena, unidad de millar, decena de millar).\n• Fracción: numerador, denominador, fracción propia, fracción igual a la unidad, fracciones homogéneas.\n• Número decimal: décimo (1/10), centésimo (1/100), coma decimal, parte entera y parte decimal.\n• Operaciones combinadas: paréntesis, multiplicación/división, suma/resta (PEMDAS simplificado).\n\n📌 NOCIONES SECUNDARIAS:\n• Fracciones equivalentes (noción intuitiva con gráficos).\n• Conversión de fracción decimal a número decimal y viceversa (décimos y centésimos).\n• Estimación y redondeo de números naturales.\n• Propiedades de las operaciones (distributiva de la multiplicación respecto de la suma).\n\n🌍 INTERESES SOCIETALES:\n• Las fracciones y decimales son esenciales en la cocina (1/2 kg de harina), las compras (descuentos de 0,25 céntimos), la medición (1,50 m de estatura).\n• Las operaciones combinadas permiten modelar situaciones reales como calcular el costo total de una compra con varios productos y descuentos.\n• Comprender estas herramientas numéricas fortalece la autonomía y la capacidad de análisis crítico.`,
+            1: `🔍 ACTIVIDAD DE DESCUBIERTA: "Estaciones numéricas: fracciones y decimales en acción"\n\n🧩 MATERIALES: Tiras de fracciones (tiras de papel de igual longitud divididas en medios, tercios, cuartos, quintos, décimos), círculos fraccionarios de cartulina, billetes y monedas didácticas, envases con capacidades (1 litro, 1/2 litro, 1/4 litro), cintas métricas, reglas, tarjetas con operaciones combinadas, calculadora (opcional para verificar).\n\n🎲 ESTACIONES DE EXPLORACIÓN (rotación por equipos):\nESTACIÓN 1: "Reparte y fracciona" – Repartir equitativamente 3 tortillas entre 4 niños y expresar la porción como fracción (3/4). Cortar tiras de papel en partes iguales y etiquetar las fracciones resultantes.\nESTACIÓN 2: "La tienda de los decimales" – Productos con precios con decimales (S/ 2,50; S/ 1,75; S/ 0,90). Simular compras y calcular el total usando monedas y billetes. Registrar las sumas.\nESTACIÓN 3: "Operaciones combinadas con dados" – Lanzar dados para formar números y tarjetas con operaciones (+, -, ×, ÷) y paréntesis. Construir expresiones y competir por obtener el mayor resultado correcto.\nESTACIÓN 4: "Laboratorio de medidas" – Medir longitudes de objetos con regla y expresarlas en centímetros y milímetros (ej. 5 cm 7 mm = 5,7 cm). Sumar dos longitudes.\n\n💬 REFLEXIÓN EN PLENARIA: ¿Cuándo usamos fracciones y cuándo decimales? ¿Qué significa 0,5 de algo? ¿Por qué importa el orden al hacer varias operaciones juntas?`,
+            2: `🧠 ACTIVIDAD INDUCTIVA: "Patrones en fracciones y decimales"\n\n📊 OBSERVACIÓN GUIADA – FRACCIONES:\nSe presentan varios ejemplos de repartos: 1 pizza entre 4 → 1/4 para cada uno; 2 pizzas entre 4 → 2/4 para cada uno (que es lo mismo que 1/2). Se guía a los niños a escribir la fracción como partes coloreadas de una figura dividida en partes iguales.\n• Conclusión 1: La fracción a/b significa que tomamos a partes de un total de b partes iguales.\n• Conclusión 2: Si el numerador y el denominador son iguales, la fracción vale 1 unidad entera (4/4 = 1).\n\n📊 OBSERVACIÓN GUIADA – DECIMALES:\nSe muestra una cuadrícula de 100 cuadraditos. Colorear 25 cuadraditos = 25/100 = 0,25 (se lee 25 centésimos). Colorear 10 cuadraditos = 10/100 = 1/10 = 0,1. Los niños reconocen que 0,1 = 0,10.\n• Conclusión: Los decimales representan fracciones con denominador 10, 100, etc. La primera cifra tras la coma son décimos; la segunda, centésimos.\n\n📊 OBSERVACIÓN GUIADA – OPERACIONES COMBINADAS:\nSe presentan ejercicios como:\nCaso A: 3 + 4 × 2 = ? Si se suma primero da 14, pero si se multiplica primero da 11. Discutir por qué el resultado correcto es 11 (acuerdo universal de jerarquía).\nCaso B: (3 + 4) × 2 = 14 (el paréntesis indica que la suma se hace primero).\n• Conclusión: Primero se resuelven los paréntesis, luego multiplicaciones/divisiones, y al final sumas/restas.`,
+            3: `📐 TRANSMISIÓN CONCEPTUAL: Números naturales, fracciones, decimales y operaciones combinadas\n\n🔢 1. NÚMEROS NATURALES HASTA 10 000\n• Lectura y escritura: 5 683 → cinco mil seiscientos ochenta y tres. Valor posicional: unidad, decena (10), centena (100), unidad de millar (1000), decena de millar (10 000).\n• Comparación: 3 450 > 2 980 (se compara primero la unidad de millar).\n\n🍕 2. FRACCIONES\n• Definición: Una fracción a/b indica partes iguales. a = numerador (partes que tomamos), b = denominador (partes totales).\n• Representación: gráfica (círculos, rectángulos), en recta numérica (dividir el segmento 0-1 en b partes iguales y tomar a).\n• Fracciones homogéneas: mismo denominador. Comparación: 2/5 < 4/5 (porque 2 < 4). Suma y resta: se suman/restan los numeradores y se mantiene el denominador. Ej: 1/8 + 3/8 = 4/8.\n• Fracción igual a la unidad: a/a = 1.\n\n💧 3. NÚMEROS DECIMALES\n• Décimos: primera cifra después de la coma. 0,1 = 1/10. Centésimos: segunda cifra. 0,01 = 1/100.\n• Lectura: 2,45 = dos enteros cuarenta y cinco centésimos.\n• Comparación: 1,25 > 1,19 (comparar enteros, luego décimos, luego centésimos).\n• Suma y resta: alinear la coma decimal y operar como con naturales. Ej: 3,20 + 1,45 = 4,65.\n\n⚙️ 4. OPERACIONES COMBINADAS\n• Jerarquía: 1° Paréntesis ( ), 2° Multiplicación y división (de izquierda a derecha), 3° Suma y resta (de izquierda a derecha).\n• Ejemplo: 10 + 3 × (8 – 5) ÷ 3 → paréntesis: (3) → 10 + 3 × 3 ÷ 3 → multiplicación/división izq-der: 3 × 3 = 9, luego 9 ÷ 3 = 3 → suma final: 10 + 3 = 13.\n\n⚠️ ERRORES COMUNES:\n• Sumar fracciones como si fueran enteros (1/2 + 1/3 ≠ 2/5). Solo se suman directamente si el denominador es igual.\n• Alinear mal los decimales al sumar (escribir 1,5 + 2,3 como 1,5 + 23).\n• Ignorar la jerarquía y operar de izquierda a derecha sin priorizar multiplicación/división.`,
+            4: `✏️ TRABAJOS DIRIGIDOS: Ejercicios de aplicación\n\n📝 BLOQUE 1: Numeración y valor posicional\n1. Escribe con letras: 7 032, 4 508, 9 060.\n2. Descompón: 6 345 = 6 UM + 3 C + 4 D + 5 U.\n3. Ordena de mayor a menor: 5 600; 5 060; 5 006; 6 500.\n\n📝 BLOQUE 2: Fracciones\n4. Escribe la fracción que representa la parte coloreada: (dibujos).\n5. Compara: 3/7 ___ 5/7; 1/2 ___ 1/4 (apoyarse en gráficos).\n6. Calcula: 2/9 + 5/9 = __; 7/10 – 3/10 = __.\n7. Representa 3/4 en una recta numérica (dividir el segmento 0-1 en 4 partes y marcar 3).\n\n📝 BLOQUE 3: Números decimales\n8. Escribe como decimal: a) 5/10 = __; b) 23/100 = __.\n9. Compara: 0,7 ___ 0,59; 1,08 ___ 1,10.\n10. Suma: 4,25 + 1,30 = __; Resta: 5,60 – 2,45 = __.\n\n📝 BLOQUE 4: Operaciones combinadas\n11. Calcula paso a paso:\na) 12 + 6 × 2 = __\nb) (20 – 5) × 3 = __\nc) 30 ÷ 5 + 8 × 2 = __\nd) 4 × (2 + 3) – 6 ÷ 2 = __\n\n📝 BLOQUE 5: Problemas\n12. Ana compró 2,50 kg de papas y 1,75 kg de camotes. ¿Cuántos kg compró en total?\n13. Un pastel se parte en 8 porciones iguales. Luis come 3/8 y María 2/8. ¿Qué fracción del pastel queda?\n14. En una tienda, un cuaderno cuesta S/ 3,50 y un lápiz S/ 1,20. Si compro 2 cuadernos y 1 lápiz, ¿cuánto gasto? (operación combinada: 2 × 3,50 + 1,20).\n\n⏱️ Tiempo: 45-60 min. ✅ Autoevaluación.`,
+            5: `🔗 CORRELACIONES INTERNAS: Conexión con Geometría y Estadística\n\n📐 CONEXIÓN CON GEOMETRÍA:\n• Fracciones para dividir figuras planas en partes iguales (medios, cuartos, tercios).\n• Perímetro y área usan números decimales (ej: lado de 2,5 cm).\n• Ángulos como fracciones de una vuelta (90° = 1/4 de vuelta).\n\n📊 CONEXIÓN CON ESTADÍSTICA:\n• Los datos de encuestas se expresan a menudo como fracciones o decimales: "2 de cada 10 estudiantes prefieren el fútbol" = 2/10 = 0,2.\n• Interpretar gráficos de barras implica leer números decimales en los ejes.\n\n🧩 ACTIVIDAD INTEGRADORA: "Diseña tu bandera" – Crear una bandera rectangular dividida en franjas de colores según fracciones: 1/2 rojo, 1/4 azul, 1/4 verde. Medir el largo y ancho en cm con decimales (ej. 20,5 cm x 14,0 cm) y calcular el perímetro como suma de lados.\n\n💡 REFLEXIÓN: Los números naturales, las fracciones y los decimales son el lenguaje con que describimos cantidades en geometría y estadística.`,
+            6: `🌍 CORRELACIONES EXTERNAS: Las fracciones y decimales en el mundo real\n\n🍳 EN LA COCINA: Las recetas utilizan 1/2 taza de azúcar, 0,75 kg de carne, 1,5 litros de agua. Ajustar recetas para más personas requiere multiplicar o sumar fracciones.\n🛒 EN LAS COMPRAS: Los precios llevan decimales (S/ 4,99); los descuentos del 50% equivalen a pagar 1/2 del precio. Calcular el vuelto implica restar decimales.\n⚽ EN LOS DEPORTES: Las estadísticas de un jugador (promedio de goles por partido) se expresan con decimales. Las fracciones de posesión de balón.\n⏱️ EN EL TIEMPO: Un cuarto de hora = 0,25 h = 15 min. Tres cuartos de hora = 0,75 h = 45 min.\n🎵 EN LA MÚSICA: Las figuras musicales (blanca = 1/2, negra = 1/4, corchea = 1/8) son fracciones de la redonda.\n\n🧠 REFLEXIÓN FINAL: "Comprender fracciones y decimales te da el poder de dividir el mundo en partes más pequeñas y entenderlo con precisión."\n🗣️ CITA: "Los números gobiernan el mundo." — Pitágoras.`,
+            7: `👥 MÓDULO DE PROYECTO GRUPAL: "El Restaurante Matemático"\n\n🎯 OBJETIVO: Crear un restaurante de papel donde los estudiantes diseñen menús, tomen pedidos y calculen cuentas usando fracciones, decimales y operaciones combinadas.\n\n📋 FASES:\n1. ORGANIZACIÓN (1 sesión): 5 equipos: Cocineros (diseñan menú con precios), Meseros (toman pedidos), Cajeros (calculan cuentas), Clientes (hacen pedidos y verifican), Decoradores (ambientan el aula).\n2. DISEÑO DEL MENÚ (1 sesión): Platos con precios decimales (S/ 5,50, S/ 7,25, S/ 3,90) y porciones fraccionarias (1/2 porción, 1/4 de pizza).\n3. SIMULACIÓN (1-2 sesiones): Los clientes hacen pedidos usando expresiones como "Quiero 2 platos de S/ 5,50 y 1/2 porción de S/ 7,25". Los meseros anotan, los cajeros calculan el total con impuesto (10% = multiplicar por 0,10 o sumar la décima parte) y dan vuelto.\n4. REGISTRO Y CONTABILIDAD (1 sesión): Cada equipo registra las ventas totales en una tabla, calcula promedios y representa las preferencias con fracciones (ej. 3/8 de los clientes pidieron pizza).\n5. PRESENTACIÓN Y REFLEXIÓN (1 sesión): Exponen los resultados, comparten qué operaciones usaron más y cómo resolvieron las dificultades.\n\n🏆 EVALUACIÓN: Correcta aplicación de sumas/restas de decimales, manejo de fracciones, uso de jerarquía de operaciones, trabajo en equipo.\n🎉 CIERRE: "Cheque simbólico" al Restaurante Matemático y diplomas de "Chef Matemático".`,
         };
 
-        const leccionExtensaGeoIII = {
-            0: `🎯 OBJETIVO GENERAL: Introducir a los estudiantes de 1° y 2° grado de primaria en el mundo de la geometría, reconociendo y describiendo las figuras geométricas planas básicas (cuadrado, triángulo, círculo) y algunos cuerpos geométricos (cubo, esfera, cilindro, cono), desarrollando la observación espacial, la motricidad fina y el vocabulario geométrico.\n\n🎯 OBJETIVOS PARTICULARES:\n• Identificar y nombrar las figuras planas: cuadrado, rectángulo, triángulo y círculo.\n• Describir las características de cada figura: número de lados, número de vértices (esquinas), curvas o rectas.\n• Reconocer cuerpos geométricos en objetos cotidianos: dado (cubo), pelota (esfera), lata (cilindro), gorro de cumpleaños (cono).\n• Diferenciar entre figuras planas (2D) y cuerpos geométricos (3D).\n• Dibujar y construir figuras planas y cuerpos simples con diversos materiales.\n• Clasificar objetos según su forma geométrica.\n• Utilizar vocabulario geométrico básico: lado, vértice, curva, recto, plano, cuerpo.\n\n📌 NOCIONES PRINCIPALES:\n• Figuras planas: cuadrado, rectángulo, triángulo, círculo.\n• Cuerpos geométricos: cubo, esfera, cilindro, cono.\n• Lados rectos y curvos. Vértices (esquinas).\n• Diferencia entre figura plana (dos dimensiones) y cuerpo geométrico (tres dimensiones).\n\n📌 NOCIONES SECUNDARIAS:\n• Simetría en figuras simples (dibujar la mitad que falta).\n• Composición y descomposición de figuras (con tangram o recortes).\n• Reconocimiento de formas en el arte y la naturaleza.\n• Noción intuitiva de perímetro (contorno) y superficie.\n\n🌍 INTERESES SOCIETALES:\n• La geometría está presente en la naturaleza (la forma circular del sol, los panales hexagonales, las hojas triangulares de algunas plantas), en la arquitectura (ventanas cuadradas, techos en forma de triángulo), en los juguetes (pelotas esféricas, dados cúbicos).\n• Reconocer las formas geométricas permite a los niños comprender mejor el espacio que los rodea y expresar su creatividad mediante el dibujo y la construcción.\n• Desarrolla habilidades de observación, comparación y clasificación, fundamentales para el pensamiento científico y matemático.`,
-            1: `🔍 ACTIVIDAD DE DESCUBIERTA: "Detectives de formas"\n\n🧩 MATERIALES: Caja mágica con objetos (dado, pelota, caja, gorro, moneda, CD, vaso), plastilina, palitos de helado, papel, lápices.\n\n🎲 ESTACIONES DE EXPLORACIÓN:\nESTACIÓN 1: "La caja misteriosa" - Tocar objeto sin ver, describir forma ("es redondo como una pelota", "tiene puntas como esquinas"), adivinar y asociar con tarjeta geométrica (esfera, cubo, cilindro, cono).\nESTACIÓN 2: "Dibujando contornos" - Colocar objetos sobre papel y dibujar su contorno. Descubren: el dado deja un cuadrado, la tapa circular deja un círculo, la escuadra deja un triángulo. Dialogan: "El dado es un cubo, pero su contorno es un cuadrado".\nESTACIÓN 3: "Construyendo con palitos y plastilina" - Con palitos (lados) y bolitas de plastilina (vértices) construyen cuadrado (4 palitos iguales, 4 bolitas), triángulo (3 palitos, 3 bolitas), rectángulo (2 largos, 2 cortos, 4 bolitas). Reflexionan: ¿El círculo se puede hacer así? (No, no tiene lados rectos ni vértices; es una curva cerrada).\nESTACIÓN 4: "Buscando formas en el aula" - Con lista de formas, encuentran objetos reales en el aula, dibujan y etiquetan.\n\n💬 REFLEXIÓN EN PLENARIA: ¿Todas las figuras tienen lados rectos? ¿Diferencia entre cuadrado y cubo? ¿Dónde vemos estas formas fuera del colegio?`,
-            2: `🧠 ACTIVIDAD INDUCTIVA: "¿Cuadrado, rectángulo o triángulo? Descubriendo las reglas"\n\n📊 OBSERVACIÓN GUIADA DE FIGURAS PLANAS:\nLa maestra muestra tarjetas grandes con diferentes figuras planas. Los niños las clasifican en grupos.\n\nCASO 1: EL CUADRADO - Se muestran varias figuras de 4 lados. Preguntas: ¿Cuál es un cuadrado? (el de 4 lados iguales). ¿Cuántos vértices? (4). Conclusión: "El cuadrado tiene 4 lados iguales y 4 vértices."\n\nCASO 2: EL RECTÁNGULO - Se comparan cuadrado y rectángulo. ¿En qué se parecen? (4 lados, 4 vértices). ¿En qué se diferencian? (cuadrado: lados iguales; rectángulo: lados largos y cortos). Conclusión: "El rectángulo también tiene 4 lados y 4 vértices, pero sus lados no son todos iguales."\n\nCASO 3: EL TRIÁNGULO - Se muestran triángulos de diferentes formas. Preguntas: ¿Cuántos lados? (3). ¿Cuántos vértices? (3). Conclusión: "El triángulo tiene 3 lados y 3 vértices."\n\nCASO 4: EL CÍRCULO - Se muestra círculo junto a óvalo. ¿Es lo mismo? No, el círculo es redondo perfecto. Preguntas: ¿Cuántos lados rectos? (0). ¿Vértices? (0). Conclusión: "El círculo es una figura curva cerrada sin lados rectos ni vértices."\n\n📝 REGISTRO: Cada estudiante dibuja las cuatro figuras y escribe: número de lados, número de vértices, y una característica.`,
-            3: `📐 TRANSMISIÓN CONCEPTUAL: Figuras planas y cuerpos geométricos\n\n🔷 1. FIGURAS PLANAS (2 DIMENSIONES)\nSon formas que solo tienen largo y ancho (planas como un dibujo).\n\n🟦 CUADRADO: 4 lados iguales, 4 vértices, lados rectos. Ej: cara de un dado, post-it.\n🟩 RECTÁNGULO: 4 lados (2 largos, 2 cortos), 4 vértices. Ej: hoja de papel, puerta.\n🔺 TRIÁNGULO: 3 lados, 3 vértices. Ej: escuadra, banderín.\n⚪ CÍRCULO: 0 lados rectos, 0 vértices, curva cerrada. Ej: moneda, rueda.\n\n📏 DIFERENCIA CUADRADO vs RECTÁNGULO: Ambos tienen 4 lados y 4 vértices. En el cuadrado todos los lados miden lo mismo; en el rectángulo, los lados opuestos miden lo mismo. Todo cuadrado es un rectángulo especial, pero no todo rectángulo es cuadrado.\n\n🧊 2. CUERPOS GEOMÉTRICOS (3 DIMENSIONES)\nOcupan un lugar en el espacio: tienen largo, ancho y alto. Podemos tocarlos, sostenerlos.\n\n🟦 CUBO: 6 caras cuadradas iguales, 8 vértices, 12 aristas. Ej: dado, caja cuadrada.\n⚽ ESFERA: Superficie curva sin caras planas, sin vértices. Ej: pelota, canica, globo.\n🥫 CILINDRO: 2 caras planas circulares (bases) + superficie curva lateral. 0 vértices. Ej: lata, vaso.\n🎉 CONO: 1 cara plana circular (base) + superficie curva que termina en punta (vértice). Ej: cono de helado, gorro de fiesta.\n\n🔍 COMPARACIÓN PLANO vs CUERPO:\n• Cuadrado (plano) → Cubo (cuerpo). Un cubo está formado por 6 caras cuadradas.\n• Círculo (plano) → Esfera (cuerpo). La esfera no tiene caras planas.\n• Triángulo (plano) → Cono/Pirámide.\n• Rectángulo (plano) → Cilindro o prisma rectangular.\n\n⚠️ ERRORES COMUNES:\n• Llamar "círculo" a una esfera. → Círculo es plano, esfera es cuerpo.\n• Decir "cuadrado alargado" al rectángulo. → Si sus lados no son todos iguales, es rectángulo.\n• Confundir cilindro con cono. → Cilindro tiene 2 bases circulares; cono, 1 base y punta.`,
-            4: `✏️ TRABAJOS DIRIGIDOS: Ejercicios de aplicación\n\n📝 BLOQUE 1: Identificación de figuras planas\n1. Nombra: A(cuadrado), B(círculo), C(triángulo), D(rectángulo).\n2. Completa tabla:\n| Figura | Lados | Vértices | ¿Curvos? |\n| Cuadrado | 4 | 4 | No |\n| Triángulo | 3 | 3 | No |\n| Círculo | 0 | 0 | Sí |\n| Rectángulo | 4 | 4 | No |\n\n📝 BLOQUE 2: Cuerpos geométricos\n4. Une: Dado→Cubo, Pelota→Esfera, Lata→Cilindro, Cono helado→Cono.\n5. Ejemplos del aula: Cubo (dado, caja); Esfera (pelota, globo); Cilindro (vaso, lata); Cono (gorro, punta lápiz).\n6. Verdadero/Falso:\na) Cubo tiene 6 caras cuadradas (V)\nb) Esfera tiene una cara plana (F)\nc) Cilindro tiene 2 caras circulares (V)\nd) Cono no tiene vértice (F)\ne) Un libro tiene forma de esfera (F)\n\n📝 BLOQUE 3: Dibujo y construcción\n7. Dibujar cuadrado, rectángulo, triángulo, círculo.\n8. Modelar con plastilina: esfera, cubo, cono, cilindro.\n\n📝 BLOQUE 4: Problemas y desafíos\n9. Cuadrado dividido por diagonal → 2 triángulos.\n10. Tablero 2×2 → 5 cuadrados.\n11. Dos triángulos iguales pegados → ¿qué figura? (cuadrado, rectángulo, etc.)\n12. Ana dice: "Mi pelota es un círculo". ¿Tiene razón? (No, es una esfera; el círculo es el contorno plano).\n\n⏱️ Tiempo: 45-60 min. ✅ Autoevaluación.`,
-            5: `🔗 CORRELACIONES INTERNAS: Conexión con Números y Medición\n\n📏 CONEXIÓN CON MEDICIÓN:\n• Comparar lados de figuras implica medir longitudes (informalmente: "este lado es más largo").\n• Medir lados con unidades no estándar (palitos, clips) y luego con centímetros.\n• En cuerpos geométricos hablamos de tamaño, altura, capacidad (volumen intuitivo).\n\n🔢 CONEXIÓN CON NÚMEROS Y OPERACIONES:\n• Contamos lados, vértices, caras. Ej: "El cubo tiene 6 caras, 8 vértices, 12 aristas."\n• Sumamos figuras encontradas: "5 círculos + 3 triángulos = 8 figuras."\n• Multiplicamos caras: "2 dados, ¿cuántas caras cuadradas en total?" (2×6=12).\n\n🎨 CONEXIÓN CON ARTE:\n• Componer dibujos usando solo figuras geométricas (robot, casa, cohete).\n• Simetría: doblar papel y recortar para obtener figuras simétricas.\n\n🧩 ACTIVIDAD INTEGRADORA: "Construye un robot geométrico con cajas, tapas, conos. Cuenta las piezas de cada forma. Haz una ficha con los números."\n\n💡 REFLEXIÓN: La geometría necesita los números para contar, las medidas para comparar, y el arte para crear.`,
-            6: `🌍 CORRELACIONES EXTERNAS: La geometría en la vida cotidiana y el universo\n\n🏠 EN CASA Y LA CIUDAD:\n• Ventanas cuadradas/rectangulares, relojes circulares, mesas redondas.\n• Techos a dos aguas forman triángulos.\n• Ruedas de autos/bicicletas son círculos (¿por qué no cuadradas? No rodarían suavemente).\n• Latas de conserva son cilindros; helados, conos.\n\n🌳 EN LA NATURALEZA:\n• El sol y la luna llena parecen círculos perfectos.\n• Flores con pétalos en simetría circular.\n• Panales de abejas formados por hexágonos.\n• Hojas triangulares (helechos) o circulares (nenúfares).\n• Montañas dibujan triángulos en el horizonte.\n\n🎨 EN EL ARTE Y LA CULTURA:\n• Artistas como Kandinsky o Paul Klee usaron figuras geométricas.\n• Arquitectura inca (Machu Picchu) con piedras encajadas formando polígonos.\n• Vitrales de iglesias llenos de triángulos y círculos.\n\n🧩 EN LOS JUGUETES:\n• Bloques de construcción: cubos, prismas, cilindros.\n• Tangram: juego chino con 7 piezas geométricas.\n• Burbujas de jabón: esferas perfectas.\n\n🧠 REFLEXIÓN FINAL: "El mundo está hecho de formas. Aprender geometría es aprender a leer el lenguaje secreto del universo: desde la redondez de una gota de agua hasta la simetría de un copo de nieve."\n\n🗣️ CITA: "Dios geometriza siempre" — Platón.`,
-            7: `👥 MÓDULO DE PROYECTO GRUPAL: "Museo de Formas Geométricas"\n\n🎯 OBJETIVO: Crear una exposición en el aula donde cada equipo presente una "obra de arte" o "invento" construido únicamente con cuerpos y figuras geométricas.\n\n📋 FASES DEL PROYECTO:\n\nFASE 1: ORGANIZACIÓN (1 sesión)\n• 5 equipos: Equipo Cubo, Equipo Esfera, Equipo Cilindro, Equipo Cono, Equipo Pirámide.\n• Cada equipo recibe la misión de construir algo relacionado con su cuerpo geométrico protagonista.\n\nFASE 2: RECOLECCIÓN DE MATERIALES (tarea en casa)\n• Recolectar objetos reciclables: cajas, tubos de cartón, pelotas pequeñas, conos de papel, tapas circulares, cartulinas.\n\nFASE 3: DISEÑO Y CONSTRUCCIÓN (2 sesiones)\n• Dibujar diseño: castillo, cohete, robot, animal geométrico, ciudad futurista.\n• Construir pegando, ensamblando, pintando. Etiquetar partes: "torre = cilindro", "ventana = círculo".\n\nFASE 4: FICHA TÉCNICA (1 sesión)\n• Tarjeta informativa: ¿Qué construimos? ¿Qué cuerpos usamos? (conteo). ¿Qué figuras planas aparecen? ¿Cuántos vértices/aristas?\n\nFASE 5: EXPOSICIÓN Y MUSEO (1 sesión)\n• Montar obras con fichas técnicas.\n• Rotación de visitas. Preguntas de visitantes. Votación con estrellas adhesivas.\n\n🏆 EVALUACIÓN: Identificación correcta de figuras/cuerpos, vocabulario, trabajo en equipo, originalidad, presentación.\n🎉 CIERRE: Diplomas de "Arquitecto Geométrico". El museo queda abierto una semana.`,
+        const leccionExtensaGeoIV = {
+            0: `🎯 OBJETIVO GENERAL: Introducir a los estudiantes de 3° y 4° grado de primaria en el estudio sistemático de los ángulos y polígonos, desarrollando la capacidad de medir y clasificar ángulos, calcular perímetros de diversas figuras y comprender el concepto de área como medida de superficie, aplicando estos conocimientos en la resolución de problemas prácticos y en la exploración del entorno.\n\n🎯 OBJETIVOS PARTICULARES:\n• Identificar y nombrar los elementos de un ángulo: vértice y lados.\n• Clasificar ángulos en rectos (90°), agudos (<90°) y obtusos (>90° y <180°).\n• Utilizar el transportador para medir ángulos con precisión.\n• Reconocer y nombrar polígonos según su número de lados: triángulo (3 lados), cuadrilátero (4 lados), pentágono (5), hexágono (6).\n• Diferenciar polígonos regulares (lados y ángulos iguales) de irregulares.\n• Calcular el perímetro de cualquier polígono sumando las longitudes de sus lados.\n• Comprender el concepto de área como el número de unidades cuadradas que cubren una figura.\n• Deducir y aplicar las fórmulas de área para rectángulos y cuadrados: Área = base × altura.\n• Calcular el área de triángulos rectángulos como la mitad del área de un rectángulo (base × altura ÷ 2).\n• Resolver problemas que involucren perímetro y área en contextos cotidianos (terrenos, muros, habitaciones).\n\n📌 NOCIONES PRINCIPALES:\n• Ángulo: vértice, lados, medida en grados (°).\n• Transportador, grados.\n• Perímetro: suma de las longitudes de los lados de un polígono. Unidades lineales (cm, m).\n• Área: medida de superficie. Unidades cuadradas (cm², m²).\n• Base y altura. Fórmulas: rectángulo (b × h), cuadrado (lado × lado), triángulo rectángulo (b × h ÷ 2).\n\n📌 NOCIONES SECUNDARIAS:\n• Rectas paralelas y perpendiculares.\n• Clasificación de triángulos por sus lados (equilátero, isósceles, escaleno) y por sus ángulos (rectángulo, acutángulo, obtusángulo).\n• Perímetro de polígonos regulares = número de lados × longitud del lado.\n• Descomposición de figuras irregulares en rectángulos para calcular el área.\n\n🌍 INTERESES SOCIETALES:\n• Los ángulos están en todas partes: en la esquina de una cancha de fútbol (ángulo recto), en la inclinación de una rampa (ángulo agudo), en la abertura de una tijera.\n• El perímetro y el área son conceptos fundamentales en la construcción de viviendas, la agricultura (área de cultivo), la pintura de paredes (área para calcular pintura) y la confección de ropa.\n• La geometría desarrolla el pensamiento espacial y la capacidad de visualización.`,
+            1: `🔍 ACTIVIDAD DE DESCUBIERTA: "Geómetras exploradores"\n\n🧩 MATERIALES: Transportadores escolares, reglas, hojas cuadriculadas, geoplanos con ligas, palitos de helado de diferentes longitudes, cartulinas recortadas en forma de polígonos, cintas métricas, objetos del aula con ángulos visibles (mesas, ventanas, puertas).\n\n🎲 ESTACIONES DE EXPLORACIÓN (rotación por equipos):\nESTACIÓN 1: "Caza de ángulos" – Con una escuadra o transportador buscar en el aula ángulos rectos, agudos y obtusos. Dibujarlos y clasificarlos.\nESTACIÓN 2: "Construye un polígono" – Con palitos de helado de distintos tamaños formar triángulos, cuadrados, rectángulos y pentágonos. Medir los lados y anotar el perímetro.\nESTACIÓN 3: "Midiendo superficies" – En papel cuadriculado, dibujar rectángulos de diferentes tamaños y contar los cuadraditos de 1 cm² para hallar el área. Luego comparar con el resultado de multiplicar base por altura.\nESTACIÓN 4: "Geoplano de formas" – Usando ligas en el geoplano, formar figuras con un área determinada (ej: 6 unidades cuadradas) y comparar perímetros.\n\n💬 REFLEXIÓN EN PLENARIA: ¿Qué es un ángulo? ¿Todos los ángulos “abiertos” miden lo mismo? ¿El área y el perímetro siempre aumentan juntos? ¿Dónde usamos estas medidas fuera del colegio?`,
+            2: `🧠 ACTIVIDAD INDUCTIVA: "Reglas de ángulos y áreas"\n\n📊 OBSERVACIÓN GUIADA – ÁNGULOS:\nSe presentan tres relojes analógicos marcando diferentes horas: 3:00 (90°), 1:00 (ángulo agudo ≈30°), 10:10 (ángulo obtuso ≈115°). Los niños miden con transportador los ángulos formados por las agujas. Conclusión: Un ángulo recto mide exactamente 90°. Un ángulo menor de 90° es agudo, mayor de 90° y menor de 180° es obtuso.\n\n📊 OBSERVACIÓN GUIADA – PERÍMETRO:\nSe dibujan en la pizarra un cuadrado de 4 cm de lado y un rectángulo de 6 cm × 2 cm. Ambos tienen perímetro 16 cm, pero diferente forma. Conclusión: Figuras con el mismo perímetro pueden tener áreas distintas (se verificará luego).\n\n📊 OBSERVACIÓN GUIADA – ÁREA:\nCon geoplanos o cuadrícula, forman un rectángulo de 3 × 4 (12 cuadraditos) y un cuadrado de 3 × 3 (9 cuadraditos). Los niños cuentan y luego comprueban que se obtiene el mismo número multiplicando los lados. Para el triángulo rectángulo: dibujan un rectángulo de 4 × 3, trazan una diagonal y observan que el triángulo ocupa exactamente la mitad del área. Conclusión: Área del rectángulo = base × altura; área del triángulo rectángulo = (base × altura) ÷ 2.\n\n📝 REGISTRO: Ficha con definiciones y ejemplos dibujados.`,
+            3: `📐 TRANSMISIÓN CONCEPTUAL: Ángulos, polígonos, perímetro y área\n\n📏 1. ÁNGULOS\n• Definición: Un ángulo es la abertura formada por dos rayos (lados) que parten de un mismo punto (vértice).\n• Medición: Se utiliza el transportador, colocando el centro en el vértice y alineando un lado con 0°. La medida se lee en la escala.\n• Clasificación: Recto (90°), Agudo (<90° y >0°), Obtuso (>90° y <180°).\n\n🔷 2. POLÍGONOS\n• Figuras planas cerradas formadas por segmentos de recta (lados). Se nombran por su número de lados: triángulo (3), cuadrilátero (4), pentágono (5), hexágono (6), etc.\n• Polígono regular: todos sus lados y ángulos son iguales. Irregular: no cumple esa condición.\n• Elementos: lados, vértices, ángulos internos, diagonales.\n\n📏 3. PERÍMETRO\n• Es la medida del contorno de una figura. Se calcula sumando las longitudes de todos sus lados.\n• Para polígonos regulares: Perímetro = número de lados × medida de un lado.\n• Unidades: cm, m, km (unidades lineales).\n\n🔲 4. ÁREA\n• Es la medida de la superficie que ocupa una figura. Se mide en unidades cuadradas (cm², m²).\n• Fórmulas básicas:\n  - Cuadrado: A = lado × lado = l²\n  - Rectángulo: A = base × altura = b × h\n  - Triángulo rectángulo: A = (base × altura) ÷ 2 (Nota: en 4° grado se introduce para triángulos rectángulos; para otros triángulos se puede extender con la misma fórmula si se conoce la altura).\n• Estrategia para figuras compuestas: dividirlas en rectángulos y cuadrados, calcular cada área y sumar.\n\n⚠️ ERRORES COMUNES:\n• Confundir perímetro con área (contorno vs superficie).\n• Usar unidades incorrectas (cm para perímetro, cm² para área).\n• Al medir ángulos, leer la escala equivocada del transportador (interna vs externa).\n• Olvidar que el área del triángulo es la mitad del rectángulo, no igual.`,
+            4: `✏️ TRABAJOS DIRIGIDOS: Ejercicios de aplicación\n\n📝 BLOQUE 1: Ángulos\n1. Mide con transportador y clasifica: dibujos de ángulos de 45°, 90°, 120°, 15°.\n2. Dibuja un ángulo recto, uno agudo y uno obtuso. Indica su medida aproximada.\n3. ¿Cuánto mide el ángulo que forman las agujas del reloj a las 3:00? ¿Y a las 5:00? (Estimación).\n\n📝 BLOQUE 2: Polígonos y perímetros\n4. Nombra los polígonos: triángulo, cuadrado, rectángulo, pentágono, hexágono.\n5. Calcula el perímetro de: a) Triángulo equilátero de lado 6 cm. b) Rectángulo de 8 cm × 3 cm. c) Cuadrado de lado 5,5 cm.\n6. Un pentágono regular mide 4 cm por lado. ¿Cuál es su perímetro?\n\n📝 BLOQUE 3: Área\n7. Calcula el área de:\na) Cuadrado de lado 7 cm.\nb) Rectángulo de base 9 cm y altura 4 cm.\nc) Triángulo rectángulo de base 6 cm y altura 4 cm.\n8. Una hoja de papel mide 30 cm de largo y 20 cm de ancho. ¿Cuál es su área en cm²?\n\n📝 BLOQUE 4: Problemas integrados\n9. Una cancha de fútbol rectangular mide 100 m de largo y 60 m de ancho. Calcula su perímetro y su área.\n10. María quiere poner cinta alrededor de un marco rectangular de 25 cm por 30 cm. ¿Cuántos cm de cinta necesita? Si además forra el frente con papel, ¿cuánto papel (área) requiere?\n11. Un jardinero cerca un jardín triangular rectángulo con lados de 3 m, 4 m y 5 m. ¿Cuántos metros de cerca necesita? Si sembrará césped, ¿qué área debe cubrir? (Área: base 3 m, altura 4 m).\n\n⏱️ Tiempo: 50-65 min. ✅ Autoevaluación.`,
+            5: `🔗 CORRELACIONES INTERNAS: Conexión con Números y Estadística\n\n🔢 CONEXIÓN CON NÚMEROS Y OPERACIONES:\n• Las fórmulas de perímetro y área implican suma, multiplicación y división. Se aplican operaciones combinadas.\n• Al medir lados y ángulos, se utilizan números decimales y fracciones (½ cm, 0,5 cm).\n• El cálculo de perímetros de polígonos regulares refuerza la multiplicación.\n\n📊 CONEXIÓN CON ESTADÍSTICA:\n• En un estudio de figuras favoritas, se pueden representar las frecuencias en gráficos de barras.\n• Comparar áreas de diferentes departamentos o países en tablas.\n\n🧩 ACTIVIDAD INTEGRADORA: "Construye tu robot geométrico" – Dibujar un robot formado únicamente por rectángulos, cuadrados y triángulos. Medir cada parte y calcular perímetro total y área total. Luego expresar los resultados en una tabla y graficar el porcentaje de área de cada figura.\n\n💡 REFLEXIÓN: La geometría necesita a los números para cuantificar, y la estadística para comparar.`,
+            6: `🌍 CORRELACIONES EXTERNAS: Ángulos y áreas en la vida cotidiana\n\n🏠 EN LA CONSTRUCCIÓN Y DISEÑO:\n• Los planos de una casa muestran habitaciones rectangulares de las que se calcula el área para saber cuántos metros cuadrados de piso se necesitan.\n• Las rampas para discapacitados deben tener un ángulo de inclinación máximo (generalmente agudo, alrededor de 8°).\n• Los techos a dos aguas forman ángulos obtusos o agudos según el diseño.\n\n⚽ EN EL DEPORTE:\n• La cancha de fútbol tiene líneas perpendiculares (ángulo recto). Las trayectorias de los pases forman ángulos.\n• En básquet, el tablero y el aro forman un ángulo recto.\n\n🎨 EN EL ARTE Y LA NATURALEZA:\n• Las teselaciones de Escher usan polígonos que cubren el plano sin dejar huecos.\n• Los panales de abejas son hexágonos regulares, forma que maximiza el área con el menor perímetro.\n• Las hojas de muchas plantas presentan simetría y ángulos precisos (filotaxis).\n\n🧩 EN LA VIDA DIARIA:\n• Encuadrar un cuadro requiere que los ángulos de las esquinas sean rectos.\n• Calcular cuánta alfombra comprar para una habitación (área).\n\n🧠 REFLEXIÓN FINAL: "La geometría es el arte de medir la tierra; donde haya espacio, hay geometría."\n🗣️ CITA: "No hay rama de la matemática, por abstracta que sea, que no pueda aplicarse algún día a los fenómenos del mundo real." — Lobachevsky.`,
+            7: `👥 MÓDULO DE PROYECTO GRUPAL: "Arquitectos por un día: Diseñamos nuestro parque ideal"\n\n🎯 OBJETIVO: Diseñar el plano de un parque en una cartulina grande, integrando diferentes zonas geométricas (juegos infantiles, cancha deportiva, jardines, caminos) y calculando el perímetro y área de cada zona, además de verificar los ángulos en las intersecciones.\n\n📋 FASES:\n1. ORGANIZACIÓN (1 sesión): 5 equipos encargados de diferentes áreas del parque: Zona de juegos (columpios, toboganes), Cancha multiuso (rectángulo), Jardín central (triángulo o rectángulo), Caminos (rectángulos alargados), Zona de descanso (cuadrados o hexágonos).\n2. DISEÑO Y MEDICIÓN (2 sesiones): En papel cuadriculado tamaño pliego, dibujan el plano general del parque. Cada equipo delimita su zona, mide lados (usando escala: 1 cm = 1 m), calcula perímetro y área, y verifica que los ángulos de las esquinas sean rectos (usando escuadra).\n3. PRESUPUESTO SIMULADO (1 sesión): Se asignan precios por metro cuadrado de pasto, cemento, arena. Cada equipo calcula el costo de material para su zona usando el área calculada.\n4. MAQUETA O PRESENTACIÓN (1 sesión): Construyen una maqueta con materiales reciclados (cartón, palitos) o elaboran un afiche con los cálculos y el plano.\n5. EXPOSICIÓN (1 sesión): Presentan el parque, explican las formas elegidas, las áreas y los costos. Responden preguntas de sus compañeros.\n\n🏆 EVALUACIÓN: Precisión en las mediciones, correcta aplicación de fórmulas de perímetro y área, identificación de ángulos, trabajo colaborativo, creatividad.\n🎉 CIERRE: Votación para el "Mejor Parque" y diplomas de "Arquitecto Matemático".`,
         };
 
-        const leccionExtensaMedIII = {
-            0: `🎯 OBJETIVO GENERAL: Introducir a los estudiantes de 1° y 2° grado de primaria en el concepto de medición, desarrollando la capacidad de medir, comparar y estimar longitudes, masas y tiempos utilizando tanto unidades no convencionales como las unidades estándar básicas (centímetro, metro, kilogramo, día, hora), fomentando la curiosidad por el mundo que los rodea y la aplicación práctica de la medición en su vida cotidiana.\n\n🎯 OBJETIVOS PARTICULARES:\n• Comprender qué es medir y por qué es importante hacerlo con precisión.\n• Medir longitudes utilizando unidades no convencionales (palitos, clips, pasos, cuartas) y unidades estándar (centímetros y metros).\n• Comparar longitudes de objetos usando los términos: más largo que, más corto que, igual de largo que.\n• Estimar longitudes antes de medir y verificar la estimación.\n• Usar correctamente la regla graduada y la cinta métrica para medir en centímetros.\n• Comprender el concepto de masa (peso) y medirla con balanzas simples utilizando kilogramos.\n• Comparar masas de objetos usando los términos: más pesado que, más liviano que, igual de pesado que.\n• Reconocer las unidades de tiempo: día, hora, media hora y cuarto de hora.\n• Leer la hora en relojes analógicos (en punto y media hora) y relojes digitales.\n• Identificar actividades cotidianas asociadas a diferentes momentos del día (mañana, tarde, noche).\n• Resolver problemas sencillos que involucren mediciones de longitud, masa y tiempo.\n\n📌 NOCIONES PRINCIPALES:\n• Medición, magnitud (longitud, masa, tiempo), unidad de medida.\n• Unidades no convencionales: palmo, cuarta, paso, clip, borrador.\n• Unidades estándar de longitud: centímetro (cm) y metro (m). Equivalencia: 1 m = 100 cm.\n• Unidad estándar de masa: kilogramo (kg).\n• Unidades de tiempo: día (24 horas), hora (60 minutos), media hora (30 minutos), cuarto de hora (15 minutos).\n• Instrumentos de medición: regla, cinta métrica, balanza, reloj analógico, reloj digital.\n\n📌 NOCIONES SECUNDARIAS:\n• Estimación como estrategia previa a la medición exacta.\n• Comparación directa e indirecta de longitudes y masas.\n• Noción intuitiva de fracciones de tiempo: medio y cuarto.\n• Secuencia temporal: antes, después, ayer, hoy, mañana.\n• Equivalencias simples: 1 m = 100 cm; 1 día = 24 horas; 1 hora = 60 minutos.\n• Registro de mediciones en tablas simples.\n\n🌍 INTERESES SOCIETALES:\n• La medición está presente en innumerables situaciones cotidianas: medir la estatura, pesar los alimentos en el mercado, calcular cuánto falta para la hora de salida, saber cuánta tela se necesita para un vestido.\n• Comprender las medidas permite a los niños desenvolverse con autonomía: seguir una receta, comprar fruta por kilos, administrar su tiempo de juego y estudio.\n• La historia de la medición refleja la evolución de la humanidad: desde las unidades basadas en el cuerpo humano (codo, pie, palmo) hasta el sistema métrico universal.\n• El desarrollo de la capacidad de estimación y medición fortalece el pensamiento lógico, la observación cuidadosa y la habilidad para resolver problemas prácticos.`,
-            1: `🔍 ACTIVIDAD DE DESCUBIERTA: "Exploradores de medidas"\n\n🧩 MATERIALES: Reglas de 30 cm, cintas métricas de 1 m, balanza de platos, pesas de 1 kg, bolsas con objetos de diferentes masas (arroz, algodón, piedras), relojes didácticos analógicos, reloj digital de juguete, cronómetro, palitos de helado, clips, lana, tarjetas con horarios.\n\n🎲 ESTACIONES DE EXPLORACIÓN (rotación por equipos):\n\nESTACIÓN 1: "Midiendo con el cuerpo" - Los niños usan su palmo (mano extendida), su cuarta (del pulgar al meñique) y sus pasos para medir objetos del aula: el largo de la mesa, el ancho de la puerta, la altura de un compañero. Registran sus medidas en una tabla y comparan: ¿Todos obtienen el mismo número? (¡No!). Descubren que las unidades del cuerpo varían de persona a persona, por eso necesitamos unidades estándar.\n\nESTACIÓN 2: "La balanza curiosa" - Con una balanza de platos, los niños comparan la masa de diferentes objetos. Sostienen en cada mano un objeto y predicen: ¿cuál pesa más? Luego lo verifican en la balanza. Experimentan con una bolsa de algodón grande y una piedra pequeña: aunque el algodón ocupa más espacio, la piedra puede pesar más. Registran: "más pesado que", "más liviano que", "igual de pesado que".\n\nESTACIÓN 3: "¿Qué hora es?" - Con relojes didácticos, los niños manipulan las agujas para representar diferentes horas: "la hora de entrada al colegio", "la hora del recreo", "la hora de salida". Practican poner las 8 en punto, las 10 y media. También observan un reloj digital y comparan cómo se ve la misma hora en ambos formatos.\n\nESTACIÓN 4: "Adivina y mide" - En una mesa hay 10 objetos de diferentes longitudes: lápiz, goma, libro, tijera, sacapuntas, etc. Cada niño primero estima cuántos centímetros mide cada objeto y anota su estimación. Luego, con la regla, mide la longitud real y la anota. Comparan la diferencia entre estimación y medición real. Gana quien más se acercó.\n\n💬 REFLEXIÓN EN PLENARIA: ¿Qué pasó cuando medimos con palmos y pasos? ¿Por qué hay diferencias? ¿Cuándo necesitamos medir con precisión? ¿Qué cosas compramos por kilos en el mercado? ¿Cómo sabemos cuánto falta para el recreo? ¿Qué significa "llegar a tiempo"?`,
-            2: `🧠 ACTIVIDAD INDUCTIVA: "Descubriendo las reglas de la medición"\n\n📊 OBSERVACIÓN GUIADA DE LONGITUD:\nLa maestra presenta 4 objetos de diferentes longitudes: un lápiz, un libro, una mochila y la altura de una silla. Se miden primero con clips (unidad no estándar) y luego con centímetros (unidad estándar).\n\nCASO 1: MIDIENDO CON CLIPS - Lápiz = 6 clips, libro = 10 clips, mochila = 18 clips, silla = 25 clips. Preguntas: ¿Cuál es el más largo? ¿Cómo lo sabes? (el que necesita más clips). ¿Qué pasa si uso un clip más grande? (necesito menos clips; por eso usamos siempre el mismo tipo de clip). Conclusión: "Para comparar longitudes, debemos usar siempre la misma unidad de medida."\n\nCASO 2: EL CENTÍMETRO COMO UNIDAD UNIVERSAL - Los mismos objetos se miden con regla en centímetros. Lápiz ≈ 15 cm, libro ≈ 25 cm, mochila ≈ 45 cm, silla ≈ 65 cm. Preguntas: ¿Todos obtuvimos los mismos números con la regla? (Sí, porque el centímetro es igual para todos). Conclusión: "Las unidades estándar como el centímetro nos permiten medir con precisión y que todos entiendan lo mismo."\n\n📊 OBSERVACIÓN GUIADA DE MASA:\nSe presentan 4 objetos: un cuaderno, una cartuchera llena, una botella de agua de 1 litro (≈ 1 kg) y un libro grueso. Se usa la balanza para compararlos con una pesa de 1 kg.\n\nCASO 3: MÁS PESADO O MÁS LIVIANO QUE 1 KG - Cuaderno: pesa menos de 1 kg → "más liviano que 1 kg". Cartuchera llena: pesa menos de 1 kg. Botella de agua: pesa aproximadamente 1 kg → "igual que 1 kg". Libro grueso: puede pesar más de 1 kg → "más pesado que 1 kg". Conclusión: "El kilogramo es nuestra unidad estándar para medir masa; todo lo comparamos con él."\n\n📊 OBSERVACIÓN GUIADA DE TIEMPO:\nLa maestra dibuja en la pizarra un reloj analógico grande con las 12 horas. Señala con colores diferentes la aguja horaria (corta, roja) y la aguja minutera (larga, azul).\n\nCASO 4: LA HORA EN PUNTO Y LA MEDIA HORA - Se muestran las 8:00 (aguja larga en 12, corta en 8), las 10:00, las 12:00. Preguntas: ¿Dónde está la aguja larga cuando es "en punto"? (siempre en el 12). Luego se muestran las 8:30 (aguja larga en 6, corta entre 8 y 9). Conclusión: "Cuando la aguja larga está en el 12, es en punto. Cuando está en el 6, es media hora (y media)."\n\nCASO 5: SECUENCIA DEL DÍA - Se presentan tarjetas con actividades: despertarse, desayunar, ir al colegio, almorzar, jugar, cenar, dormir. Los niños las ordenan en secuencia y les asignan horas aproximadas. Conclusión: "El día tiene 24 horas y nuestras actividades se organizan según la hora."\n\n📝 REGISTRO: Cada estudiante completa una ficha resumen con las conclusiones: "Para medir longitud usamos el centímetro (cm). Para medir masa usamos el kilogramo (kg). Para medir el tiempo usamos el reloj (horas)."`,
-            3: `📐 TRANSMISIÓN CONCEPTUAL: La Medición — Longitud, Masa y Tiempo\n\n📏 1. ¿QUÉ ES MEDIR?\nMedir es comparar una magnitud (longitud, masa, tiempo, etc.) con una unidad de medida establecida para saber cuántas veces la contiene. Por ejemplo, si decimos que una mesa mide 120 centímetros, significa que su largo equivale a 120 veces la unidad "centímetro".\n\n📏 2. MEDICIÓN DE LONGITUD\nLa longitud nos dice qué tan largo, ancho o alto es un objeto.\n\n📐 UNIDADES NO CONVENCIONALES (para empezar a comprender):\n• Palmo: distancia entre el pulgar y el meñique con la mano extendida.\n• Cuarta: distancia entre el pulgar y el índice extendidos.\n• Pie: longitud del pie de una persona.\n• Paso: distancia que se recorre al dar un paso.\n⚠️ Estas unidades varían de persona a persona. Por eso necesitamos unidades estándar.\n\n📏 UNIDADES ESTÁNDAR DE LONGITUD:\n• CENTÍMETRO (cm): Unidad pequeña. La regla escolar mide 30 cm. Una uña mide aprox. 1 cm de ancho.\n• METRO (m): Unidad mayor. 1 metro = 100 centímetros. La altura de una puerta mide aprox. 2 m. Una mesa mide aprox. 1 m de largo.\n\n🛠️ INSTRUMENTOS PARA MEDIR LONGITUD:\n• Regla graduada: para medir longitudes pequeñas (hasta 30 cm).\n• Cinta métrica o metro plegable: para medir longitudes mayores (telas, estaturas, muebles).\n\n📋 PASOS PARA MEDIR CON REGLA:\n1. Colocar el objeto a medir sobre una superficie plana.\n2. Alinear el extremo del objeto con el número 0 de la regla (¡no con el borde de la regla!).\n3. Observar hasta qué número llega el otro extremo.\n4. Leer la medida en centímetros.\n\n⚖️ 3. MEDICIÓN DE MASA (PESO)\nLa masa nos dice cuánta materia contiene un objeto. En la vida diaria, decimos "peso".\n\n⚖️ UNIDAD ESTÁNDAR DE MASA:\n• KILOGRAMO (kg): Unidad principal. 1 kg es aproximadamente la masa de 1 litro de agua.\n• También existe el gramo (g), donde 1 kg = 1000 g, pero en 1° y 2° grado trabajamos principalmente con kilogramos.\n\n🛠️ INSTRUMENTOS PARA MEDIR MASA:\n• Balanza de platos: compara la masa de dos objetos. Si los platos quedan al mismo nivel, las masas son iguales.\n• Balanza digital o de cocina: muestra directamente la masa en kg o g.\n\n🔍 COMPARACIÓN DE MASAS:\n• Más pesado que: tiene mayor masa.\n• Más liviano que: tiene menor masa.\n• Igual de pesado que: tienen la misma masa.\n\n⏰ 4. MEDICIÓN DEL TIEMPO\nEl tiempo nos dice cuándo ocurren las cosas y cuánto duran.\n\n⏰ UNIDADES DE TIEMPO:\n• DÍA: Tiempo que tarda la Tierra en dar una vuelta completa sobre sí misma. 1 día = 24 horas.\n• HORA (h): Unidad para organizar el día. 1 día = 24 horas. 1 hora = 60 minutos.\n• MEDIA HORA: 30 minutos. La mitad de una hora.\n• CUARTO DE HORA: 15 minutos. La cuarta parte de una hora.\n• MINUTO (min): 1 hora = 60 minutos.\n\n🕐 EL RELOJ ANALÓGICO (de agujas):\n• Aguja corta (horaria): indica la hora. Se mueve lentamente; tarda 12 horas en dar una vuelta completa.\n• Aguja larga (minutera): indica los minutos. Se mueve más rápido; tarda 60 minutos (1 hora) en dar una vuelta completa.\n• En punto: la aguja larga está en el 12. La aguja corta señala la hora.\n• Y media: la aguja larga está en el 6 (porque avanzó media vuelta = 30 minutos). La aguja corta está entre dos números.\n\n🕐 EL RELOJ DIGITAL:\nMuestra la hora con números separados por dos puntos (:). Ejemplo: 08:00 (ocho en punto), 10:30 (diez y media), 03:15 (tres y cuarto).\n\n📅 SECUENCIAS TEMPORALES:\n• Mañana (a.m.): desde que sale el sol hasta el mediodía.\n• Tarde (p.m.): desde el mediodía hasta que anochece.\n• Noche (p.m.): desde que anochece hasta que sale el sol.\n• Ayer → Hoy → Mañana.\n\n⚠️ ERRORES COMUNES Y CÓMO EVITARLOS:\n• Medir desde el borde de la regla y no desde el 0. → Verificar que el objeto empiece en el cero.\n• Confundir la aguja horaria con la minutera en el reloj. → Recordar: la corta señala la hora, la larga los minutos.\n• Decir "son las 10 y media" cuando la aguja horaria está exactamente en el 10. → Si es "y media", la aguja horaria ya pasó un poco del 10.\n• Pensar que algo grande siempre pesa más que algo pequeño. → Un globo grande lleno de aire pesa menos que una canica pequeña. La masa no depende del tamaño.`,
-            4: `✏️ TRABAJOS DIRIGIDOS: Ejercicios de aplicación\n\n📝 BLOQUE 1: Longitud - Unidades no convencionales\n1. Mide con tu palmo: el largo de tu cuaderno, el ancho de tu mesa, el largo de tu lápiz. Anota los resultados.\n2. Compara tus medidas con las de un compañero. ¿Son iguales? ¿Por qué puede haber diferencias?\n3. Usa clips del mismo tamaño para medir: un lápiz, una goma y un libro. ¿Cuántos clips mide cada uno? Ordénalos del más corto al más largo.\n\n📝 BLOQUE 2: Longitud - Centímetros y metros\n4. Con la regla, mide en centímetros:\na) Tu lápiz: ____ cm\nb) Tu goma de borrar: ____ cm\nc) El ancho de tu cuaderno: ____ cm\nd) Tu dedo índice: ____ cm\n5. ¿Qué unidad usarías para medir...?\n- El largo del patio del colegio: (metro)\n- El largo de un clip: (centímetro)\n- La altura de una puerta: (metro)\n- El largo de una hormiga: (centímetro)\n6. Completa: 1 metro = ______ centímetros.\n7. Estima y luego mide:\n| Objeto | Estimación (cm) | Medición real (cm) |\n| Lápiz | ___ | ___ |\n| Libro | ___ | ___ |\n| Estuche | ___ | ___ |\n¿Qué estimación fue más cercana?\n\n📝 BLOQUE 3: Masa - Kilogramos\n8. Encierra lo más pesado:\na) Una pluma o una piedra.\nb) Un cuaderno o una mochila llena de libros.\nc) Un kilo de algodón o un kilo de hierro. (¡Trampa! Pesan igual: 1 kg cada uno).\n9. ¿Qué objetos de tu casa pesan aproximadamente 1 kg? Nombra 3.\n10. En la balanza, un paquete de arroz equilibra exactamente una pesa de 1 kg. ¿Cuánto pesa el arroz? (1 kg). Si pongo 2 paquetes iguales, ¿cuánto pesan en total? (2 kg).\n\n📝 BLOQUE 4: Tiempo - Horas y reloj\n11. Observa el reloj y escribe la hora:\na) Aguja larga en 12, aguja corta en 8 → ____ en punto.\nb) Aguja larga en 6, aguja corta entre 2 y 3 → ____ y media.\nc) Aguja larga en 12, aguja corta en 12 → ____ en punto.\n12. Dibuja las agujas en estos relojes:\na) 9:00 → aguja larga en ___, aguja corta en ___.\nb) 4:30 → aguja larga en ___, aguja corta entre ___ y ___.\n13. Escribe la hora que marca cada reloj digital:\na) 07:00 = las ______\nb) 11:30 = las ______\nc) 03:15 = las ______\n14. Ordena las actividades según la hora del día:\n• Almorzar (12:00) • Despertarse (6:30) • Dormir (20:00) • Ir al colegio (7:30)\n\n📝 BLOQUE 5: Problemas\n15. La mesa de la sala mide 2 metros de largo. ¿Cuántos centímetros son? (200 cm).\n16. Mamá compró 3 kg de papa y 2 kg de cebolla. ¿Cuántos kilogramos de verdura compró en total? (5 kg).\n17. Si la clase empieza a las 8:00 y dura hasta las 10:30, ¿cuánto tiempo están en clase? (2 horas y media).\n18. Un reloj marca las 3:00. ¿Qué marcará cuando pasen 30 minutos? (3:30).\n\n⏱️ Tiempo: 50-70 min. ✅ Autoevaluación.`,
-            5: `🔗 CORRELACIONES INTERNAS: Conexión con Números, Geometría y Ciencia\n\n🔢 CONEXIÓN CON NÚMEROS Y OPERACIONES:\n• Las mediciones siempre se expresan con números: 15 cm, 3 kg, 8 horas.\n• Al sumar y restar medidas, aplicamos las operaciones básicas. Ej: "Compré 2 kg de manzanas y 3 kg de naranjas → total 5 kg de fruta."\n• Al resolver problemas de medición, los estudiantes refuerzan la suma, la resta y la comparación de números.\n• El reloj tiene 12 números; contamos de 5 en 5 los minutos (5, 10, 15, 20...).\n\n📐 CONEXIÓN CON GEOMETRÍA:\n• Medimos los lados de las figuras geométricas para calcular su perímetro (aunque en Ciclo III aún no se formaliza la palabra "perímetro"). Ej: "El cuadrado tiene 4 lados de 5 cm cada uno → total 20 cm de contorno."\n• Comparamos longitudes de lados: "El rectángulo tiene dos lados largos y dos cortos; midámoslos."\n• En cuerpos geométricos, medimos aristas, alturas, diámetros de círculos.\n\n🔬 CONEXIÓN CON CIENCIA Y TECNOLOGÍA:\n• En Seres Vivos, medimos la altura de una planta a lo largo del tiempo.\n• En Materia y Energía, comparamos la masa de diferentes materiales.\n• En Tierra y Universo, el día y la noche se relacionan con el tiempo (24 horas = rotación de la Tierra).\n\n🧩 ACTIVIDAD INTEGRADORA: "Ficha de identidad de un objeto"\n• Cada estudiante elige un objeto del aula y completa su ficha:\n- Nombre del objeto.\n- Longitud (en cm).\n- Masa aproximada (comparada con 1 kg: más, menos o igual).\n- ¿En qué momento del día lo usas? (mañana, tarde, noche).\n\n💡 REFLEXIÓN: La medición une todas las áreas de las matemáticas y las conecta con el mundo real. Sin números no hay medidas; sin geometría no hay qué medir; sin medición, la ciencia no existiría.`,
-            6: `🌍 CORRELACIONES EXTERNAS: La medición en la vida cotidiana y el universo\n\n🏪 EN EL MERCADO Y LA COCINA:\n• Las frutas y verduras se venden por kilogramos: "Deme medio kilo de naranjas."\n• Las recetas de cocina usan medidas precisas: 250 g de harina, 1 litro de leche.\n• Al comprar tela para un vestido, la pedimos por metros.\n\n🚍 EN EL TRANSPORTE Y LA CIUDAD:\n• Las distancias entre ciudades se miden en kilómetros (km): "De Lima al Callao hay 14 km."\n• Los horarios de buses, trenes y aviones se organizan por horas y minutos.\n• El velocímetro del auto mide la velocidad en km por hora.\n\n🏥 EN LA SALUD:\n• En el médico nos miden la estatura (en cm o m) y la masa (en kg) para saber si estamos creciendo bien.\n• Las medicinas se dosifican en mililitros (ml) o miligramos (mg) según el peso del paciente.\n\n⚽ EN LOS DEPORTES:\n• El tiempo de un partido de fútbol: 90 minutos (1 hora y media).\n• En atletismo, los corredores compiten en distancias: 100 metros, 200 metros, 1 kilómetro.\n• En natación, la piscina olímpica mide 50 metros de largo.\n\n🌍 EN LA NATURALEZA Y EL UNIVERSO:\n• El día dura 24 horas porque es lo que tarda la Tierra en girar sobre sí misma.\n• El año dura 365 días (y 6 horas) porque es lo que tarda la Tierra en dar la vuelta al Sol.\n• La luz del Sol tarda aproximadamente 8 minutos en llegar a la Tierra.\n• Una ballena azul puede medir hasta 30 metros de largo (como 10 autos en fila).\n\n🕰️ HISTORIA DE LA MEDICIÓN:\n• Los antiguos egipcios usaban el "codo" (distancia del codo a la punta de los dedos) para medir.\n• Los romanos medían en "pies" y "pasos" (de ahí viene "milla": mil pasos).\n• El sistema métrico decimal (metro, kilogramo) se inventó en Francia hace poco más de 200 años para unificar las medidas en todo el mundo.\n\n🧠 REFLEXIÓN FINAL: "Medir es una de las habilidades más útiles que aprenderás. Cada vez que cocinas, construyes, compras o planificas tu día, estás usando medidas. Conocer las unidades y saber estimar te hace más independiente y te ayuda a entender mejor el mundo."\n\n🗣️ CITA: "Lo que no se mide, no se puede mejorar." — William Thomson (Lord Kelvin).`,
-            7: `👥 MÓDULO DE PROYECTO GRUPAL: "La Feria de las Medidas"\n\n🎯 OBJETIVO: Organizar una feria en el aula con estaciones de medición donde los estudiantes demuestren y apliquen todo lo aprendido sobre longitud, masa y tiempo, atendiendo a sus compañeros y familiares como "expertos medidores".\n\n📋 FASES DEL PROYECTO:\n\nFASE 1: ORGANIZACIÓN (1 sesión)\n• 5 equipos especializados:\n  - Equipo Longitud: expertos en medir con regla y cinta métrica.\n  - Equipo Masa: expertos en usar la balanza y comparar pesos.\n  - Equipo Tiempo - Reloj: expertos en leer y explicar la hora.\n  - Equipo Tiempo - Cronómetro: expertos en medir duraciones (¿cuánto tardas en...?).\n  - Equipo de Registro y Diplomas: llevan el control de visitantes y entregan certificados.\n• Cada equipo prepara su estación con los materiales necesarios.\n\nFASE 2: DISEÑO DE LAS ESTACIONES (1-2 sesiones)\n• EQUIPO LONGITUD: "Adivina y Mide" - El visitante estima cuánto mide un objeto, luego el experto lo mide con regla/cinta y comparan. Preparan 10 objetos de diferentes longitudes.\n• EQUIPO MASA: "Pesa y Sorpréndete" - El visitante sostiene dos objetos, dice cuál cree que pesa más, y luego verifica en la balanza. Preparan parejas de objetos "engañosos" (grande pero liviano vs. chico pero pesado).\n• EQUIPO TIEMPO - RELOJ: "Pon la Hora" - El visitante recibe una tarjeta con una hora escrita (ej: "10:30") y debe colocarla correctamente en el reloj didáctico. El experto verifica y enseña si hay error.\n• EQUIPO TIEMPO - CRONÓMETRO: "Carrera de Actividades" - El visitante realiza una actividad (saltar 10 veces, escribir su nombre, ordenar 5 objetos por tamaño) mientras el experto mide cuánto tarda con el cronómetro. Se registran los tiempos en una tabla de récords.\n• EQUIPO DE REGISTRO: Entrega a cada visitante una "Tarjeta de Explorador" donde sella cada estación visitada. Al completar las 4 estaciones, recibe un diploma de "Experto en Medición".\n\nFASE 3: ENSAYO Y AJUSTES (1 sesión)\n• Cada equipo prueba su estación con compañeros de otros equipos.\n• Ajustan las instrucciones para que sean claras.\n• Verifican que tengan todos los materiales listos.\n\nFASE 4: ¡LA FERIA! (1 sesión)\n• Se invita a otros salones de 1° y 2° grado, y si es posible, a los padres de familia.\n• Cada equipo atiende en su estación explicando y guiando a los visitantes.\n• El Equipo de Registro controla el flujo de personas y entrega sellos y diplomas.\n\nFASE 5: REFLEXIÓN Y CIERRE (1 sesión)\n• Plenaria: ¿Qué fue lo más divertido? ¿Qué aprendimos al enseñar a otros? ¿Qué fue más difícil: medir longitud, masa o tiempo? ¿Dónde usaremos estas habilidades en nuestra vida diaria?\n• Entrega de diplomas de "Maestro de las Medidas" a cada miembro de los equipos.\n\n🏆 EVALUACIÓN: Precisión en las mediciones y explicaciones, trabajo en equipo, creatividad en el diseño de las estaciones, capacidad de comunicar y enseñar a otros, actitud de servicio.\n🎉 CIERRE: Foto grupal con el letrero oficial: "Feria de las Medidas - IEP Escuela Hogar Ventanilla". Exposición de la tabla de récords del cronómetro.`,
+        const leccionExtensaEstIV = {
+            0: `🎯 OBJETIVO GENERAL: Introducir a los estudiantes de 3° y 4° grado de primaria en los fundamentos de la estadística descriptiva, capacitándolos para recolectar, organizar y representar datos en tablas de frecuencia y gráficos de barras, así como para interpretar la información contenida en ellos, desarrollando habilidades de análisis y toma de decisiones basada en datos.\n\n🎯 OBJETIVOS PARTICULARES:\n• Comprender qué son los datos y la importancia de organizarlos.\n• Recolectar datos mediante encuestas sencillas y preguntas.\n• Construir tablas de conteo y tablas de frecuencia (absoluta).\n• Representar datos en gráficos de barras verticales y horizontales.\n• Leer e interpretar información de tablas y gráficos de barras (identificar la categoría con mayor/menor frecuencia, comparar frecuencias).\n• Identificar la moda (dato más frecuente) en un conjunto de datos.\n• Utilizar adecuadamente el título, los ejes y las etiquetas en un gráfico.\n• Resolver problemas que impliquen interpretar y construir representaciones estadísticas.\n\n📌 NOCIONES PRINCIPALES:\n• Dato, encuesta, población y muestra (nociones intuitivas).\n• Tabla de conteo, tabla de frecuencia absoluta.\n• Gráfico de barras: ejes (horizontal y vertical), escala, altura de la barra, título.\n• Moda: categoría o valor con mayor frecuencia.\n\n📌 NOCIONES SECUNDARIAS:\n• Diferencia entre variables cualitativas (color favorito, fruta preferida) y cuantitativas discretas (número de hermanos).\n• Pictograma (representación con dibujos) como introducción al gráfico de barras.\n• Comparación entre dos conjuntos de datos usando gráficos de barras dobles (solo interpretación en 4°).\n\n🌍 INTERESES SOCIETALES:\n• La estadística está presente en las noticias (intención de voto, preferencias deportivas), en la escuela (resultados de evaluaciones) y en el comercio (productos más vendidos).\n• Saber interpretar tablas y gráficos es una habilidad esencial para la ciudadanía informada: permite entender encuestas, reportes y tomar decisiones basadas en evidencia.\n• Fomenta el pensamiento crítico y la capacidad de argumentar con datos.`,
+            1: `🔍 ACTIVIDAD DE DESCUBIERTA: "Pequeños estadísticos en acción"\n\n🧩 MATERIALES: Pizarra, tarjetas adhesivas (post-it), cartulinas, marcadores, dados, colección de tapitas de colores, hojas cuadriculadas, lápices de colores.\n\n🎲 ESTACIONES DE EXPLORACIÓN (rotación por equipos):\nESTACIÓN 1: "El mural de preferencias" – Cada niño pega un post-it con su fruta favorita en una columna. Se forma un gráfico de barras viviente. Luego lo pasan a papel cuadriculado.\nESTACIÓN 2: "Dados estadísticos" – Lanzan un dado 20 veces y registran con palotes cada resultado en una tabla de conteo. Luego convierten a tabla de frecuencia y dibujan el gráfico de barras.\nESTACIÓN 3: "Encuesta a otros salones" – Diseñan una pregunta (ej: mascota preferida) y van a encuestar brevemente a otro salón con permiso. Recolectan los datos.\nESTACIÓN 4: "Interpretando gráficos" – Reciben gráficos de barras ya hechos (sobre sabores de helado, deportes, etc.) con preguntas: ¿Cuál es el más popular? ¿Cuál tiene 5 votos? ¿Cuántos más prefieren A que B?\n\n💬 REFLEXIÓN EN PLENARIA: ¿Por qué es útil organizar los datos en tablas? ¿Qué nos dice un gráfico de barras que no nos dice una lista de números?`,
+            2: `🧠 ACTIVIDAD INDUCTIVA: "Construyendo la regla estadística"\n\n📊 OBSERVACIÓN GUIADA – TABLA DE FRECUENCIA:\nA partir de los datos del dado o la fruta favorita, la maestra muestra cómo los palotes (conteo) se agrupan de 5 en 5 para facilitar el conteo. Luego se transforman en números (frecuencia). Preguntas: ¿Por qué usamos palotes? ¿Qué pasa si los datos son muchos?\nConclusión: Una tabla de frecuencia organiza los datos mostrando cuántas veces se repite cada valor.\n\n📊 OBSERVACIÓN GUIADA – GRÁFICO DE BARRAS:\nSe presentan varios gráficos de barras correctos e incorrectos (sin título, barras de distinto ancho, escala irregular). Los niños identifican los errores y establecen los elementos necesarios: título claro, ejes etiquetados, escala uniforme, barras del mismo ancho y separadas.\nConclusión: Un buen gráfico de barras debe ser claro, preciso y tener todos sus elementos.\n\n📊 OBSERVACIÓN GUIADA – MODA:\nCon los datos de la fruta favorita, se pregunta: ¿Qué fruta apareció más veces? Esa es la moda. Se contrasta con "la que menos veces apareció".\nConclusión: La moda es el dato que tiene la mayor frecuencia.\n\n📝 REGISTRO: Cada estudiante crea un mini póster con los 3 elementos clave: tabla de frecuencia, gráfico de barras y moda.`,
+            3: `📐 TRANSMISIÓN CONCEPTUAL: Estadística – Tablas y gráficos de barras\n\n📊 1. RECOLECCIÓN Y ORGANIZACIÓN DE DATOS\n• Dato: información que recolectamos (ej: color de ojos, puntaje en un juego).\n• Encuesta: conjunto de preguntas para obtener datos de un grupo.\n• Población: grupo total que queremos estudiar (ej: todos los estudiantes de 3°). Muestra: parte de la población que realmente encuestamos.\n\n📋 2. TABLA DE FRECUENCIA\n• Tabla de conteo: se registran marcas (palotes) por cada dato observado, agrupando de 5 en 5 (IIII).\n• Frecuencia absoluta: número total de veces que aparece cada categoría.\n• Ejemplo:\n  Color favorito | Conteo | Frecuencia\n  Rojo           | IIII   | 5\n  Azul           | III    | 3\n  Verde          | II     | 2\n\n📊 3. GRÁFICO DE BARRAS\n• Representación visual de la tabla de frecuencia.\n• Construcción:\n  1. Dibujar dos ejes perpendiculares.\n  2. Eje horizontal (X): categorías (colores, frutas, etc.).\n  3. Eje vertical (Y): frecuencias (números). Elegir una escala adecuada (de 1 en 1, de 2 en 2, etc.) según el valor máximo.\n  4. Dibujar barras rectangulares del mismo ancho, separadas, cuya altura corresponde a la frecuencia.\n  5. Colocar título general y etiquetas en los ejes.\n• Lectura: La barra más alta indica la moda. Podemos comparar: ¿cuántos más prefieren A que B?\n\n🔍 4. MODA\n• Es el valor o categoría con mayor frecuencia absoluta. Puede haber más de una moda si dos valores empatan en la frecuencia más alta.\n\n⚠️ ERRORES COMUNES:\n• Barras de diferente ancho (confunde visualmente).\n• Escala inadecuada (no empieza en 0, o los intervalos no son iguales).\n• Olvidar título o etiquetas de los ejes.\n• Confundir la frecuencia con el nombre de la categoría.`,
+            4: `✏️ TRABAJOS DIRIGIDOS: Ejercicios de aplicación\n\n📝 BLOQUE 1: Interpretación de tablas\n1. La tabla muestra los deportes favoritos de 20 niños:\n   Fútbol: 8, Básquet: 5, Natación: 4, Tenis: 3.\n   a) ¿Cuál es el deporte más popular? (moda)\n   b) ¿Cuál el menos practicado?\n   c) ¿Cuántos niños prefieren fútbol o básquet?\n\n📝 BLOQUE 2: Construcción de tabla y gráfico\n2. Encuesta en el aula: "¿Cómo vienes al colegio?" (Caminando, Bicicleta, Bus, Auto). Recolecta los datos de tus compañeros (mínimo 15). Completa la tabla de conteo y frecuencia. Dibuja el gráfico de barras en papel cuadriculado.\n\n📝 BLOQUE 3: Interpretación de gráficos de barras\n3. Observa el gráfico de barras (se dibuja en pizarra o ficha):\n   [Gráfico: Ventas de helados en una semana. Lunes: 10, Martes: 15, Miércoles: 20, Jueves: 10, Viernes: 25, Sábado: 30, Domingo: 25]\n   a) ¿Qué día se vendieron más helados?\n   b) ¿Qué día se vendieron 15 helados?\n   c) ¿Cuántos helados más se vendieron el sábado que el lunes?\n   d) ¿Qué días tuvieron la misma cantidad de ventas?\n\n📝 BLOQUE 4: Aplicación y análisis\n4. Inventa una pregunta de encuesta para tu familia (ej: programa de TV favorito). Recolecta al menos 10 respuestas, organiza en tabla de frecuencia y construye el gráfico de barras. Escribe dos conclusiones a partir del gráfico.\n\n⏱️ Tiempo: 45-55 min. ✅ Autoevaluación.`,
+            5: `🔗 CORRELACIONES INTERNAS: Conexión con Números y Geometría\n\n🔢 CONEXIÓN CON NÚMEROS Y OPERACIONES:\n• Las frecuencias son números; al compararlas usamos sumas, restas y la noción de "cuántas veces más".\n• Al construir la tabla de frecuencia aplicamos conteo y organización numérica.\n• El análisis del gráfico puede involucrar operaciones combinadas: total de encuestados, diferencias, sumas de categorías.\n\n📐 CONEXIÓN CON GEOMETRÍA:\n• El gráfico de barras es una representación geométrica: las barras son rectángulos cuya altura es proporcional a la frecuencia (uso implícito de proporción).\n• La construcción de los ejes usa ángulos rectos y paralelismo.\n\n🧩 ACTIVIDAD INTEGRADORA: "Estadística de figuras" – Cada niño dibuja una figura geométrica en una tarjeta (triángulo, cuadrado, círculo). Se juntan todas y se clasifican. Construyen tabla de frecuencia y gráfico de barras de "Figuras favoritas del aula". Luego calculan el área total de todas las figuras de un tipo si se dieran dimensiones.\n\n💡 REFLEXIÓN: Los números dan sentido a los datos; la geometría les da forma visual.`,
+            6: `🌍 CORRELACIONES EXTERNAS: Estadística en la vida diaria\n\n📺 EN LOS MEDIOS DE COMUNICACIÓN:\n• Los noticieros muestran gráficos de barras para comparar la intención de voto, el crecimiento económico o las medallas olímpicas por país.\n• Las aplicaciones meteorológicas usan gráficos de barras para mostrar la precipitación mensual.\n\n🏫 EN LA ESCUELA:\n• Las calificaciones del aula se pueden representar en gráficos para ver el rendimiento general.\n• La asistencia mensual se registra en tablas y se puede graficar.\n\n🛒 EN EL COMERCIO:\n• Las tiendas registran los productos más vendidos usando tablas y gráficos para decidir qué reponer.\n• Las encuestas de satisfacción de clientes se analizan estadísticamente.\n\n⚕️ EN LA SALUD:\n• Las gráficas de crecimiento infantil muestran la estatura y el peso según la edad con curvas basadas en estadísticas.\n• El número de casos de una enfermedad se reporta en gráficos de barras semanales.\n\n🧠 REFLEXIÓN FINAL: "Los datos sin organización son solo ruido; con la estadística se convierten en información poderosa para tomar decisiones."\n🗣️ CITA: "En Dios confiamos; los demás deben traer datos." — Atribuida a W. Edwards Deming.`,
+            7: `👥 MÓDULO DE PROYECTO GRUPAL: "Gran Encuesta Escolar: Conocemos nuestra comunidad"\n\n🎯 OBJETIVO: Realizar una encuesta a nivel de grado o escuela sobre un tema de interés (hábitos de lectura, uso de tecnología, preferencias alimenticias, etc.), aplicando todas las etapas del proceso estadístico: diseño, recolección, organización, representación e interpretación.\n\n📋 FASES:\n1. ORGANIZACIÓN (1 sesión): Formar 5 equipos. Cada equipo elige un tema de encuesta (con ayuda del docente). Diseñan la pregunta (máximo 4 opciones de respuesta).\n2. RECOLECCIÓN (1-2 sesiones): Cada equipo aplica la encuesta a un grupo asignado (otros salones, personal del colegio). Registran los datos en tablas de conteo.\n3. TABULACIÓN Y GRÁFICO (1 sesión): Convierten el conteo en tabla de frecuencia y dibujan un gráfico de barras a gran escala en papelógrafo, con todos los elementos (título, ejes, escala).\n4. ANÁLISIS Y CONCLUSIONES (1 sesión): Identifican la moda, comparan frecuencias, redactan 3 conclusiones basadas en los datos.\n5. FERIA ESTADÍSTICA (1 sesión): Exponen los papelógrafos en el patio o aula común. Cada equipo presenta sus hallazgos a los visitantes (otros cursos, padres).\n\n🏆 EVALUACIÓN: Claridad de la pregunta, correcta construcción de tabla y gráfico, precisión en el cálculo de frecuencias, profundidad de las conclusiones, exposición oral y trabajo en equipo.\n🎉 CIERRE: Diploma de "Estadístico Escolar" y publicación de los gráficos en el periódico mural.`,
         };
 
         // ═══════════════════════════════════════
@@ -760,11 +297,10 @@
                     </div>
                 </div>
                 <div style="margin-top:1.5rem;padding:1.2rem;background:#fefce8;border-radius:12px;border:1px solid #eab308;font-size:0.85rem;color:#92400e;">
-                    <strong>🌟 Lecciones extensas ya desarrolladas (Ciclo III - Primaria 1°-2°):</strong><br>
-                    🧮 <strong>Números y Operaciones</strong> — contenido detallado con ejercicios, ejemplos y proyecto "La Tiendita Matemática".<br>
-                    🧮 <strong>Geometría</strong> — figuras planas, cuerpos geométricos, proyecto "Museo de Formas Geométricas".<br>
-                    🧮 <strong>Medición</strong> — longitud, masa y tiempo, proyecto "La Feria de las Medidas".<br>
-                    <em>Haz clic en el área de Matemática y busca las lecciones de Ciclo III para acceder a ellas.</em>
+                    <strong>🌟 Lecciones extensas ya desarrolladas (Ciclo III y ahora Ciclo IV):</strong><br>
+                    🧮 <strong>Ciclo III (1°-2°)</strong>: Números y Operaciones · Geometría · Medición.<br>
+                    🧮 <strong>Ciclo IV (3°-4°)</strong>: Números y Operaciones (fracciones, decimales, operaciones combinadas) · Geometría (ángulos, perímetro, área) · Estadística (tablas y gráficos de barras).<br>
+                    <em>Haz clic en el área de Matemática y busca las lecciones correspondientes para acceder a ellas.</em>
                 </div>
             `;
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -780,13 +316,10 @@
             const groups = {};
             areaLessons.forEach(l => {
                 const groupKey = `${l.nivel}|${l.ciclo}`;
-                if (!groups[groupKey]) { groups[groupKey] = { nivel: l.nivel, ciclo: l.ciclo,
-                    lessons: [] }; }
+                if (!groups[groupKey]) { groups[groupKey] = { nivel: l.nivel, ciclo: l.ciclo, lessons: [] }; }
                 groups[groupKey].lessons.push(l);
             });
-            const groupOrder = ['Primaria|Ciclo III', 'Primaria|Ciclo IV', 'Primaria|Ciclo V',
-                'Secundaria|Ciclo VI', 'Secundaria|Ciclo VII'
-            ];
+            const groupOrder = ['Primaria|Ciclo III', 'Primaria|Ciclo IV', 'Primaria|Ciclo V', 'Secundaria|Ciclo VI', 'Secundaria|Ciclo VII'];
             const sortedGroups = groupOrder.map(key => groups[key]).filter(g => g);
             let groupsHTML = '';
             sortedGroups.forEach(group => {
@@ -868,7 +401,7 @@
                         </div>
                         <h1>${lesson.materia}</h1>
                         <span class="knowledge-tag">📘 ${lesson.conocimientos}</span>
-                        ${(lessonId==='mat-pri-num-iii'||lessonId==='mat-pri-geo-iii'||lessonId==='mat-pri-med-iii') ? '<p style="margin-top:0.6rem;font-size:0.82rem;color:#eab308;">🌟 <strong>Lección extensa detallada:</strong> contenido ilustrado con ejemplos, ejercicios y proyecto completo.</p>' : ''}
+                        ${(lessonId==='mat-pri-num-iii'||lessonId==='mat-pri-geo-iii'||lessonId==='mat-pri-med-iii'||lessonId==='mat-pri-num-iv'||lessonId==='mat-pri-geo-iv'||lessonId==='mat-pri-est-iv') ? '<p style="margin-top:0.6rem;font-size:0.82rem;color:#eab308;">🌟 <strong>Lección extensa detallada:</strong> contenido ilustrado con ejemplos, ejercicios y proyecto completo.</p>' : ''}
                     </div>
                     <p style="color:#64748b;margin-bottom:1rem;font-size:0.8rem;">
                         📝 Expande cada fase para ver y editar su contenido.
@@ -880,12 +413,19 @@
                 </div>
             `;
             restoreSavedContent(lessonId);
+            // Aplicar contenido manual según lección
             if (lessonId === 'mat-pri-num-iii') {
                 setTimeout(() => applyManualContent(lessonId, leccionExtensaNumIII), 150);
             } else if (lessonId === 'mat-pri-geo-iii') {
                 setTimeout(() => applyManualContent(lessonId, leccionExtensaGeoIII), 150);
             } else if (lessonId === 'mat-pri-med-iii') {
                 setTimeout(() => applyManualContent(lessonId, leccionExtensaMedIII), 150);
+            } else if (lessonId === 'mat-pri-num-iv') {
+                setTimeout(() => applyManualContent(lessonId, leccionExtensaNumIV), 150);
+            } else if (lessonId === 'mat-pri-geo-iv') {
+                setTimeout(() => applyManualContent(lessonId, leccionExtensaGeoIV), 150);
+            } else if (lessonId === 'mat-pri-est-iv') {
+                setTimeout(() => applyManualContent(lessonId, leccionExtensaEstIV), 150);
             } else {
                 setTimeout(() => applyAutoGeneratedContent(lessonId), 150);
             }
@@ -927,8 +467,7 @@
         }
 
         function getStorageKey(lessonId, phaseNumber) { return `lesson-${lessonId}-phase-${phaseNumber}`; }
-        function saveContent(textarea) { localStorage.setItem(getStorageKey(textarea.dataset.lesson, textarea.dataset
-                .phase), textarea.value); }
+        function saveContent(textarea) { localStorage.setItem(getStorageKey(textarea.dataset.lesson, textarea.dataset.phase), textarea.value); }
 
         function restoreSavedContent(lessonId) {
             phaseDefinitions.forEach(phase => {
@@ -951,10 +490,8 @@
 
         function navigateHome() { window.location.hash = '';
             renderHome(); }
-
         function navigateToArea(areaKey) { window.location.hash = areaKey;
             renderArea(areaKey); }
-
         function navigateToLesson(lessonId) { window.location.hash = lessonId;
             renderLesson(lessonId); }
 
@@ -964,8 +501,7 @@
             items.forEach(item => {
                 html += ' <span class="sep">›</span> ';
                 if (item.current) html += `<span class="current">${item.label}</span>`;
-                else if (item.action) html +=
-                    `<span onclick="(${item.action.toString()})()" style="cursor:pointer;">${item.label}</span>`;
+                else if (item.action) html += `<span onclick="(${item.action.toString()})()" style="cursor:pointer;">${item.label}</span>`;
                 else html += `<span>${item.label}</span>`;
             });
             bc.innerHTML = html;
@@ -998,9 +534,8 @@
             else renderHome();
         }
         init();
-        console.log('✅ Página de inicio restaurada: 3 bloques de área, Método Científico presente.');
+        console.log('✅ 6 lecciones extensas: 3 de Ciclo III + 3 de Ciclo IV (Números, Geometría, Estadística).');
         console.log('🧮 Matemática: 14 lecciones | 🔬 Ciencia y Tecnología: 15 lecciones | ⚗️ Método Científico: 3 lecciones.');
-        console.log('🌟 3 lecciones extensas: Números, Geometría y Medición (Ciclo III).');
     </script>
 </body>
 </html>
