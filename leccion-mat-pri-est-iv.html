@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadística (3° y 4°) - IEP Escuela Hogar Ventanilla</title>
+    <style>
+        :root {
+            --matematica: #2563eb; --ciencia: #16a34a; --metodo: #8b5cf6;
+            --bg: #f8fafc; --surface: #ffffff; --text: #1e293b; --text-secondary: #64748b;
+            --border: #e2e8f0; --shadow: 0 1px 3px rgba(0,0,0,0.06); --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --radius: 12px; --radius-sm: 8px; --transition: 0.2s cubic-bezier(0.4,0,0.2,1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+        .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); background: rgba(255,255,255,0.92); }
+        .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+        .logo { font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+        .logo-icon { width: 34px; height: 34px; border-radius: 8px; background: linear-gradient(135deg,#6366f1,#3b82f6); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1rem; }
+        .main-container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+        .lesson-header-card { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
+        .lesson-header-card h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+        .meta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        .level-badge { display: inline-block; padding: 0.35rem 0.9rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        .level-badge.primaria { background: #fef3c7; color: #92400e; }
+        .level-badge.secundaria { background: #dbeafe; color: #1e40af; }
+        .knowledge-tag { display: inline-block; background: #f1f5f9; padding: 0.25rem 0.7rem; border-radius: 20px; font-size: 0.78rem; color: #475569; margin-top: 0.4rem; }
+        .phase-accordion { display: flex; flex-direction: column; gap: 0.5rem; }
+        .phase-item { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow); transition: all var(--transition); }
+        .phase-item.open { border-color: #6366f1; box-shadow: var(--shadow-md); }
+        .phase-header { padding: 0.85rem 1.1rem; cursor: pointer; display: flex; align-items: center; gap: 0.6rem; user-select: none; transition: background var(--transition); }
+        .phase-header:hover { background: #f8fafc; }
+        .phase-number { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
+        .phase-0 .phase-number{background:#fef3c7;color:#92400e} .phase-1 .phase-number{background:#fce7f3;color:#9d174d}
+        .phase-2 .phase-number{background:#ede9fe;color:#5b21b6} .phase-3 .phase-number{background:#dbeafe;color:#1e40af}
+        .phase-4 .phase-number{background:#dcfce7;color:#166534} .phase-5 .phase-number{background:#ffedd5;color:#9a3412}
+        .phase-6 .phase-number{background:#e0e7ff;color:#3730a3} .phase-7 .phase-number{background:#fce7f3;color:#831843}
+        .phase-title-text { flex: 1; font-weight: 600; font-size: 0.9rem; }
+        .phase-subtitle { font-weight: 400; font-size: 0.73rem; color: var(--text-secondary); display: block; }
+        .phase-chevron { font-size: 1.1rem; color: #94a3b8; transition: transform var(--transition); flex-shrink: 0; }
+        .phase-item.open .phase-chevron { transform: rotate(180deg); color: #6366f1; }
+        .phase-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; padding: 0 1.1rem; border-top: 0px solid transparent; }
+        .phase-item.open .phase-body { max-height: 10000px; padding: 0.85rem 1.1rem; border-top: 1px solid #e2e8f0; }
+        .phase-content { white-space: pre-wrap; font-size: 0.85rem; line-height: 1.5; color: var(--text); }
+        .footer { text-align: center; padding: 1.5rem; color: var(--text-secondary); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+        @media (max-width: 768px) { .main-container { padding: 1rem; } .header-inner { flex-direction: column; align-items: flex-start; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-icon">📚</div>
+                IEP ESCUELA HOGAR VENTANILLA
+            </div>
+            <div style="font-size:0.85rem;color:var(--text-secondary);">📖 Lección independiente · Ciclo IV</div>
+        </div>
+    </header>
+    <main class="main-container">
+        <div class="lesson-header-card">
+            <div class="meta-row">
+                <span class="level-badge primaria">Primaria</span>
+                <span>📐 3° y 4°</span>
+                <span>🔄 Ciclo IV</span>
+                
+            </div>
+            <h1>Estadística</h1>
+            <span class="knowledge-tag">📘 Lectura e interpretación de tablas y gráficos de barras.</span>
+        </div>
+        <div class="phase-accordion" id="phaseAccordion"></div>
+    </main>
+    <footer class="footer">
+        IEP Escuela Hogar Ventanilla · Conocimientos Fundamentales · Lección: Estadística · Ciclo IV
+    </footer>
+    <script>
+        const lessonData = {
+  "id": "mat-pri-est-iv",
+  "area": "matematica",
+  "areaName": "🧮 Matemática",
+  "nivel": "Primaria",
+  "grado": "3° y 4°",
+  "ciclo": "Ciclo IV",
+  "materia": "Estadística",
+  "conocimientos": "Lectura e interpretación de tablas y gráficos de barras.",
+  "esMetodo": false
+};
+        const phaseContents = {
+  "0": "🎯 OBJETIVO GENERAL: Desarrollar competencias en Estadística correspondientes al Ciclo IV de Educación Primaria.\n\n🎯 OBJETIVOS PARTICULARES:\n- Identificar los conceptos clave de Estadística.\n- Aplicar los conocimientos en situaciones prácticas.\n- Resolver problemas utilizando estrategias adecuadas.\n\n📌 NOCIONES PRINCIPALES: Lectura e interpretación de tablas y gráficos de barras.\n📌 NOCIONES SECUNDARIAS: Vocabulario técnico, procedimientos, estrategias de verificación.\n🌍 INTERESES SOCIETALES: Relación con la vida cotidiana, el entorno natural y social.",
+  "1": "🔍 ACTIVIDAD DE DESCUBIERTA: \"Explorando Estadística\"\n\n🧩 Se presentan situaciones problemáticas y materiales concretos para que los estudiantes exploren libremente los conceptos de Estadística.\n🔍 Preguntas para la reflexión y registro de observaciones en el cuaderno de experiencias.",
+  "2": "🧠 ACTIVIDAD INDUCTIVA: \"Del ejemplo concreto al concepto general\"\n\n📊 Se presentan varios ejemplos de Estadística para que los estudiantes identifiquen patrones, regularidades y formulen reglas generales.\n📝 Los estudiantes registran sus conclusiones en organizadores gráficos.",
+  "3": "📐 TRANSMISIÓN CONCEPTUAL: Estadística\n\n📏 CONCEPTOS CLAVE:\nLectura e interpretación de tablas y gráficos de barras.\n\n📏 DEFINICIONES, PROPIEDADES Y EJEMPLOS DESARROLLADOS.\n⚠️ Errores comunes y estrategias para evitarlos.",
+  "4": "✏️ TRABAJOS DIRIGIDOS: Ejercicios de Estadística\n\n📝 Ejercicios de identificación, aplicación directa, transferencia y argumentación.\n⏱️ Formato: Individual o en parejas. Tiempo estimado: 30-45 minutos.",
+  "5": "🔗 CORRELACIONES INTERNAS: Conexión con otras materias del área\n\n🧩 Estadística se relaciona con otras ramas de 🧮 Matemática. Se presentan ejemplos de integración.",
+  "6": "🌍 CORRELACIONES EXTERNAS: Aplicaciones en la vida real\n\n💡 Se muestran aplicaciones de Estadística en la vida cotidiana, la tecnología, el arte, la naturaleza.",
+  "7": "👥 MÓDULO DE PROYECTO GRUPAL: \"Aplicando Estadística en equipo\"\n\n🎯 Los estudiantes diseñan y ejecutan un proyecto colaborativo que integre los conocimientos de Estadística.\n📋 Fases: formación de equipos, elección del tema, planificación, ejecución, presentación y evaluación."
+};
+        const phaseDefinitions = [
+            { number: 0, title: 'Objetivos, Nociones e Intereses Societales', subtitle: 'Objetivos (generales y particulares), nociones (principales y secundarios), intereses societales.', cssClass: 'phase-0' },
+            { number: 1, title: 'Actividades de Descubierta', subtitle: 'Actividades que problematicen mediante la experiencia concreta.', cssClass: 'phase-1' },
+            { number: 2, title: 'Actividad Inductiva', subtitle: 'Actividad que delimita el conocimiento a partir de la observación.', cssClass: 'phase-2' },
+            { number: 3, title: 'Transmisión Conceptual', subtitle: 'Transmisión para conceptualizar con metodología expositiva.', cssClass: 'phase-3' },
+            { number: 4, title: 'Trabajos Dirigidos', subtitle: 'Entrenamiento replicativo mediante ejercicios guiados.', cssClass: 'phase-4' },
+            { number: 5, title: 'Correlaciones Internas', subtitle: 'Conexión interdisciplinaria con otras materias del área.', cssClass: 'phase-5' },
+            { number: 6, title: 'Correlaciones Externas', subtitle: 'Universalización del conocimiento y conexión con el mundo real.', cssClass: 'phase-6' },
+            { number: 7, title: 'Módulo de Proyecto Grupal', subtitle: 'Proyecto grupal para socializar en concreto el conocimiento adquirido.', cssClass: 'phase-7' }
+        ];
+
+        function render() {
+            const accordion = document.getElementById('phaseAccordion');
+            let html = '';
+            phaseDefinitions.forEach(phase => {
+                const content = phaseContents[phase.number] || '';
+                html += '<div class="phase-item ' + phase.cssClass + '" id="phase-' + phase.number + '">' +
+                    '<div class="phase-header" onclick="this.parentElement.classList.toggle('open')">' +
+                        '<span class="phase-number">' + phase.number + '</span>' +
+                        '<span class="phase-title-text">' + phase.title + '<span class="phase-subtitle">' + phase.subtitle + '</span></span>' +
+                        '<span class="phase-chevron">▾</span>' +
+                    '</div>' +
+                    '<div class="phase-body"><div class="phase-content">' + escapeHtml(content) + '</div></div>' +
+                '</div>';
+            });
+            accordion.innerHTML = html;
+            // Abrir fase 0 por defecto
+            const first = document.getElementById('phase-0');
+            if (first) first.classList.add('open');
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        render();
+    </script>
+</body>
+</html>
